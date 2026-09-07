@@ -171,7 +171,7 @@ blockquote { margin:34px 0 0; padding-left:21px; border-left:2px solid var(--acc
 .about-copy p { font-size:16px; max-width:720px; }
 .principle { margin-top:33px; font-size:19px; font-weight:750; color:#dce6ef; max-width:650px; }
 .founder-card { border:1px solid var(--line); border-radius:22px; padding:29px; background:rgba(255,255,255,.025); }
-.founder-avatar { width:96px; height:96px; border-radius:50%; display:block; object-fit:cover; object-position:center; border:1px solid rgba(157,204,255,.35); background:#0d131d; margin-bottom:27px; }
+.founder-avatar { width:120px; height:120px; border-radius:24px; display:block; object-fit:cover; object-position:center top; border:1px solid rgba(157,204,255,.35); background:#0d131d; margin-bottom:27px; box-shadow:0 10px 26px rgba(0,0,0,.22); }
 .founder-card small { color:#75879d; font-size:9px; font-weight:800; letter-spacing:.16em; }
 .founder-card h3 { margin-top:7px; }
 .founder-card p { font-size:13px; }
