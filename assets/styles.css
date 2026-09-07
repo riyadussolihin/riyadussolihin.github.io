@@ -89,6 +89,8 @@ h3 { font-size: 20px; }
 .shot-topbar { height:42px; display:flex; align-items:center; gap:6px; padding:0 13px; border-bottom:1px solid var(--line); background:#121a27; }
 .shot-topbar span { width:8px; height:8px; border-radius:50%; background:#344254; }
 .shot-topbar small { margin-left:auto; font-size:9px; letter-spacing:.13em; color:#68788e; }
+.shot-image-wrap { margin:0; background:#080c12; overflow:hidden; }
+.shot-image { display:block; width:100%; height:auto; object-fit:contain; object-position:center; }
 .shot-placeholder { min-height:460px; display:grid; place-items:center; align-content:center; gap:7px; text-align:center; background:radial-gradient(circle at 50% 35%,rgba(65,154,255,.13),transparent 35%),linear-gradient(135deg,#0b111b,#0e1623); color:#8ea0b5; padding:30px; }
 .shot-placeholder strong { color:#c4d0dc; font-size:14px; }
 .shot-placeholder span { font-size:11px; color:#65768a; }
