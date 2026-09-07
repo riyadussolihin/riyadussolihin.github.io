@@ -147,7 +147,11 @@ blockquote { margin:34px 0 0; padding-left:21px; border-left:2px solid var(--acc
 .secondary-row { grid-template-columns:repeat(4,1fr); }
 
 .maya-section { display:grid; grid-template-columns:.9fr 1.1fr; align-items:center; gap:68px; }
+.maya-section-textonly { grid-template-columns:1fr; }
+.maya-section-textonly .maya-copy { max-width:900px; }
 .maya-copy p { font-size:16px; }
+.maya-focus-strip { display:flex; flex-wrap:wrap; gap:9px; margin-top:30px; }
+.maya-focus-strip span { padding:8px 11px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.025); color:#aab9c8; font-size:11px; }
 .maya-shot { position:relative; }
 .maya-badge { position:absolute; top:16px; left:16px; z-index:2; padding:6px 9px; border:1px solid var(--line-strong); background:rgba(8,11,18,.74); backdrop-filter:blur(10px); border-radius:8px; font-size:9px; font-weight:800; letter-spacing:.13em; color:#9db0c4; }
 .compact-shot { min-height:370px; }
