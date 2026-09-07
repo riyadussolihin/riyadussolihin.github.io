@@ -3,123 +3,495 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>DEEVLA — DCC Technology Startup</title>
+  <meta
+    name="description"
+    content="DEEVLA is an early-stage DCC technology initiative exploring better workflows, automation, and AI-assisted tools for Autodesk Maya and digital artists."
+  >
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #0f1720;
-      color: #e8eef5;
+      background:
+        radial-gradient(circle at top right, rgba(31, 166, 255, 0.10), transparent 30%),
+        #0b1118;
+      color: #eaf2f8;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 70px 30px;
+    a {
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* NAV */
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 0;
+    }
+
+    .brand {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: #aebdca;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 100px 0 90px;
+      max-width: 920px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid #294155;
+      border-radius: 999px;
+      color: #67d4ff;
+      font-size: 13px;
+      margin-bottom: 28px;
     }
 
     h1 {
-      font-size: 64px;
-      margin-bottom: 10px;
+      font-size: clamp(52px, 8vw, 92px);
+      line-height: 0.95;
+      margin: 0 0 24px;
+      letter-spacing: -3px;
     }
 
-    h2 {
-      margin-top: 60px;
-      font-size: 30px;
+    .hero h2 {
+      font-size: clamp(27px, 4vw, 46px);
+      line-height: 1.15;
+      margin: 0 0 24px;
+      font-weight: 600;
+      color: #d9e4ec;
     }
 
-    p {
-      font-size: 18px;
-      line-height: 1.7;
-      color: #b9c5d1;
+    .hero p {
+      max-width: 780px;
+      font-size: 19px;
+      line-height: 1.75;
+      color: #9fb0be;
+      margin-bottom: 36px;
     }
 
-    .tagline {
-      font-size: 22px;
-      color: #7dd3fc;
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
-    .badge {
+    .button {
       display: inline-block;
-      margin-top: 20px;
-      padding: 8px 14px;
-      border: 1px solid #334155;
-      border-radius: 20px;
-      color: #94a3b8;
+      padding: 14px 22px;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 14px;
     }
+
+    .button-primary {
+      background: #59cfff;
+      color: #071019;
+    }
+
+    .button-secondary {
+      border: 1px solid #314455;
+      color: #dbe8f0;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 72px 0;
+      border-top: 1px solid #172431;
+    }
+
+    .section-label {
+      color: #59cfff;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    section h2 {
+      font-size: 38px;
+      margin: 0 0 20px;
+    }
+
+    section > p {
+      max-width: 800px;
+      font-size: 18px;
+      line-height: 1.75;
+      color: #9fb0be;
+    }
+
+    /* CARDS */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .card {
+      padding: 28px;
+      border: 1px solid #20303e;
+      border-radius: 14px;
+      background: rgba(17, 27, 37, 0.7);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #93a5b4;
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    /* FOUNDER */
+
+    .founder {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .founder-details {
+      padding: 28px;
+      border: 1px solid #20303e;
+      border-radius: 14px;
+      background: #101923;
+    }
+
+    .founder-details strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .founder-details span {
+      color: #59cfff;
+      font-size: 14px;
+    }
+
+    .founder-details p {
+      color: #9fb0be;
+      line-height: 1.7;
+    }
+
+    /* STATUS */
+
+    .status-box {
+      margin-top: 28px;
+      padding: 24px;
+      border-left: 3px solid #59cfff;
+      background: #101923;
+      color: #b9c7d2;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
 
     footer {
-      margin-top: 80px;
-      padding-top: 30px;
-      border-top: 1px solid #253244;
-      color: #64748b;
+      padding: 44px 0 60px;
+      border-top: 1px solid #172431;
+      color: #667887;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .founder {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 65px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <h1>DEEVLA</h1>
+  <div class="page">
 
-    <div class="tagline">
-      DCC Technology Startup — In Development
-    </div>
+    <nav>
+      <div class="brand">DEEVLA</div>
 
-    <div class="badge">
-      Autodesk Maya Workflow • DCC Technology • AI
-    </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#direction">Direction</a>
+        <a href="#founder">Founder</a>
+        <a href="#status">Status</a>
+      </div>
+    </nav>
 
-    <h2>About</h2>
+    <main>
 
-    <p>
-      DEEVLA is an early-stage technology initiative focused on improving
-      digital content creation workflows, particularly within Autodesk Maya
-      and modern DCC environments.
-    </p>
+      <div class="hero">
 
-    <p>
-      The project explores workflow automation, artist productivity,
-      development tools, pipeline improvement, and AI-enabled creative
-      technologies.
-    </p>
+        <div class="eyebrow">
+          DCC Technology Startup — In Development
+        </div>
 
-    <h2>The Problem</h2>
+        <h1>DEEVLA</h1>
 
-    <p>
-      Artists and technical users often work across fragmented tools,
-      repetitive workflows, and complex technical processes.
-      DEEVLA aims to explore more intuitive and efficient ways of working.
-    </p>
+        <h2>
+          Building Better Workflows for Digital Artists.
+        </h2>
 
-    <h2>Product Direction</h2>
+        <p>
+          DEEVLA is an early-stage technology initiative exploring
+          next-generation DCC tools, workflow automation, artist productivity,
+          and AI-assisted technologies designed around real digital content
+          creation workflows.
+        </p>
 
-    <p>
-      Current areas of exploration include Autodesk Maya workflows,
-      DCC development tools, workflow automation, asset management,
-      AI-assisted tools, and artist-focused productivity systems.
-    </p>
+        <div class="buttons">
+          <a class="button button-primary" href="#about">
+            Explore DEEVLA
+          </a>
 
-    <h2>Founder</h2>
+          <a
+            class="button button-secondary"
+            href="https://www.linkedin.com/in/riyadussolihin/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Founder on LinkedIn
+          </a>
+        </div>
 
-    <p>
-      Riyadus Solihin is a 3D professional with extensive experience
-      using Autodesk Maya, particularly in modeling and production workflows.
-      His interests include DCC technology, workflow innovation,
-      artificial intelligence, and product development.
-    </p>
+      </div>
 
-    <h2>Status</h2>
+      <section id="about">
 
-    <p>
-      DEEVLA is currently in early development and research.
-    </p>
+        <div class="section-label">About</div>
+
+        <h2>Technology built around real artist workflows.</h2>
+
+        <p>
+          DEEVLA is focused on exploring ways to make digital content creation
+          workflows more efficient, intuitive, and accessible. The initiative
+          is particularly interested in Autodesk Maya workflows and the broader
+          DCC ecosystem.
+        </p>
+
+        <div class="grid">
+
+          <div class="card">
+            <h3>Artist Productivity</h3>
+            <p>
+              Exploring tools that reduce repetitive work and help artists
+              focus more on creative and production-critical tasks.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>DCC Workflow</h3>
+            <p>
+              Investigating better ways to connect tools, assets, technical
+              workflows, and production processes inside modern DCC software.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>AI-Assisted Tools</h3>
+            <p>
+              Exploring how artificial intelligence can support artists and
+              technical users without replacing creative decision-making.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section id="direction">
+
+        <div class="section-label">Product Direction</div>
+
+        <h2>Areas currently being explored.</h2>
+
+        <p>
+          DEEVLA is still in an early research and development stage. Current
+          areas of exploration include:
+        </p>
+
+        <div class="grid">
+
+          <div class="card">
+            <h3>Autodesk Maya Workflows</h3>
+            <p>
+              Tools and workflow concepts designed around real Maya production
+              needs.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Workflow Automation</h3>
+            <p>
+              Reducing unnecessary repetitive processes while keeping artists
+              in control.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Asset & Pipeline Systems</h3>
+            <p>
+              Exploring better organization, asset handling, and production
+              workflow management.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Developer Tools</h3>
+            <p>
+              Improving how tools and scripts can be created, tested, and used
+              within DCC environments.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>AI-Enabled Workflows</h3>
+            <p>
+              Researching practical ways AI can support technical and creative
+              workflows.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Human-Centered Design</h3>
+            <p>
+              Prioritizing usability, artist experience, and real production
+              problems when designing technology.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section id="founder">
+
+        <div class="section-label">Founder</div>
+
+        <div class="founder">
+
+          <div>
+            <h2>Founded from practical 3D production experience.</h2>
+
+            <p>
+              DEEVLA is founded by Riyadus Solihin, a 3D professional with
+              extensive Autodesk Maya experience, particularly in modeling and
+              production workflows.
+            </p>
+
+            <p>
+              His interests include DCC technology, workflow innovation,
+              artificial intelligence, artist productivity, and product
+              development.
+            </p>
+          </div>
+
+          <div class="founder-details">
+
+            <strong>Riyadus Solihin</strong>
+
+            <span>
+              Founder — DEEVLA
+            </span>
+
+            <p>
+              3D professional specializing in Autodesk Maya and production
+              modeling workflows, with a background in Information Technology
+              and a Master's degree in Management.
+            </p>
+
+            <a
+              class="button button-secondary"
+              href="https://www.linkedin.com/in/riyadussolihin/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View LinkedIn
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section id="status">
+
+        <div class="section-label">Current Status</div>
+
+        <h2>Early-stage research and development.</h2>
+
+        <div class="status-box">
+          DEEVLA is currently in the early development and research stage.
+          Product concepts, workflows, and technical directions are being
+          explored and evaluated before public release.
+        </div>
+
+      </section>
+
+    </main>
 
     <footer>
-      © 2026 DEEVLA
+      © 2026 DEEVLA. All rights reserved.
     </footer>
 
   </div>
+
 </body>
 </html>
