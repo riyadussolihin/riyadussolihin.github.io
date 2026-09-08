@@ -1,361 +1,1146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="DEEVLA develops high-performance DCC tools and asset workflow infrastructure for Autodesk Maya." />
-  <meta name="theme-color" content="#0b1020" />
-  <meta property="og:title" content="DEEVLA — High-Performance DCC Technology" />
-  <meta property="og:description" content="DEEVLA Asset Browser — high-performance asset & pipeline infrastructure for Autodesk Maya." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://riyadussolihin.github.io/" />
-  <title>DEEVLA — High-Performance DCC Technology</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>DEEVLA — DCC Technology for Autodesk Maya Workflows</title>
+
+  <meta
+    name="description"
+    content="DEEVLA is an independent DCC technology initiative. Its first product, DEEVLA Asset Browser (DAB), is being developed as a high-performance asset and workflow system for Autodesk Maya."
+  />
+
+  <style>
+    :root {
+      --bg: #081018;
+      --bg-soft: #0c1620;
+      --panel: #101c27;
+      --panel-2: #0d1822;
+      --line: #213544;
+      --text: #eef5f9;
+      --muted: #9fb0bd;
+      --muted-2: #718391;
+      --accent: #59cfff;
+      --accent-soft: rgba(89, 207, 255, 0.10);
+      --good: #88d8bb;
+      --warning: #d4c07f;
+      --white: #ffffff;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 88% 0%, rgba(49, 165, 220, 0.12), transparent 28%),
+        linear-gradient(180deg, var(--bg) 0%, #071018 100%);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 44px));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 21px 0;
+      background: rgba(8, 16, 24, 0.91);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .brand {
+      font-size: 27px;
+      font-weight: 850;
+      letter-spacing: 1.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 19px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .hero {
+      padding: 104px 0 90px;
+      max-width: 1010px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 26px;
+      padding: 8px 14px;
+      border: 1px solid #294456;
+      border-radius: 999px;
+      background: rgba(22, 43, 56, 0.30);
+      color: #75d9ff;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 22px;
+      font-size: clamp(60px, 9vw, 104px);
+      line-height: 0.92;
+      letter-spacing: -4px;
+    }
+
+    .hero h2 {
+      max-width: 930px;
+      margin: 0 0 23px;
+      color: #dce8ee;
+      font-size: clamp(28px, 4vw, 47px);
+      line-height: 1.13;
+      font-weight: 620;
+    }
+
+    .hero p {
+      max-width: 890px;
+      margin: 0 0 34px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.78;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 760;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #061018;
+    }
+
+    .button-secondary {
+      border: 1px solid #31495b;
+      color: #e3edf3;
+    }
+
+    section {
+      padding: 78px 0;
+      border-top: 1px solid #172835;
+    }
+
+    .section-label {
+      margin-bottom: 14px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    section h2 {
+      max-width: 940px;
+      margin: 0 0 18px;
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.16;
+    }
+
+    .lead {
+      max-width: 900px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.78;
+    }
+
+    .small-note {
+      color: var(--muted-2);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .snapshot {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .snapshot .item,
+    .card,
+    .feature-card,
+    .info-box,
+    .workflow-step,
+    .phase,
+    .diagram-card,
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(16, 28, 39, 0.74);
+    }
+
+    .snapshot .item {
+      padding: 22px;
+    }
+
+    .snapshot .label {
+      margin-bottom: 8px;
+      color: var(--muted-2);
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .snapshot .value {
+      font-size: 17px;
+      font-weight: 760;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .card,
+    .feature-card {
+      padding: 27px;
+    }
+
+    .card h3,
+    .feature-card h3 {
+      margin: 0 0 11px;
+      font-size: 19px;
+    }
+
+    .card p,
+    .feature-card p {
+      margin: 0;
+      color: #95a7b5;
+      font-size: 15px;
+      line-height: 1.68;
+    }
+
+    .card ul,
+    .feature-card ul {
+      margin: 14px 0 0;
+      padding-left: 20px;
+      color: #95a7b5;
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 13px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #83ddff;
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .feature-map {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .feature-card strong {
+      color: white;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+
+    .workflow-step {
+      position: relative;
+      min-height: 112px;
+      padding: 18px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #dce8ef;
+      font-size: 13px;
+      font-weight: 720;
+      line-height: 1.4;
+    }
+
+    .workflow-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -13px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      color: var(--accent);
+      font-size: 18px;
+    }
+
+    .background-jobs {
+      margin-top: 18px;
+      padding: 20px 22px;
+      border-left: 3px solid var(--accent);
+      background: var(--panel-2);
+      color: #b7c7d2;
+      line-height: 1.68;
+    }
+
+    .background-jobs strong {
+      color: white;
+    }
+
+    .diagram-card {
+      padding: 18px;
+      margin-top: 34px;
+      background: #f8fbfd;
+    }
+
+    .diagram-card img {
+      border-radius: 10px;
+      width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      margin: 13px 6px 2px;
+      color: #617687;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .info-box {
+      padding: 28px;
+      margin-top: 28px;
+      background:
+        linear-gradient(135deg, rgba(89, 207, 255, 0.055), transparent 45%),
+        rgba(17, 28, 39, .72);
+    }
+
+    .info-box strong {
+      color: white;
+    }
+
+    .info-box p {
+      margin: 0;
+      color: #a9bac6;
+      line-height: 1.72;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .phase {
+      display: grid;
+      grid-template-columns: 165px 1fr;
+      gap: 28px;
+      padding: 27px 29px;
+    }
+
+    .phase-number {
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .phase h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .phase p {
+      margin: 0;
+      color: #98aab8;
+      line-height: 1.7;
+    }
+
+    .compliance-box {
+      margin-top: 25px;
+      padding: 22px 24px;
+      border-left: 3px solid var(--good);
+      background: #0f1a21;
+      color: #b8c8d2;
+      line-height: 1.72;
+    }
+
+    .compliance-box strong {
+      color: white;
+    }
+
+    .founder {
+      display: grid;
+      grid-template-columns: 1.18fr .82fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    .contact-card {
+      padding: 29px;
+      background: var(--panel);
+    }
+
+    .contact-card strong {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 22px;
+    }
+
+    .contact-card .role {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .status-chip {
+      padding: 7px 11px;
+      border: 1px solid #294657;
+      border-radius: 999px;
+      background: rgba(89,207,255,0.06);
+      color: #a7dbef;
+      font-size: 12px;
+    }
+
+    footer {
+      padding: 46px 0 62px;
+      border-top: 1px solid #172835;
+      color: #667987;
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .grid,
+      .grid-2,
+      .feature-map,
+      .snapshot {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-step:not(:last-child)::after {
+        content: "↓";
+        right: 50%;
+        top: auto;
+        bottom: -19px;
+        transform: translateX(50%);
+      }
+
+      .phase {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .founder {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 30px, var(--max));
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .grid,
+      .grid-2,
+      .feature-map,
+      .snapshot {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 72px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="page-shell">
-    <header class="site-header" id="top">
-      <a class="brand" href="#top" aria-label="DEEVLA home">
-        <span class="brand-mark">D</span>
-        <span class="brand-word">DEEVLA</span>
-      </a>
+  <div class="page">
 
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+    <nav>
+      <a class="brand" href="#top">DEEVLA</a>
 
-      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <div class="nav-links">
+        <a href="#company">Company</a>
         <a href="#dab">DAB</a>
+        <a href="#features">Features</a>
+        <a href="#workflow">Workflow</a>
         <a href="#architecture">Architecture</a>
-        <a href="#future">Future</a>
-        <a href="#technology">Technology</a>
-        <a href="#status">Status</a>
-        <a href="#about">About</a>
-        <a class="nav-cta" href="https://www.linkedin.com/in/riyadussolihin/" target="_blank" rel="noopener">LinkedIn</a>
-      </nav>
-    </header>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#adn">Why ADN</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
 
-    <main>
-      <section class="hero section">
-        <div class="hero-copy reveal">
-          <div class="eyebrow">DCC TECHNOLOGY · AUTODESK MAYA DEVELOPMENT · ACTIVE R&amp;D</div>
-          <h1>Building high-performance workflows for digital artists.</h1>
-          <p class="hero-lead">
-            DEEVLA is a DCC technology initiative developing practical tools and infrastructure for modern digital content creation, with a focus on asset management, workflow performance, pipeline interoperability, and Autodesk Maya.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#dab">Explore DAB</a>
-            <a class="button button-secondary" href="#architecture">View Architecture</a>
-          </div>
-        </div>
+    <main id="top">
 
-        <div class="hero-visual reveal" aria-label="DEEVLA technology visual">
-          <div class="orb orb-a"></div>
-          <div class="orb orb-b"></div>
-          <div class="hero-panel glass-panel">
-            <div class="panel-kicker">FLAGSHIP PRODUCT</div>
-            <div class="hero-product-name">DEEVLA Asset Browser</div>
-            <div class="hero-product-tag">High-Performance Asset &amp; Pipeline Infrastructure for Autodesk Maya</div>
-            <div class="status-chip"><span></span> In Active Development</div>
-            <div class="mini-pipeline" aria-hidden="true">
-              <div>MAYA</div><i></i><div>DAB</div><i></i><div>PIPELINE</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <header class="hero">
+        <div class="eyebrow">Independent DCC Technology Initiative — In Development</div>
 
-      <section class="section product-section" id="dab">
-        <div class="section-heading reveal">
-          <div class="eyebrow">FLAGSHIP PRODUCT</div>
-          <h2>DEEVLA Asset Browser</h2>
-          <p class="section-subtitle">High-Performance Asset &amp; Pipeline Infrastructure for Autodesk Maya.</p>
-        </div>
+        <h1>DEEVLA</h1>
 
-        <div class="product-grid">
-          <div class="product-copy reveal">
-            <p>
-              DEEVLA Asset Browser (DAB) is an asset management and workflow platform being developed around Autodesk Maya. DAB is designed to help artists organize, discover, manage, and work with production assets efficiently while remaining inside their Maya workflow.
-            </p>
-            <p>
-              The current product foundation focuses on practical asset management and Maya integration. Its architecture is also being developed toward a broader long-term direction: a responsive, scalable asset and pipeline infrastructure for increasingly complex production environments.
-            </p>
-            <div class="feature-pills">
-              <span>Asset Management</span>
-              <span>Maya Integration</span>
-              <span>Metadata</span>
-              <span>Background Processing</span>
-              <span>Performance</span>
-              <span>Scalability</span>
-            </div>
-          </div>
+        <h2>
+          Building high-performance workflow technology for Autodesk Maya artists and technical users.
+        </h2>
 
-          <div class="product-shot reveal">
-            <div class="shot-topbar">
-              <span></span><span></span><span></span>
-              <small>DEEVLA ASSET BROWSER — DEVELOPMENT BUILD</small>
-            </div>
-            <figure class="shot-image-wrap">
-              <img class="shot-image" src="assets/dab-product-screenshot.png" alt="DEEVLA Asset Browser development interface showing the asset library, search and filtering controls, inspector, Maya integration controls, and asset management actions." loading="lazy" />
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section class="section compact-section">
-        <div class="section-heading reveal">
-          <div class="eyebrow">CURRENT PRODUCT FOCUS</div>
-          <h2>Asset workflows without unnecessary friction.</h2>
-        </div>
-
-        <div class="card-grid six-grid">
-          <article class="info-card reveal"><div class="card-index">01</div><h3>Asset Organization</h3><p>Structured asset libraries designed for everyday production use.</p></article>
-          <article class="info-card reveal"><div class="card-index">02</div><h3>Search &amp; Discovery</h3><p>Search, filtering, sorting, metadata, tags, ratings, and organization.</p></article>
-          <article class="info-card reveal"><div class="card-index">03</div><h3>Asset Management</h3><p>Organize, rename, move, duplicate, recover, and manage production assets.</p></article>
-          <article class="info-card reveal"><div class="card-index">04</div><h3>Maya Integration</h3><p>Asset workflows developed specifically around the Autodesk Maya environment.</p></article>
-          <article class="info-card reveal"><div class="card-index">05</div><h3>Performance</h3><p>Architecture designed to minimize unnecessary interruption to the artist's interactive workflow.</p></article>
-          <article class="info-card reveal"><div class="card-index">06</div><h3>Scalability</h3><p>A foundation intended to evolve with larger libraries and more complex production environments.</p></article>
-        </div>
-      </section>
-
-      <section class="section challenge-section" id="vision">
-        <div class="challenge-copy reveal">
-          <div class="eyebrow">THE CHALLENGE</div>
-          <h2>Modern production pipelines are becoming more complex.</h2>
-          <p>
-            Larger asset libraries, richer metadata, network storage, distributed workflows, interchange standards, and increasingly complex scene data can fragment the artist's workflow. DEEVLA is exploring ways to reduce that complexity through a high-performance architecture focused on responsiveness, interoperability, background processing, scalability, and deeper DCC integration.
-          </p>
-          <blockquote>The goal is not simply to build another file browser. The goal is to build asset infrastructure that becomes a natural part of the production workflow.</blockquote>
-        </div>
-        <div class="metric-stack reveal" aria-label="DAB engineering priorities">
-          <div><strong>Responsive</strong><span>Minimize unnecessary UI blocking</span></div>
-          <div><strong>Scalable</strong><span>Designed for growing production libraries</span></div>
-          <div><strong>Interoperable</strong><span>Built toward modern pipeline standards</span></div>
-          <div><strong>Extensible</strong><span>Architecture prepared for future systems</span></div>
-        </div>
-      </section>
-
-      <section class="section architecture-section" id="architecture">
-        <div class="section-heading reveal">
-          <div class="eyebrow">TECHNICAL ARCHITECTURE</div>
-          <h2>Built for today's asset workflows. Architected for tomorrow's production pipelines.</h2>
-          <p class="section-subtitle narrow">
-            DAB is designed as a modular application rather than a collection of isolated scripts. Its current architecture combines the artist interface, Autodesk Maya integration, application services, asset systems, background processing, persistent data, and a native high-performance core.
-          </p>
-        </div>
-
-        <div class="architecture-diagrams">
-          <article class="architecture-diagram-card reveal">
-            <div class="diagram-label">CURRENT</div>
-            <h3>Current DAB Architecture</h3>
-            <pre class="architecture-ascii" aria-label="Current DAB Architecture diagram">Artist Interface
-      │
-      ├────────── Autodesk Maya Integration
-      │
-      ▼
-Application Services Layer
-      │
- ┌────┼─────────────┐
- │    │             │
- ▼    ▼             ▼
-Asset Background   Data &amp;
-Systems Processing Persistence
- │    │             │
- └────┼─────────────┘
-      ▼
-High-Performance Native Core
-Python + C++ + pybind11</pre>
-          </article>
-
-          <article class="architecture-diagram-card reveal">
-            <div class="diagram-label future">FUTURE DIRECTION</div>
-            <h3>Future Pipeline Direction</h3>
-            <pre class="architecture-ascii" aria-label="Future DAB Pipeline Direction diagram">       DAB Pipeline Infrastructure
-                  │
-     ┌────────────┼────────────┐
-     │            │            │
-     ▼            ▼            ▼
-  OpenUSD     MaterialX    P2P / Hybrid Sync
-     │            │            │
-     └────────────┼────────────┘
-                  ▼
-        Scalable Asset Layer
-                  │
-        Local / Network / Shared
-                  │
-                  ▼
-            Autodesk Maya
-                  │
-                  ▼
-            Digital Artist</pre>
-          </article>
-        </div>
-
-        <p class="architecture-note reveal">
-          High-level public architecture overview. Detailed internal implementation, source structure, algorithms, and proprietary systems are intentionally not shown.
+        <p>
+          DEEVLA is an independent technology initiative focused on digital content creation workflows.
+          Its first product, DEEVLA Asset Browser (DAB), is being developed as a high-performance asset
+          and workflow infrastructure for Autodesk Maya — with a long-term product direction that also
+          includes artist tools, plugins, workflow automation, and a deeply integrated Maya development environment.
         </p>
-      </section>
 
-      <section class="section performance-section">
-        <div class="section-heading reveal">
-          <div class="eyebrow">HIGH-PERFORMANCE BY DESIGN</div>
-          <h2>The asset system should not become the bottleneck.</h2>
-          <p class="section-subtitle narrow">
-            One of DAB's key engineering goals is to handle increasingly demanding asset operations without unnecessarily degrading Maya's interactive responsiveness. Appropriate workloads are intended to move away from the artist's critical path through background processing, caching, optimized data access, controlled resource usage, and native processing where it provides a clear benefit.
-          </p>
+        <div class="buttons">
+          <a class="button button-primary" href="#dab">Explore DAB</a>
+          <a class="button button-secondary" href="#architecture">View Architecture</a>
         </div>
+      </header>
 
-        <div class="performance-flow reveal">
-          <div class="flow-node primary-node"><small>ARTIST</small><strong>Autodesk Maya</strong><span>Primary interactive workflow</span></div>
-          <div class="flow-link"><span>responsive path</span></div>
-          <div class="flow-node accent-node"><small>DEEVLA</small><strong>DAB</strong><span>Asset coordination</span></div>
-          <div class="flow-link muted"><span>background work</span></div>
-          <div class="flow-node"><small>SERVICES</small><strong>Index · Cache · Metadata</strong><span>Appropriate heavy operations</span></div>
-        </div>
-        <p class="performance-statement reveal">Asset infrastructure should support Maya — not compete with Maya for responsiveness.</p>
-      </section>
+      <section id="company">
+        <div class="section-label">Company / Initiative</div>
+        <h2>Independent development, built around real Maya production needs.</h2>
 
-      <section class="section future-section" id="future">
-        <div class="section-heading reveal">
-          <div class="eyebrow">FUTURE TECHNICAL DIRECTION</div>
-          <h2>Beyond traditional asset browsing.</h2>
-          <p class="section-subtitle narrow">These capabilities represent long-term technical direction and ongoing R&amp;D, not claims of currently completed functionality.</p>
-        </div>
+        <p class="lead">
+          DEEVLA began as an independent effort to explore better ways of working inside modern DCC environments.
+          The first DAB concept and early prototypes began in 2025. More focused and structured development began
+          in August 2026 as DAB became the first product under the DEEVLA initiative.
+        </p>
 
-        <div class="future-grid">
-          <article class="future-card reveal"><div class="future-label">OPEN STANDARD</div><h3>OpenUSD</h3><p>USD-aware asset structures, scene composition, interchange, and modern USD-oriented production workflows.</p></article>
-          <article class="future-card reveal"><div class="future-label">LOOK DEVELOPMENT</div><h3>MaterialX</h3><p>Material interoperability, look-development portability, and future cross-platform material workflows.</p></article>
-          <article class="future-card reveal"><div class="future-label">DISTRIBUTED</div><h3>P2P / Hybrid Sync</h3><p>Research into distributed synchronization models combining local performance, shared production data, and network environments.</p></article>
-          <article class="future-card reveal"><div class="future-label">STORAGE</div><h3>Hybrid Local / Network</h3><p>More flexible interaction between local assets, network storage, shared libraries, and studio environments.</p></article>
-          <article class="future-card reveal"><div class="future-label">SCALE</div><h3>Large-Library Scalability</h3><p>Efficient indexing, metadata handling, intelligent caching, and fast retrieval as production libraries grow.</p></article>
-          <article class="future-card reveal"><div class="future-label">PERFORMANCE</div><h3>Background &amp; Async Processing</h3><p>Move suitable heavy operations away from Maya's primary interactive workflow whenever practical.</p></article>
-        </div>
-      </section>
-
-      <section class="section pipeline-section">
-        <div class="section-heading reveal">
-          <div class="eyebrow">PIPELINE VISION</div>
-          <h2>Connecting more than files.</h2>
-          <p class="section-subtitle narrow">The long-term direction is to make technical complexity increasingly invisible to the artist while connecting the systems required by modern production.</p>
-        </div>
-
-        <div class="pipeline-map reveal">
-          <div class="pipeline-layer artist-layer"><span>DIGITAL ARTIST</span></div>
-          <div class="pipeline-arrow">↓</div>
-          <div class="pipeline-layer dab-layer"><span>DEEVLA ASSET BROWSER</span><small>Asset &amp; Pipeline Infrastructure</small></div>
-          <div class="pipeline-arrow">↓</div>
-          <div class="pipeline-row">
-            <span>Autodesk Maya</span><span>Assets</span><span>Metadata</span><span>OpenUSD</span><span>MaterialX</span>
+        <div class="snapshot">
+          <div class="item">
+            <div class="label">Active Development</div>
+            <div class="value">August 2026</div>
           </div>
-          <div class="pipeline-arrow">↓</div>
-          <div class="pipeline-row secondary-row">
-            <span>Local Storage</span><span>Network Storage</span><span>P2P / Hybrid Sync</span><span>Pipeline Tools</span>
+
+          <div class="item">
+            <div class="label">DAB Early Prototyping</div>
+            <div class="value">2025</div>
+          </div>
+
+          <div class="item">
+            <div class="label">Team Size</div>
+            <div class="value">1 — Founder</div>
+          </div>
+
+          <div class="item">
+            <div class="label">Employees</div>
+            <div class="value">0</div>
+          </div>
+
+          <div class="item">
+            <div class="label">Location</div>
+            <div class="value">Indonesia</div>
+          </div>
+
+          <div class="item">
+            <div class="label">Current Status</div>
+            <div class="value">Early-stage R&D</div>
+          </div>
+
+          <div class="item">
+            <div class="label">Primary Autodesk Product</div>
+            <div class="value">Autodesk Maya</div>
+          </div>
+
+          <div class="item">
+            <div class="label">Development Focus</div>
+            <div class="value">Desktop Integration</div>
           </div>
         </div>
-      </section>
 
-      <section class="section maya-section maya-section-textonly">
-        <div class="maya-copy reveal">
-          <div class="eyebrow">DEVELOPING FOR AUTODESK MAYA</div>
-          <h2>Maya workflows at the center of development.</h2>
+        <div class="info-box">
           <p>
-            DAB is being developed specifically around Autodesk Maya workflows rather than as a generic standalone file-management application. Current and future development includes deeper Maya integration, compatibility development, performance engineering, workflow validation, and production-oriented asset handling.
+            DEEVLA is currently developed by its founder as an independent project. Certain visual assets,
+            such as selected icons, may receive occasional voluntary creative contributions from external collaborators.
+            These contributors are not employees or members of the DEEVLA development team.
           </p>
-          <p>
-            Further development and testing within the Autodesk ecosystem remain an important part of DAB's path toward a production-ready release.
-          </p>
-          <div class="maya-focus-strip" aria-label="Maya development focus">
-            <span>Deeper Integration</span>
-            <span>Compatibility</span>
-            <span>Performance</span>
-            <span>Workflow Validation</span>
-            <span>Production Reliability</span>
-          </div>
         </div>
       </section>
 
-      <section class="section technology-section" id="technology">
-        <div class="section-heading reveal">
-          <div class="eyebrow">TECHNOLOGY</div>
-          <h2>A foundation designed to evolve.</h2>
-        </div>
-        <div class="tech-grid">
-          <div class="tech-card reveal"><strong>Python</strong><span>Application logic, automation, workflow systems, and Autodesk Maya integration.</span></div>
-          <div class="tech-card reveal"><strong>C++</strong><span>Native processing and performance-sensitive workloads.</span></div>
-          <div class="tech-card reveal"><strong>pybind11</strong><span>Bridge between the Python application layer and the native C++ core.</span></div>
-          <div class="tech-card reveal"><strong>PySide6</strong><span>Modern interface development designed for integration with Autodesk Maya.</span></div>
-          <div class="tech-card reveal"><strong>SQLite</strong><span>Structured metadata, asset records, cache information, and persistent application data.</span></div>
-          <div class="tech-card reveal"><strong>Modular Architecture</strong><span>Focused systems designed to evolve without rebuilding the entire application.</span></div>
-          <div class="tech-card reveal"><strong>Extensible Infrastructure</strong><span>Foundation for future formats, providers, synchronization models, and pipeline technologies.</span></div>
-        </div>
-      </section>
+      <section id="dab">
+        <div class="section-label">Phase 1 — First Product</div>
+        <h2>DEEVLA Asset Browser (DAB)</h2>
 
-      <section class="section status-section" id="status">
-        <div class="status-panel reveal">
-          <div class="status-copy">
-            <div class="eyebrow">DEVELOPMENT STATUS</div>
-            <h2>Active product development.</h2>
+        <p class="lead">
+          DEEVLA Asset Browser is the first product being developed by DEEVLA for Autodesk Maya.
+          DAB is not intended to be only a thumbnail browser. It is being designed as an asset and workflow layer
+          that helps artists and technical users organize, discover, inspect, manage, and use production assets
+          efficiently while minimizing interruptions to Maya's creative workflow.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <span class="tag">Core Objective</span>
+            <h3>High-performance asset infrastructure</h3>
             <p>
-              DEEVLA Asset Browser is currently under active development. The product foundation, asset-management systems, data layer, background processing, and Autodesk Maya integration continue to be developed and validated as the project moves toward deeper integration and broader production capabilities.
+              DAB targets large asset libraries, fast discovery, persistent metadata, background processing,
+              scalable indexing, and responsive interaction inside a Maya-centered workflow.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="tag">Maya Integration</span>
+            <h3>Direct workflow connection</h3>
+            <p>
+              Planned Maya workflows include import, open, reference, scene-context awareness,
+              Maya commands, and supported scripting/API integration.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="tag">Artist Experience</span>
+            <h3>Less interruption, more creative focus</h3>
+            <p>
+              Expensive operations such as indexing, thumbnail generation, metadata extraction,
+              and dependency analysis are intended to run through background job systems where appropriate.
+            </p>
+          </article>
+        </div>
+
+        <div class="status-row">
+          <span class="status-chip">First Product</span>
+          <span class="status-chip">In Development</span>
+          <span class="status-chip">Autodesk Maya 2026+</span>
+          <span class="status-chip">Maya 2027.2 Primary Validation Host</span>
+          <span class="status-chip">Desktop Workflow</span>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="section-label">Phase 1 Capability Direction</div>
+        <h2>Designed to become more than a traditional asset browser.</h2>
+
+        <p class="lead">
+          The following areas represent the planned capability direction for DAB. Features are being developed
+          incrementally; items listed here describe the product roadmap and technical direction rather than claiming
+          that every capability is already complete.
+        </p>
+
+        <div class="feature-map">
+
+          <article class="feature-card">
+            <h3>Asset Library & Indexing</h3>
+            <ul>
+              <li>Local asset library registration</li>
+              <li>Automatic asset discovery</li>
+              <li>Fast and incremental indexing</li>
+              <li>Folder and collection organization</li>
+              <li>Large-library scalability</li>
+              <li>SQLite-backed asset index and state</li>
+              <li>Missing or moved asset detection</li>
+              <li>Background scanning and indexing</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>Search, Filter & Discovery</h3>
+            <ul>
+              <li>Instant search</li>
+              <li>Multi-criteria filtering</li>
+              <li>Sorting by asset information</li>
+              <li>Tags</li>
+              <li>Favorites</li>
+              <li>Ratings</li>
+              <li>Collections and recently used assets</li>
+              <li>Future AI-assisted search and classification</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>Asset Management</h3>
+            <ul>
+              <li>Rename</li>
+              <li>Move</li>
+              <li>Duplicate</li>
+              <li>Managed Trash</li>
+              <li>Restore</li>
+              <li>Folder management</li>
+              <li>Batch operations</li>
+              <li>Asset-state tracking</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>Visual Browsing & Preview</h3>
+            <ul>
+              <li>Thumbnail generation</li>
+              <li>Thumbnail cache</li>
+              <li>Large thumbnail libraries</li>
+              <li>Preview information</li>
+              <li>Asset-type visualization</li>
+              <li>Background thumbnail processing</li>
+              <li>Future interactive 3D preview</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>Autodesk Maya Integration</h3>
+            <ul>
+              <li>Direct asset import into Maya</li>
+              <li>Open asset workflows</li>
+              <li>Reference asset workflows</li>
+              <li>Maya-aware asset operations</li>
+              <li>Scene-context integration</li>
+              <li>Drag-and-drop where appropriate</li>
+              <li>Maya scripting and API integration</li>
+              <li>Direct interaction with the Maya runtime</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>Metadata & Production Information</h3>
+            <ul>
+              <li>Custom metadata</li>
+              <li>Asset type and file information</li>
+              <li>Creation and modification information</li>
+              <li>Tags and ratings</li>
+              <li>Production notes</li>
+              <li>Technical metadata</li>
+              <li>Future extensible metadata providers</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>Dependency Intelligence</h3>
+            <ul>
+              <li>Dependency viewer direction</li>
+              <li>Texture and related-file inspection</li>
+              <li>Missing dependency detection</li>
+              <li>Related-file discovery</li>
+              <li>Future pipeline dependency analysis</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>Duplicate & Library Maintenance</h3>
+            <ul>
+              <li>Duplicate asset detection</li>
+              <li>Library cleanup tools</li>
+              <li>Missing-file detection</li>
+              <li>Orphaned metadata handling</li>
+              <li>Asset integrity checks</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>Texture, Material & HDRI Workflows</h3>
+            <ul>
+              <li>Texture-oriented asset browsing</li>
+              <li>Material organization</li>
+              <li>HDRI library management</li>
+              <li>Future texture/material utilities</li>
+              <li>Batch processing and conversion direction</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>Modern Pipeline Interoperability</h3>
+            <ul>
+              <li>OpenUSD-oriented workflows</li>
+              <li>MaterialX-oriented workflows</li>
+              <li>Extensible import/export architecture</li>
+              <li>Provider-based format support</li>
+              <li>Modern DCC pipeline interoperability</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>High-Performance Architecture</h3>
+            <ul>
+              <li>Background processing</li>
+              <li>Job queue / worker system</li>
+              <li>Non-blocking UI direction</li>
+              <li>Minimal Maya UI and viewport interruption</li>
+              <li>Caching</li>
+              <li>Incremental indexing</li>
+              <li>Efficient persistent database</li>
+              <li>Native components only where justified</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>Sync, Extensibility & Intelligence</h3>
+            <ul>
+              <li>Planned P2P / Hybrid Sync</li>
+              <li>Shared-library direction</li>
+              <li>Modular service/provider contracts</li>
+              <li>Third-party extension direction</li>
+              <li>AI-assisted tagging and semantic discovery</li>
+              <li>Workflow recommendations</li>
+            </ul>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="workflow">
+        <div class="section-label">DAB Workflow</div>
+        <h2>How DAB is intended to work with Autodesk Maya.</h2>
+
+        <p class="lead">
+          DAB is designed around a simple artist-facing flow while handling indexing, metadata,
+          caching, and analysis behind the scenes.
+        </p>
+
+        <div class="workflow">
+          <div class="workflow-step">Asset Library</div>
+          <div class="workflow-step">Scan & Index</div>
+          <div class="workflow-step">Metadata / Database / Cache</div>
+          <div class="workflow-step">Search / Filter / Browse</div>
+          <div class="workflow-step">Preview & Inspect</div>
+          <div class="workflow-step">Maya Integration</div>
+          <div class="workflow-step">Import / Reference / Open / Use</div>
+        </div>
+
+        <div class="background-jobs">
+          <strong>Background Processing Direction:</strong>
+          indexing, thumbnail generation, metadata extraction, dependency analysis, duplicate detection,
+          cache updates, and batch processing are planned to use background job systems where appropriate
+          to reduce blocking of Maya's UI and viewport.
+        </div>
+      </section>
+
+      <section id="maya-integration">
+        <div class="section-label">Autodesk Maya Integration</div>
+        <h2>Maya is the primary host application for DAB.</h2>
+
+        <p class="lead">
+          DAB is currently focused on direct desktop integration with Autodesk Maya.
+          The initial technical direction uses Python and Maya-supported scripting/API interfaces.
+          Native components may be introduced only where performance-critical operations justify them,
+          while keeping the integration architecture modular and maintainable.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Host Adapter Layer</h3>
+            <p>
+              Maya-specific commands, callbacks, host detection, scene context, and compatibility behavior
+              are separated from DAB's core services to avoid scattering host-version logic throughout the application.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Single Codebase Direction</h3>
+            <p>
+              DAB targets Autodesk Maya 2026 and later using capability detection and a compatibility layer
+              rather than maintaining separate source forks for every Maya version.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Python-first Integration</h3>
+            <p>
+              The development approach is Python-first for Maya integration and extensibility,
+              with native code reserved for operations that genuinely benefit from lower-level performance.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="architecture">
+        <div class="section-label">Technical Architecture</div>
+        <h2>Planned core architecture.</h2>
+
+        <p class="lead">
+          The architecture separates Maya integration, UI, services, core systems, background processing,
+          data persistence, and asset sources so that DAB can grow without tightly coupling every subsystem.
+        </p>
+
+        <div class="diagram-card">
+          <img
+            src="assets/dab_asset_browser_architecture_flowchart.png"
+            alt="DEEVLA Asset Browser planned core architecture diagram"
+          />
+          <div class="diagram-caption">
+            Planned technical architecture. This diagram describes the intended system structure and development direction.
+          </div>
+        </div>
+      </section>
+
+      <section id="future-architecture">
+        <div class="section-label">Planned Expansion</div>
+        <h2>Future extension architecture.</h2>
+
+        <p class="lead">
+          DAB is being structured around service/provider contracts so that future capabilities can be added
+          without rebuilding the entire core application.
+        </p>
+
+        <div class="diagram-card">
+          <img
+            src="assets/deevla_asset_browser_future_architecture.png"
+            alt="DEEVLA Asset Browser future extension architecture diagram"
+          />
+          <div class="diagram-caption">
+            Planned expansion areas include OpenUSD / MaterialX, P2P / Hybrid Synchronization,
+            AI-assisted intelligence, interactive 3D preview, third-party providers, and studio/pipeline extensions.
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap">
+        <div class="section-label">DEEVLA Product Roadmap</div>
+        <h2>DAB first. Tools and plugins next. DEEVLA IDE as the long-term platform vision.</h2>
+
+        <div class="timeline">
+          <div class="phase">
+            <div class="phase-number">PHASE 1</div>
+            <div>
+              <h3>DEEVLA Asset Browser (DAB)</h3>
+              <p>
+                The first product and current primary development focus.
+                A high-performance asset and workflow infrastructure designed around Autodesk Maya.
+              </p>
+            </div>
+          </div>
+
+          <div class="phase">
+            <div class="phase-number">PHASE 2</div>
+            <div>
+              <h3>DEEVLA Tools & Plugins</h3>
+              <p>
+                After DAB, DEEVLA plans to develop additional artist productivity tools,
+                workflow automation, pipeline utilities, specialized plugins, and technical workflow solutions
+                for Autodesk Maya users.
+              </p>
+            </div>
+          </div>
+
+          <div class="phase">
+            <div class="phase-number">PHASE 3</div>
+            <div>
+              <h3>DEEVLA IDE</h3>
+              <p>
+                Long-term vision: a native or deeply integrated development environment for Autodesk Maya,
+                designed for building, running, testing, debugging, and managing Maya tools and workflows
+                directly inside the DCC environment.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="diagram-card">
+          <img
+            src="assets/deevla_product_roadmap_infographic.png"
+            alt="DEEVLA product roadmap from DAB to tools and plugins to DEEVLA IDE"
+          />
+          <div class="diagram-caption">
+            Product direction: DAB is the first product; additional tools and plugins extend the ecosystem;
+            DEEVLA IDE is the longer-term development-platform vision.
+          </div>
+        </div>
+      </section>
+
+      <section id="aps">
+        <div class="section-label">Autodesk Platform Services (APS)</div>
+        <h2>Current APS status.</h2>
+
+        <div class="info-box">
+          <p>
+            <strong>DEEVLA is not currently using Autodesk Platform Services (APS) APIs.</strong>
+            The current development focus is direct desktop integration with Autodesk Maya.
+            APS may be evaluated in the future only if a specific product requirement benefits from it.
+          </p>
+        </div>
+      </section>
+
+      <section id="adn">
+        <div class="section-label">Why ADN</div>
+        <h2>Why DEEVLA is applying to the Autodesk Developer Network.</h2>
+
+        <p class="lead">
+          DEEVLA is applying to ADN to develop and validate Maya-integrated products in the appropriate Autodesk
+          development environment and to gain access to the technical resources needed to build reliable,
+          maintainable integration with Autodesk Maya.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Development & Testing</h3>
+            <p>
+              Access to the appropriate Autodesk Maya development and testing environment
+              for building and validating DEEVLA products.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Documentation & Guidance</h3>
+            <p>
+              Developer documentation, API guidance, technical resources, and support
+              for Maya integration and compatibility.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Compatibility Validation</h3>
+            <p>
+              Testing DAB and future DEEVLA products across supported Autodesk Maya environments
+              as the product evolves.
+            </p>
+          </article>
+        </div>
+
+        <div class="compliance-box">
+          <strong>Intended ADN Use:</strong>
+          Any Autodesk software and support provided through ADN will be used solely for DEEVLA product development,
+          testing, technical validation, demonstration, support, and marketing of products developed by DEEVLA.
+          It will not be used for unrelated production modeling, design, drafting, or work performed for another company.
+        </div>
+      </section>
+
+      <section id="independence">
+        <div class="section-label">Independent Development</div>
+        <h2>Built independently.</h2>
+
+        <div class="info-box">
+          <p>
+            <strong>
+              DEEVLA is a fully independent development initiative founded on original ideas, research, and innovation.
+              It is developed independently and is not affiliated with, sponsored by, or created on behalf of any external studio or company.
+            </strong>
+          </p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-label">Founder & Contact</div>
+
+        <div class="founder">
+          <div>
+            <h2>Founded from practical Autodesk Maya production experience.</h2>
+
+            <p class="lead">
+              DEEVLA is founded by Riyadus Solihin, a 3D professional with extensive Autodesk Maya experience,
+              particularly in modeling and production workflows. His interests include DCC technology,
+              workflow innovation, artist productivity, artificial intelligence, product development,
+              and the practical application of emerging technology.
             </p>
           </div>
-          <div class="status-columns">
-            <div>
-              <small>CURRENT FOCUS</small>
-              <ul><li>Asset Management</li><li>Maya Integration</li><li>Product Stability</li><li>Performance Engineering</li><li>Compatibility</li><li>Workflow Validation</li><li>Large-Library Behavior</li></ul>
+
+          <div class="contact-card">
+            <strong>Riyadus Solihin</strong>
+            <div class="role">Founder — DEEVLA</div>
+
+            <p>
+              Indonesia<br />
+              Team Size: 1<br />
+              Employees: 0
+            </p>
+
+            <p>
+              <strong style="font-size:14px; margin-bottom:5px;">Company Email</strong>
+              <a href="mailto:riyadus@deevla.com">riyadus@deevla.com</a>
+            </p>
+
+            <div class="buttons">
+              <a
+                class="button button-secondary"
+                href="https://www.linkedin.com/in/riyadussolihin/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
             </div>
-            <div>
-              <small>LONG-TERM R&amp;D</small>
-              <ul><li>OpenUSD</li><li>MaterialX</li><li>P2P / Hybrid Sync</li><li>Hybrid Local / Network</li><li>Large-Scale Asset Workflows</li><li>Pipeline Interoperability</li><li>High-Performance Processing</li></ul>
-            </div>
           </div>
         </div>
       </section>
 
-      <section class="section about-section" id="about">
-        <div class="about-copy reveal">
-          <div class="eyebrow">ABOUT DEEVLA</div>
-          <h2>Technology built around real production challenges.</h2>
-          <p>
-            DEEVLA is an independent DCC technology initiative focused on developing tools and infrastructure for Autodesk Maya and modern digital content creation workflows.
-          </p>
-          <p>
-            Our work combines practical 3D production experience, workflow research, software development, performance engineering, and emerging technologies.
-          </p>
-          <div class="principle">Technology should reduce production friction — not create more of it.</div>
-        </div>
-
-        <aside class="founder-card reveal">
-          <img class="founder-avatar" src="assets/founder-riyadus-solihin.jpg" alt="Riyadus Solihin, Founder of DEEVLA">
-          <small>FOUNDER</small>
-          <h3>Riyadus Solihin</h3>
-          <p>3D professional focused on Autodesk Maya, production modeling workflows, DCC technology, workflow development, and practical applications of artificial intelligence.</p>
-          <p class="founder-meta">Information Technology · Master of Management</p>
-          <a href="https://www.linkedin.com/in/riyadussolihin/" target="_blank" rel="noopener">View LinkedIn →</a>
-        </aside>
-      </section>
-
-      <section class="section contact-section">
-        <div class="contact-panel reveal">
-          <div>
-            <div class="eyebrow">DEEVLA</div>
-            <h2>Building better DCC workflows.</h2>
-            <p>Focused on product development, technical research, validation, and building the foundation for DEEVLA's first flagship product.</p>
-          </div>
-          <div class="contact-actions">
-            <a class="button button-primary" href="https://www.linkedin.com/in/riyadussolihin/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="button button-secondary" href="https://github.com/riyadussolihin" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </div>
-      </section>
     </main>
 
-    <footer class="site-footer">
-      <div>© 2026 DEEVLA. All rights reserved.</div>
-      <div class="legal">DEEVLA is an independent technology initiative. Autodesk and Maya are trademarks or registered trademarks of Autodesk, Inc. DEEVLA is not affiliated with or endorsed by Autodesk, Inc.</div>
+    <footer>
+      © 2026 DEEVLA. All rights reserved.
+      <br />
+      Autodesk and Maya are trademarks of Autodesk, Inc. DEEVLA is an independent initiative and is not affiliated with Autodesk.
     </footer>
-  </div>
 
-  <script src="assets/script.js"></script>
+  </div>
 </body>
 </html>
