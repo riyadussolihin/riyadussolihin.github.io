@@ -70,13 +70,13 @@
       justify-content: space-between;
       gap: 22px;
       padding: 21px 0;
-      background: rgba(8, 16, 24, 0.91);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      background: transparent;
+      backdrop-filter: none;
+      border-bottom: none;
     }
 
     .brand {
-      font-size: 27px;
+      font-size: 30px;
       font-weight: 850;
       letter-spacing: 1.2px;
     }
@@ -85,13 +85,18 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 19px;
+      gap: 22px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color 0.15s ease;
     }
 
     .nav-links a:hover {
-      color: var(--white);
+      color: var(--accent);
     }
 
     .hero {
