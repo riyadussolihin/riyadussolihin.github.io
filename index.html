@@ -69,17 +69,30 @@
     nav {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 60;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
-      padding: 18px 26px;
-      margin-top: 0;
-      background: var(--nav-bg);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      border-radius: 0;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+      gap: 22px;
+      padding: 16px 0;
+      background: transparent;
+      border-bottom: none;
+    }
+
+    nav::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 100vw;
+      transform: translateX(-50%);
+      background: rgba(37, 42, 48, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
 
     .brand {
@@ -89,14 +102,35 @@
       color: var(--nav-text);
     }
 
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.035);
+      color: #eef2f3;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .menu-toggle:hover {
+      color: var(--accent);
+      border-color: rgba(89,207,255,0.48);
+      background: rgba(89,207,255,0.08);
+    }
+
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: flex-end;
       align-items: center;
-      gap: 8px;
+      gap: 5px;
       color: var(--nav-text);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 650;
     }
 
@@ -105,21 +139,22 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 40px;
-      padding: 9px 14px;
-      border-radius: 8px;
+      min-height: 38px;
+      padding: 8px 11px;
+      border-radius: 7px;
       color: #eef2f3;
+      white-space: nowrap;
       transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
     }
 
     .nav-links a + a {
-      margin-left: 8px;
+      margin-left: 6px;
     }
 
     .nav-links a + a::before {
       content: "";
       position: absolute;
-      left: -8px;
+      left: -6px;
       top: 9px;
       bottom: 9px;
       width: 1px;
@@ -129,7 +164,7 @@
 
     .nav-links a:hover {
       color: var(--accent);
-      background: rgba(89, 207, 255, 0.06);
+      background: rgba(89,207,255,0.06);
       transform: translateY(-1px);
     }
 
@@ -499,16 +534,47 @@
     }
 
     .diagram-card {
-      padding: 18px;
-      margin-top: 34px;
-      background: rgba(241, 251, 248, 0.92);
+      width: min(920px, 100%);
+      margin: 34px auto 0;
+      padding: 14px;
+      background: rgba(241, 251, 248, 0.95);
     }
 
     .diagram-card img {
-      border-radius: 10px;
       width: 100%;
-      height: auto;
+      max-height: min(68vh, 720px);
+      margin: 0 auto;
+      border-radius: 10px;
       object-fit: contain;
+      object-position: center;
+    }
+
+
+    .diagram-card:has(img[src*="architecture_flowchart"]) {
+      width: min(760px, 100%);
+    }
+
+    .diagram-card:has(img[src*="product_roadmap"]) {
+      width: min(760px, 100%);
+    }
+
+    .diagram-card:has(img[src*="future_architecture"]) {
+      width: min(980px, 100%);
+    }
+
+    @media (min-width: 1600px) and (min-height: 900px) {
+      .diagram-card img {
+        max-height: 690px;
+      }
+
+      .diagram-card:has(img[src*="architecture_flowchart"]),
+      .diagram-card:has(img[src*="product_roadmap"]) {
+        width: min(690px, 100%);
+      }
+
+      .diagram-card:has(img[src*="future_architecture"]) {
+        width: min(920px, 100%);
+      }
     }
 
     .diagram-caption {
@@ -800,6 +866,77 @@
 
 
 
+
+    @media (max-width: 1180px) {
+      nav {
+        flex-wrap: wrap;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        max-height: 70vh;
+        overflow-y: auto;
+        padding: 10px 0 4px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        justify-content: flex-start;
+        min-height: 42px;
+        padding: 10px 12px;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.025);
+      }
+
+      .nav-links a + a {
+        margin-left: 0;
+      }
+
+      .nav-links a + a::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      nav {
+        padding: 13px 0;
+      }
+
+      .brand {
+        font-size: 23px;
+      }
+
+      .menu-toggle {
+        width: 42px;
+        height: 38px;
+      }
+
+      .diagram-card,
+      .diagram-card:has(img[src*="architecture_flowchart"]),
+      .diagram-card:has(img[src*="product_roadmap"]),
+      .diagram-card:has(img[src*="future_architecture"]) {
+        width: 100%;
+        padding: 8px;
+      }
+
+      .diagram-card img {
+        max-height: 72vh;
+      }
+    }
+
     @media (max-width: 1040px) {
       .hero-layout {
         grid-template-columns: 1fr;
@@ -825,24 +962,6 @@
     }
 
     @media (max-width: 1320px) {
-      .nav-links {
-        gap: 6px;
-        font-size: 13px;
-      }
-
-      .nav-links a {
-        padding: 8px 10px;
-        min-height: 36px;
-      }
-
-      .nav-links a + a {
-        margin-left: 6px;
-      }
-
-      .nav-links a + a::before {
-        left: -8px;
-      }
-
       .workflow {
         grid-template-columns: repeat(4, minmax(150px, 1fr));
       }
@@ -963,6 +1082,7 @@
 
     <nav>
       <a class="brand" href="#top">DEEVLA</a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
 
       <div class="nav-links">
         <a href="#company">Company</a>
@@ -2075,5 +2195,37 @@
     </footer>
 
   </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        menuToggle.textContent = isOpen ? '×' : '☰';
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 1180) {
+            navLinks.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.textContent = '☰';
+          }
+        });
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1180) {
+          navLinks.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.textContent = '☰';
+        }
+      });
+    }
+  </script>
+
 </body>
 </html>
