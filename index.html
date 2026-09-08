@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="shortcut icon" href="assets/favicon.ico" />
+
+
   <title>DEEVLA — DCC Technology for Autodesk Maya Workflows</title>
 
   <meta
@@ -290,14 +295,27 @@
       padding: 18px 8px 0;
     }
 
-    .hero-avatar {
-      width: 190px;
-      height: 190px;
-      margin: 0 auto 18px;
-      border-radius: 50%;
-      border: 5px solid rgba(33, 62, 68, 0.85);
-      background: radial-gradient(circle at 38% 28%, #d7f5ff 0%, #69caea 24%, #17485c 64%, #0b2430 100%);
-      box-shadow: 0 16px 34px rgba(0,0,0,0.18);
+    .hero-logo-wrap {
+      width: 210px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .hero-logo {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .hero-profile h3 {
@@ -1056,6 +1074,10 @@
     }
 
     @media (max-width: 720px) {
+      .hero-logo-wrap {
+        width: 170px;
+      }
+
       nav {
         padding: 13px 0;
       }
@@ -1092,7 +1114,7 @@
         text-align: left;
       }
 
-      .hero-avatar {
+      .hero-logo-wrap {
         margin-left: 0;
         margin-right: 0;
       }
@@ -1509,7 +1531,13 @@
       <header class="hero">
         <div class="hero-layout">
           <aside class="hero-profile">
-            <div class="hero-avatar" aria-hidden="true"></div>
+            <div class="hero-logo-wrap">
+              <img
+                class="hero-logo"
+                src="assets/deevla_logo.png"
+                alt="DEEVLA Logo"
+              />
+            </div>
             <h3>DEEVLA</h3>
             <div class="subtitle">Independent DCC Technology Initiative</div>
             <div class="mini">Focused on Autodesk Maya workflows, tools, asset systems, and future developer platforms.</div>
@@ -2467,13 +2495,11 @@
           </article>
         </div>
 
-        <div class="info-box">
-          <p>
-            <strong>Why build it?</strong>
-            Maya developers frequently move between code editors, Script Editor output, Maya documentation, scene inspection,
-            UI testing, and runtime debugging. A Maya-integrated IDE can reduce this context switching and make the development
-            loop — write → run → inspect → diagnose → refine — significantly more direct.
-          </p>
+        <div class="why-build-it">
+          <strong>Why build it?</strong><br />
+          Maya developers frequently move between code editors, Script Editor output, Maya documentation, scene inspection,
+          UI testing, and runtime debugging. A Maya-integrated IDE can reduce this context switching and make the development
+          loop — write → run → inspect → diagnose → refine — significantly more direct.
         </div>
 
         <div class="compliance-box">
