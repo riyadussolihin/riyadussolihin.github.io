@@ -26,7 +26,7 @@
       --good: #88d8bb;
       --warning: #d4c07f;
       --white: #ffffff;
-      --max: 1680px;
+      --max: 1380px;
     }
 
     * {
@@ -57,7 +57,7 @@
     }
 
     .page {
-      width: min(var(--max), calc(100% - clamp(24px, 5vw, 96px)));
+      width: min(var(--max), calc(100% - clamp(28px, 4vw, 72px)));
       margin: 0 auto;
     }
 
@@ -85,24 +85,57 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 22px;
+      align-items: center;
+      gap: 10px;
       color: var(--muted);
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 14px;
+      font-weight: 650;
     }
 
     .nav-links a {
-      transition: color 0.15s ease;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 9px 13px;
+      border: 1px solid rgba(122, 151, 169, 0.28);
+      border-radius: 8px;
+      background: rgba(12, 24, 34, 0.34);
+      color: #aebec9;
+      transition:
+        color 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease,
+        transform 0.15s ease;
+    }
+
+    .nav-links a + a {
+      margin-left: 8px;
+    }
+
+    .nav-links a + a::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: rgba(105, 139, 158, 0.34);
+      pointer-events: none;
     }
 
     .nav-links a:hover {
-      color: var(--accent);
+      color: #74ddff;
+      border-color: rgba(89, 207, 255, 0.68);
+      background: rgba(89, 207, 255, 0.10);
+      transform: translateY(-1px);
     }
 
     .hero {
       padding: clamp(72px, 7vw, 118px) 0 clamp(68px, 6vw, 96px);
       width: 100%;
-      max-width: 1380px;
+      max-width: 1020px;
     }
 
     .eyebrow {
@@ -659,8 +692,21 @@
 
     @media (max-width: 1320px) {
       .nav-links {
-        gap: 15px;
-        font-size: 14px;
+        gap: 8px;
+        font-size: 13px;
+      }
+
+      .nav-links a {
+        padding: 8px 11px;
+        min-height: 36px;
+      }
+
+      .nav-links a + a {
+        margin-left: 6px;
+      }
+
+      .nav-links a + a::before {
+        left: -8px;
       }
 
       .workflow {
@@ -679,7 +725,15 @@
 
       .nav-links {
         max-width: 78%;
-        row-gap: 10px;
+        row-gap: 9px;
+      }
+
+      .nav-links a + a {
+        margin-left: 0;
+      }
+
+      .nav-links a + a::before {
+        display: none;
       }
 
       .workflow {
