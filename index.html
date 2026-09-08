@@ -1161,52 +1161,72 @@
     }
 
 
-    /* IDE section — uniform card geometry */
-    #ide .ide-compare {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      grid-auto-rows: 1fr;
-      align-items: stretch;
-    }
-
-    #ide .ide-column {
-      height: 100%;
-      min-height: 255px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    #ide .ide-column p {
-      margin-bottom: 8px;
-    }
-
-    #ide .ide-column ul {
-      margin-top: auto;
-    }
-
+    
+    /* IDE section — equal, clean card sizing */
+    #ide .ide-compare,
     #ide .ide-feature-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      grid-auto-rows: 1fr;
       gap: 16px;
-      margin-top: 30px;
       align-items: stretch;
     }
 
-    #ide .ide-feature-grid .card {
-      height: 100%;
-      min-height: 255px;
-      display: flex;
-      flex-direction: column;
+    #ide .ide-compare {
+      margin-top: 30px;
     }
 
-    #ide .ide-feature-grid .card p {
-      margin-bottom: 0;
+    #ide .ide-feature-grid {
+      margin-top: 26px;
+    }
+
+    #ide .ide-column,
+    #ide .ide-feature-grid .ide-card {
+      box-sizing: border-box;
+      width: 100%;
+      height: 280px;
+      min-height: 280px;
+      max-height: 280px;
+      margin: 0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #ide .ide-column h3,
+    #ide .ide-feature-grid .ide-card h3 {
+      margin: 0 0 12px;
+      min-height: 46px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    #ide .ide-column p,
+    #ide .ide-feature-grid .ide-card p {
+      margin: 0;
+      line-height: 1.66;
+    }
+
+    #ide .ide-column ul {
+      margin: auto 0 0;
+      padding-left: 20px;
+    }
+
+    #ide .ide-feature-grid .ide-card p {
+      flex: 1 1 auto;
     }
 
     @media (max-width: 980px) {
       #ide .ide-compare,
       #ide .ide-feature-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #ide .ide-column,
+      #ide .ide-feature-grid .ide-card {
+        height: 290px;
+        min-height: 290px;
+        max-height: 290px;
       }
     }
 
@@ -1217,84 +1237,73 @@
       }
 
       #ide .ide-column,
-      #ide .ide-feature-grid .card {
+      #ide .ide-feature-grid .ide-card {
+        height: auto;
+        min-height: 0;
+        max-height: none;
+      }
+
+      #ide .ide-column h3,
+      #ide .ide-feature-grid .ide-card h3 {
         min-height: 0;
       }
     }
 
-    /* Contact business-card theme */
+/* Contact business-card theme */
     .contact-business-card {
-      position: relative;
       display: grid;
-      grid-template-columns: 255px minmax(0, 1.35fr) minmax(270px, .75fr);
-      min-height: 330px;
-      margin-top: 34px;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 0;
+      width: min(980px, 100%);
+      min-height: 360px;
+      margin: 34px auto 0;
       overflow: hidden;
-      border: 1px solid rgba(89,207,255,.28);
-      border-radius: 48px;
-      background:
-        linear-gradient(90deg,
-          #eaf4f7 0 17%,
-          #0c1d2c 17% 72%,
-          #eaf4f7 72% 100%);
-      box-shadow: 0 22px 55px rgba(0,0,0,.22);
+      border: 1px solid rgba(89,207,255,.16);
+      border-radius: 18px;
+      background: #0c1d2c;
+      box-shadow: 0 18px 46px rgba(0,0,0,.20);
     }
 
     .contact-photo-zone {
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 330px;
-      padding: 30px 18px 30px 28px;
-      background:
-        radial-gradient(circle at 54% 50%, rgba(89,207,255,.34) 0 47%, transparent 48%),
-        linear-gradient(135deg, rgba(89,207,255,.15), rgba(255,255,255,.2));
-    }
-
-    .contact-photo-zone::after {
-      content: "";
-      position: absolute;
-      inset: 24px 8px 24px 40px;
-      border: 15px solid #59cfff;
-      border-right-width: 6px;
-      border-radius: 999px 0 0 999px;
-      opacity: .88;
-      pointer-events: none;
+      padding: 28px 12px 28px 24px;
+      background: #0c1d2c;
     }
 
     .contact-photo {
-      position: relative;
-      z-index: 2;
-      width: 184px;
-      height: 184px;
+      width: 190px;
+      height: 190px;
       object-fit: cover;
       border-radius: 50%;
-      border: 5px solid #f4f9fb;
-      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+      border: 3px solid rgba(89,207,255,.22);
+      box-shadow: 0 12px 28px rgba(0,0,0,.26);
       cursor: zoom-in;
     }
 
     .contact-main {
-      position: relative;
-      z-index: 2;
-      padding: 46px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 34px 38px 34px 14px;
       color: #eef6fb;
-      background:
-        linear-gradient(135deg, rgba(89,207,255,.04), transparent 60%);
+      background: #0c1d2c;
     }
 
     .contact-main h3 {
-      margin: 0 0 5px;
-      font-size: 30px;
-      letter-spacing: .4px;
+      margin: 0 0 4px;
+      color: #ffffff;
+      font-size: 31px;
+      line-height: 1.1;
+      letter-spacing: .2px;
     }
 
     .contact-main .contact-role {
-      margin-bottom: 25px;
+      margin-bottom: 22px;
       color: var(--accent);
       font-size: 14px;
-      font-weight: 750;
+      font-weight: 800;
       letter-spacing: 1.1px;
       text-transform: uppercase;
     }
@@ -1302,17 +1311,21 @@
     .contact-detail-list {
       display: grid;
       gap: 12px;
-      margin-top: 18px;
     }
 
     .contact-detail {
       display: grid;
-      grid-template-columns: 34px 1fr;
+      grid-template-columns: 34px minmax(0, 1fr);
       gap: 12px;
       align-items: start;
-      color: #c9d8e2;
+      color: #d4e1e8;
       font-size: 14px;
       line-height: 1.55;
+    }
+
+    .contact-detail strong {
+      color: #ffffff;
+      font-weight: 750;
     }
 
     .contact-icon {
@@ -1322,87 +1335,36 @@
       align-items: center;
       justify-content: center;
       color: #59cfff;
-      border: 1px solid rgba(89,207,255,.35);
+      border: 1px solid rgba(89,207,255,.42);
       border-radius: 50%;
-      background: rgba(89,207,255,.07);
+      background: rgba(89,207,255,.06);
+      flex: 0 0 auto;
     }
 
     .contact-icon svg {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       stroke: currentColor;
       fill: none;
-      stroke-width: 1.9;
+      stroke-width: 1.8;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
+    .contact-icon.linkedin-text {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+    }
+
     .contact-detail a {
-      color: #dceaf2;
+      color: #d9edf7;
+      word-break: break-word;
     }
 
     .contact-detail a:hover {
       color: var(--accent);
-    }
-
-    .contact-brand-panel {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 40px 34px 40px 46px;
-      color: #0b1a25;
-      background:
-        radial-gradient(circle at 90% 50%, rgba(89,207,255,.30) 0 30%, transparent 31%),
-        linear-gradient(135deg, #f7fbfc, #dcecf1);
-    }
-
-    .contact-brand-panel::before {
-      content: "";
-      position: absolute;
-      top: 25px;
-      bottom: 25px;
-      left: 13px;
-      width: 16px;
-      border: 6px solid #59cfff;
-      border-left: 0;
-      border-radius: 0 999px 999px 0;
-      opacity: .95;
-    }
-
-    .contact-brand-name {
-      font-size: 34px;
-      font-weight: 900;
-      letter-spacing: 1.2px;
-    }
-
-    .contact-brand-sub {
-      color: #385361;
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .contact-linkedin {
-      margin-top: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border: 1px solid rgba(11,26,37,.16);
-      border-radius: 9px;
-      background: rgba(255,255,255,.55);
-      color: #0b1a25;
-      font-size: 13px;
-      font-weight: 750;
-      transition: .15s ease;
-    }
-
-    .contact-linkedin:hover {
-      border-color: #59cfff;
-      color: #087aa8;
-      transform: translateY(-1px);
     }
 
     .contact-note {
@@ -1412,49 +1374,27 @@
       line-height: 1.55;
     }
 
-    @media (max-width: 980px) {
-      .contact-business-card {
-        grid-template-columns: 210px 1fr;
-        border-radius: 32px;
-        background:
-          linear-gradient(90deg, #eaf4f7 0 22%, #0c1d2c 22% 100%);
-      }
-
-      .contact-brand-panel {
-        grid-column: 1 / -1;
-        min-height: 155px;
-        padding-left: 54px;
-      }
-    }
-
-    @media (max-width: 700px) {
+    @media (max-width: 760px) {
       .contact-business-card {
         grid-template-columns: 1fr;
-        border-radius: 24px;
-        background: #0c1d2c;
+        width: min(620px, 100%);
       }
 
       .contact-photo-zone {
-        min-height: 250px;
-        background: #eaf4f7;
-      }
-
-      .contact-photo-zone::after {
-        inset: 24px 22% 24px 22%;
-        border-radius: 999px;
-        border-width: 12px;
+        padding: 28px 20px 10px;
       }
 
       .contact-main {
-        padding: 32px 24px;
+        padding: 20px 24px 30px;
       }
 
-      .contact-brand-panel {
-        grid-column: auto;
-        min-height: 150px;
-        padding: 30px 26px 30px 48px;
+      .contact-main h3,
+      .contact-main .contact-role {
+        text-align: center;
       }
     }
+
+    
 
     footer {
       padding: 46px 0 62px;
@@ -2446,7 +2386,7 @@
         </div>
 
         <div class="ide-feature-grid">
-          <article class="card">
+          <article class="card ide-card">
             <h3>Modern Code Editing</h3>
             <p>
               High-performance editor direction with syntax handling, multi-document workflows, search/replace,
@@ -2454,7 +2394,7 @@
             </p>
           </article>
 
-          <article class="card">
+          <article class="card ide-card">
             <h3>Runtime-aware Intelligence</h3>
             <p>
               Planned completion, signatures, hover information, diagnostics, navigation, and code actions that can
@@ -2462,7 +2402,7 @@
             </p>
           </article>
 
-          <article class="card">
+          <article class="card ide-card">
             <h3>Execution & Output</h3>
             <p>
               Direct Python/MEL document and selection execution, integrated output console, traceback/error handling,
@@ -2470,7 +2410,7 @@
             </p>
           </article>
 
-          <article class="card">
+          <article class="card ide-card">
             <h3>Maya Context Awareness</h3>
             <p>
               The IDE can be designed to understand the active Maya version, scene, selection, host capabilities,
@@ -2478,7 +2418,7 @@
             </p>
           </article>
 
-          <article class="card">
+          <article class="card ide-card">
             <h3>Tool & UI Development</h3>
             <p>
               Future direction includes reusable DEEVLA UI framework components, integrated tool development,
@@ -2486,7 +2426,7 @@
             </p>
           </article>
 
-          <article class="card">
+          <article class="card ide-card">
             <h3>AI-native Development Direction</h3>
             <p>
               AI assistance is envisioned as part of the development workflow rather than only a chat panel:
@@ -2611,6 +2551,20 @@
               </div>
 
               <div class="contact-detail">
+                <span class="contact-icon linkedin-text" aria-hidden="true">in</span>
+                <div>
+                  <strong>LinkedIn</strong><br />
+                  <a
+                    href="https://www.linkedin.com/in/riyadussolihin/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    linkedin.com/in/riyadussolihin
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-detail">
                 <span class="contact-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24">
                     <path d="M6.6 3.5l3 3.8-2.2 2.2c1.4 2.8 3.5 4.9 6.3 6.3l2.2-2.2 3.8 3c.4.3.5.9.2 1.3-1 1.7-2.8 2.6-4.7 2.2C9 18.8 5.2 15 3.9 8.8c-.4-1.9.5-3.7 2.2-4.7.4-.3 1-.2 1.3.2z"></path>
@@ -2650,27 +2604,6 @@
               </div>
 
             </div>
-
-            <div class="contact-note">
-              Primary DEEVLA development location: Indonesia.
-            </div>
-          </div>
-
-          <div class="contact-brand-panel">
-            <div class="contact-brand-name">DEEVLA</div>
-            <div class="contact-brand-sub">
-              Independent DCC Technology Initiative<br />
-              Autodesk Maya Workflow Development
-            </div>
-
-            <a
-              class="contact-linkedin"
-              href="https://www.linkedin.com/in/riyadussolihin/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn Profile
-            </a>
           </div>
 
         </div>
