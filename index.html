@@ -577,6 +577,142 @@
       }
     }
 
+
+    .zoom-shell {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      border-radius: 10px;
+      cursor: zoom-in;
+    }
+
+    .zoom-shell .zoomable {
+      display: block;
+      width: 100%;
+      transition: transform 0.22s ease, filter 0.22s ease;
+    }
+
+    .zoom-shell:hover .zoomable {
+      transform: scale(1.012);
+      filter: brightness(0.78);
+    }
+
+    .zoom-hint {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translate(-50%, 8px);
+      z-index: 3;
+      padding: 8px 13px;
+      border: 1px solid rgba(89, 207, 255, 0.48);
+      border-radius: 999px;
+      background: rgba(8, 16, 24, 0.82);
+      color: #89e4ff;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .25px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .zoom-shell:hover .zoom-hint {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    .image-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(2, 7, 11, 0.92);
+      backdrop-filter: blur(8px);
+      cursor: zoom-out;
+    }
+
+    .image-lightbox.open {
+      display: flex;
+    }
+
+    .image-lightbox img {
+      max-width: 94vw;
+      max-height: 92vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.46);
+      background: #0b1118;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 22px;
+      right: 26px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 50%;
+      background: rgba(15, 22, 28, 0.78);
+      color: white;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .lightbox-close:hover {
+      color: var(--accent);
+      border-color: rgba(89,207,255,0.55);
+    }
+
+    .lightbox-label {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      color: #b9c9d3;
+      font-size: 12px;
+      letter-spacing: .3px;
+    }
+
+    .founder-photo-wrap {
+      width: min(250px, 70vw);
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      border: 3px solid rgba(89,207,255,0.34);
+      background: #0c1620;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.22);
+      aspect-ratio: 1 / 1;
+    }
+
+    .founder-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .founder-photo-wrap .zoom-hint {
+      bottom: 16px;
+    }
+
+    @media (hover: none) {
+      .zoom-hint {
+        opacity: 0.92;
+        transform: translate(-50%, 0);
+      }
+
+      .zoom-shell:hover .zoomable {
+        transform: none;
+        filter: none;
+      }
+    }
+
     .diagram-caption {
       margin: 13px 6px 2px;
       color: #617687;
@@ -1714,10 +1850,13 @@
         </p>
 
         <div class="diagram-card">
-          <img
+          <div class="zoom-shell" data-zoomable>
+            <img class="zoomable"
             src="assets/dab_asset_browser_architecture_flowchart.png"
             alt="DEEVLA Asset Browser planned core architecture diagram"
           />
+            <span class="zoom-hint">Click to Zoom</span>
+          </div>
           <div class="diagram-caption">
             Planned technical architecture. This diagram describes the intended system structure and development direction.
           </div>
@@ -1734,10 +1873,13 @@
         </p>
 
         <div class="diagram-card">
-          <img
+          <div class="zoom-shell" data-zoomable>
+            <img class="zoomable"
             src="assets/deevla_asset_browser_future_architecture.png"
             alt="DEEVLA Asset Browser future extension architecture diagram"
           />
+            <span class="zoom-hint">Click to Zoom</span>
+          </div>
           <div class="diagram-caption">
             Planned expansion areas include OpenUSD / MaterialX, P2P / Hybrid Synchronization,
             AI-assisted intelligence, interactive 3D preview, third-party providers, and studio/pipeline extensions.
@@ -1790,10 +1932,13 @@
         </div>
 
         <div class="diagram-card">
-          <img
+          <div class="zoom-shell" data-zoomable>
+            <img class="zoomable"
             src="assets/deevla_product_roadmap_infographic.png"
             alt="DEEVLA product roadmap from DAB to tools and plugins to DEEVLA IDE"
           />
+            <span class="zoom-hint">Click to Zoom</span>
+          </div>
           <div class="diagram-caption">
             Product direction: DAB is the first product; additional tools and plugins extend the ecosystem;
             DEEVLA IDE is the longer-term development-platform vision.
@@ -2128,20 +2273,6 @@
         </div>
       </section>
 
-      <section id="independence">
-        <div class="section-label">Independent Development</div>
-        <h2>Built independently.</h2>
-
-        <div class="info-box">
-          <p>
-            <strong>
-              DEEVLA is a fully independent development initiative founded on original ideas, research, and innovation.
-              It is developed independently and is not affiliated with, sponsored by, or created on behalf of any external studio or company.
-            </strong>
-          </p>
-        </div>
-      </section>
-
       <section id="contact">
         <div class="section-label">Founder & Contact</div>
 
@@ -2158,6 +2289,15 @@
           </div>
 
           <div class="contact-card">
+            <div class="founder-photo-wrap zoom-shell" data-zoomable>
+              <img
+                class="founder-photo zoomable"
+                src="assets/riyadus_solihin_founder.png"
+                alt="Riyadus Solihin — Founder of DEEVLA"
+              />
+              <span class="zoom-hint">Click to Zoom</span>
+            </div>
+
             <strong>Riyadus Solihin</strong>
             <div class="role">Founder — DEEVLA</div>
 
@@ -2186,6 +2326,21 @@
         </div>
       </section>
 
+
+      <section id="independence">
+        <div class="section-label">Independent Development</div>
+        <h2>Built independently.</h2>
+
+        <div class="info-box">
+          <p>
+            <strong>
+              DEEVLA is a fully independent development initiative founded on original ideas, research, and innovation.
+              It is developed independently and is not affiliated with, sponsored by, or created on behalf of any external studio or company.
+            </strong>
+          </p>
+        </div>
+      </section>
+
     </main>
 
     <footer>
@@ -2196,9 +2351,57 @@
 
   </div>
 
+  <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">×</button>
+    <img id="lightboxImage" src="" alt="" />
+    <div class="lightbox-label">Click outside the image or press Esc to close</div>
+  </div>
+
   <script>
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+
+    const lightbox = document.getElementById('imageLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('[data-zoomable]').forEach(wrapper => {
+      wrapper.addEventListener('click', () => {
+        const image = wrapper.querySelector('img');
+        if (!image || !lightbox || !lightboxImage) return;
+
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lightboxImage) lightboxImage.src = '';
+    }
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener('click', (event) => {
+        event.stopPropagation();
+        closeLightbox();
+      });
+    }
+
+    if (lightbox) {
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeLightbox();
+    });
 
     if (menuToggle && navLinks) {
       menuToggle.addEventListener('click', () => {
