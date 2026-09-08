@@ -140,43 +140,13 @@
 
 
 
-    @media (max-width: 1180px) {
+@media (max-width: 760px) {
       .language-switcher {
-        margin-left: auto;
-        margin-right: 8px;
-      }
-    }
-
-
-
-
-    @media (max-width: 760px) {
-      .language-switcher {
-        max-width: 260px;
-        justify-content: center;
-        row-gap: 2px;
-      }
-    }
-
-
-
-
-
-
-      .language-label {
-        display: none;
-      }
-
-      .language-select {
-        min-width: 96px;
-        font-size: 11px;
-      }
-    }
-
-
-    .language-switcher {
       display: inline-flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
       align-items: center;
+      justify-content: center;
       gap: 6px;
       margin-left: auto;
       margin-right: 14px;
@@ -187,10 +157,17 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       flex: 0 0 auto;
+      white-space: nowrap;
+      width: auto;
+      min-width: max-content;
     }
 
     .lang-btn {
       appearance: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
       border: 0;
       background: transparent;
       color: var(--muted);
@@ -200,6 +177,7 @@
       letter-spacing: 0.08em;
       cursor: pointer;
       padding: 3px 5px;
+      line-height: 1;
       transition: color .18s ease, text-shadow .18s ease;
     }
 
@@ -210,8 +188,11 @@
     }
 
     .lang-divider {
+      display: inline-block;
+      flex: 0 0 auto;
       color: rgba(238, 249, 245, 0.24);
       font-size: 12px;
+      line-height: 1;
       user-select: none;
     }
 
@@ -224,8 +205,12 @@
 
     @media (max-width: 560px) {
       .language-switcher {
+        flex-direction: row;
+        flex-wrap: nowrap;
         padding: 5px 8px;
         gap: 4px;
+        width: auto;
+        min-width: max-content;
       }
 
       .lang-btn {
