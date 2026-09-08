@@ -476,6 +476,201 @@
       font-size: 12px;
     }
 
+
+    .tech-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(16, 28, 39, 0.74);
+    }
+
+    .tech-table th,
+    .tech-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+      line-height: 1.58;
+    }
+
+    .tech-table th {
+      color: #dcebf3;
+      font-size: 13px;
+      letter-spacing: .5px;
+      background: rgba(89,207,255,.055);
+    }
+
+    .tech-table td {
+      color: #9fb0bd;
+      font-size: 14px;
+    }
+
+    .tech-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .tech-table strong {
+      color: white;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .principle {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: rgba(16,28,39,.66);
+    }
+
+    .principle h4 {
+      margin: 0 0 9px;
+      color: #e8f3f8;
+      font-size: 16px;
+    }
+
+    .principle p {
+      margin: 0;
+      color: #91a4b2;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    details.tool-group {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: rgba(16,28,39,.68);
+      overflow: hidden;
+    }
+
+    details.tool-group summary {
+      cursor: pointer;
+      padding: 18px 20px;
+      color: #e8f3f8;
+      font-weight: 760;
+      list-style: none;
+      background: rgba(89,207,255,.035);
+    }
+
+    details.tool-group summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.tool-group summary::after {
+      content: "+";
+      float: right;
+      color: var(--accent);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    details.tool-group[open] summary::after {
+      content: "−";
+    }
+
+    .tool-list {
+      margin: 0;
+      padding: 8px 24px 22px 48px;
+      color: #9aadb9;
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .tool-list li {
+      margin: 7px 0;
+      padding-left: 5px;
+    }
+
+    .tool-list strong {
+      color: #eef6fa;
+    }
+
+    .priority-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .priority-item {
+      padding: 17px 14px;
+      text-align: center;
+      border: 1px solid #294657;
+      border-radius: 12px;
+      background: rgba(89,207,255,.055);
+      color: #d9edf6;
+      font-size: 13px;
+      font-weight: 720;
+    }
+
+    .ide-compare {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .ide-column {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(16,28,39,.70);
+    }
+
+    .ide-column.highlight {
+      border-color: #356a82;
+      background:
+        linear-gradient(135deg, rgba(89,207,255,.07), transparent 50%),
+        rgba(16,28,39,.80);
+    }
+
+    .ide-column h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    .ide-column p,
+    .ide-column li {
+      color: #97a9b6;
+      font-size: 14px;
+      line-height: 1.66;
+    }
+
+    .ide-column ul {
+      margin: 13px 0 0;
+      padding-left: 20px;
+    }
+
+    @media (max-width: 980px) {
+      .principles,
+      .ide-compare {
+        grid-template-columns: 1fr;
+      }
+
+      .priority-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .priority-list {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
     footer {
       padding: 46px 0 62px;
       border-top: 1px solid #172835;
@@ -550,9 +745,12 @@
         <a href="#company">Company</a>
         <a href="#dab">DAB</a>
         <a href="#features">Features</a>
+        <a href="#technology">Technology</a>
         <a href="#workflow">Workflow</a>
         <a href="#architecture">Architecture</a>
         <a href="#roadmap">Roadmap</a>
+        <a href="#smart-modeling">Smart Tools</a>
+        <a href="#ide">IDE Vision</a>
         <a href="#adn">Why ADN</a>
         <a href="#contact">Contact</a>
       </div>
@@ -859,6 +1057,127 @@
         </div>
       </section>
 
+
+      <section id="technology">
+        <div class="section-label">Technology Stack & Engineering Approach</div>
+        <h2>Built as a multi-language, production-oriented Maya product.</h2>
+
+        <p class="lead">
+          DAB is intentionally not built around a single programming language. The planned architecture uses
+          different technologies for the jobs they are best suited to. Python provides direct, flexible integration
+          with Autodesk Maya and rapid extension of artist workflows, while C++ is reserved for performance-sensitive
+          native core operations where throughput, memory efficiency, and low overhead matter. The two layers are
+          connected through a controlled binding layer so DAB can remain both fast and maintainable.
+        </p>
+
+        <table class="tech-table">
+          <thead>
+            <tr>
+              <th>Technology</th>
+              <th>Role in DAB</th>
+              <th>Why it is used</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Python</strong></td>
+              <td>Maya host integration, application orchestration, commands, extensibility, services, and workflow logic.</td>
+              <td>Python is deeply established in Maya pipelines, allows rapid development, and keeps artist/pipeline extensions accessible.</td>
+            </tr>
+            <tr>
+              <td><strong>PySide6 / Qt6</strong></td>
+              <td>Dockable Maya UI, library views, asset grids, search/filter controls, metadata panels, settings, and user interaction.</td>
+              <td>Provides a modern Qt interface that can integrate naturally with supported Maya desktop workflows.</td>
+            </tr>
+            <tr>
+              <td><strong>Modern C++</strong></td>
+              <td>Performance-critical native core operations such as heavy scanning/indexing workloads, hashing, cache processing, and other compute-heavy tasks where profiling justifies native code.</td>
+              <td>Keeps expensive operations fast while avoiding the cost and complexity of moving the entire application into C++.</td>
+            </tr>
+            <tr>
+              <td><strong>pybind11</strong></td>
+              <td>Controlled bridge between the C++ native core and Python application / Maya integration layer.</td>
+              <td>Allows a small, focused native surface instead of a large custom C++ wrapper architecture.</td>
+            </tr>
+            <tr>
+              <td><strong>SQLite</strong></td>
+              <td>Local asset index, metadata, tags, ratings, collections, search state, and migration-managed persistence.</td>
+              <td>Reliable embedded persistence without requiring a separate database server for normal desktop use.</td>
+            </tr>
+            <tr>
+              <td><strong>Maya Python / OpenMaya APIs</strong></td>
+              <td>Scene context, selection, events, import/open/reference operations, callbacks, host capabilities, and Maya-aware actions.</td>
+              <td>Provides direct integration with the Maya runtime instead of treating Maya as only an external file target.</td>
+            </tr>
+            <tr>
+              <td><strong>OpenUSD / MaterialX</strong></td>
+              <td>Planned interoperability direction for modern scene, asset, and material workflows.</td>
+              <td>Supports a more open and pipeline-friendly future rather than locking the asset system to a single proprietary representation.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="principles">
+          <div class="principle">
+            <h4>Layered Architecture</h4>
+            <p>
+              Maya host integration, UI, services, core systems, native acceleration, persistence, and asset providers
+              are separated to keep responsibilities clear and reduce tightly coupled code.
+            </p>
+          </div>
+
+          <div class="principle">
+            <h4>Background-first Heavy Work</h4>
+            <p>
+              Scanning, indexing, thumbnail generation, metadata extraction, duplicate detection, and other expensive
+              operations are designed to use job/worker systems where safe so Maya remains responsive.
+            </p>
+          </div>
+
+          <div class="principle">
+            <h4>Native Only Where It Matters</h4>
+            <p>
+              C++ is used selectively for measured performance needs. DAB avoids creating a large native wrapper
+              when Python can provide the same function cleanly and maintainably.
+            </p>
+          </div>
+
+          <div class="principle">
+            <h4>Version-aware Maya Integration</h4>
+            <p>
+              The target is one maintainable codebase for Maya 2026 and later, with a host/compatibility layer and
+              capability detection rather than scattered version checks or separate forks.
+            </p>
+          </div>
+
+          <div class="principle">
+            <h4>Extensible Providers & Contracts</h4>
+            <p>
+              Search, metadata, preview, formats, pipeline integration, and future studio extensions are planned around
+              explicit service/provider contracts so capabilities can grow without rebuilding the core.
+            </p>
+          </div>
+
+          <div class="principle">
+            <h4>Production Engineering Discipline</h4>
+            <p>
+              The direction includes versioned data migrations, regression testing, error recovery, dependency and
+              license review, performance measurement, and packaging designed for commercial distribution.
+            </p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <p>
+            <strong>Engineering objective:</strong>
+            DAB is being designed using production-grade software engineering practices commonly used in professional
+            tools and pipeline development: modular boundaries, explicit contracts, measured native acceleration,
+            persistent data migrations, background processing, compatibility isolation, testing, and maintainable
+            extension points.
+          </p>
+        </div>
+      </section>
+
       <section id="workflow">
         <div class="section-label">DAB Workflow</div>
         <h2>How DAB is intended to work with Autodesk Maya.</h2>
@@ -988,7 +1307,9 @@
               <p>
                 After DAB, DEEVLA plans to develop additional artist productivity tools,
                 workflow automation, pipeline utilities, specialized plugins, and technical workflow solutions
-                for Autodesk Maya users.
+                for Autodesk Maya users. One major direction is the DEEVLA Smart Modeling Toolkit,
+                a context-aware modeling tool family built around topology, curvature, selection, symmetry,
+                validation, and artist intent.
               </p>
             </div>
           </div>
@@ -998,9 +1319,10 @@
             <div>
               <h3>DEEVLA IDE</h3>
               <p>
-                Long-term vision: a native or deeply integrated development environment for Autodesk Maya,
-                designed for building, running, testing, debugging, and managing Maya tools and workflows
-                directly inside the DCC environment.
+                Long-term vision: a native-feeling, deeply integrated development environment for Autodesk Maya,
+                designed for building, running, testing, debugging, diagnosing, and managing Maya tools and workflows
+                directly inside the DCC environment, with modern editing, Maya-aware intelligence,
+                runtime context, and future AI-assisted development capabilities.
               </p>
             </div>
           </div>
@@ -1015,6 +1337,276 @@
             Product direction: DAB is the first product; additional tools and plugins extend the ecosystem;
             DEEVLA IDE is the longer-term development-platform vision.
           </div>
+        </div>
+      </section>
+
+
+      <section id="smart-modeling">
+        <div class="section-label">Phase 2 — DEEVLA Tools & Plugins</div>
+        <h2>DEEVLA Smart Modeling Toolkit — context-aware modeling tools for Maya.</h2>
+
+        <p class="lead">
+          After DAB, one of DEEVLA's major product directions is a family of focused Maya tools and plugins.
+          A key concept is the <strong>DEEVLA Smart Modeling Toolkit</strong>: modeling operations that inspect
+          topology, curvature, normals, selection context, symmetry, boundaries, and production intent before
+          applying an operation. The goal is not to hide Maya, but to make repetitive modeling decisions faster,
+          safer, and more context-aware while keeping the workflow lightweight and familiar to Maya artists.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <span class="tag">Objective</span>
+            <h3>Context-aware modeling</h3>
+            <p>
+              Move beyond one-command/one-result behavior by evaluating the current mesh and selection before
+              suggesting or applying the most appropriate modeling operation.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="tag">Workflow</span>
+            <h3>Reduce repetitive setup</h3>
+            <p>
+              Automate common preparation, cleanup, alignment, validation, topology checks, and repetitive parameter
+              decisions so artists can spend more time on shape and design.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="tag">Direction</span>
+            <h3>Procedural ideas, Maya-native feel</h3>
+            <p>
+              Bring selected procedural and context-driven ideas into Maya without trying to turn Maya into another DCC.
+              Tools should remain fast, focused, undoable, predictable, and familiar to Maya users.
+            </p>
+          </article>
+        </div>
+
+        <div class="priority-list">
+          <div class="priority-item">1. Smart Boolean</div>
+          <div class="priority-item">2. Smart Cleanup</div>
+          <div class="priority-item">3. Smart Topology Flow</div>
+          <div class="priority-item">4. Smart Selection</div>
+          <div class="priority-item">5. Smart Modeling Assistant</div>
+        </div>
+
+        <div class="info-box">
+          <p>
+            <strong>Priority package concept:</strong>
+            Smart Boolean, Smart Cleanup, Smart Topology Flow, Smart Selection, and Smart Modeling Assistant can form
+            the first focused subset of the DEEVLA Smart Modeling Toolkit. “Smart Cleanup” and “Smart Topology Flow”
+            act as umbrella systems that combine several of the specialized analysis and repair ideas below.
+          </p>
+        </div>
+
+        <details class="tool-group" open>
+          <summary>Topology, Merge, Bridge, Fill & Surface Operations — 1 to 20</summary>
+          <ol class="tool-list" start="1">
+            <li><strong>Smart Merge</strong> — merge vertices using distance, surface direction, and topology context instead of a blind weld.</li>
+            <li><strong>Smart Bridge</strong> — determine correspondence, twist, segment count, and alignment when bridging two border regions.</li>
+            <li><strong>Smart Fill Hole</strong> — choose topology strategies such as quad-dominant, radial, grid, or planar caps based on the opening.</li>
+            <li><strong>Smart Extrude</strong> — extrude using curvature, normals, or chosen direction while maintaining more consistent thickness.</li>
+            <li><strong>Smart Inset</strong> — create visually consistent inset spacing on irregular face shapes.</li>
+            <li><strong>Smart Straighten</strong> — straighten vertices or edges while preserving surrounding form as much as possible.</li>
+            <li><strong>Smart Flatten</strong> — calculate a best-fit plane and flatten selected components to it.</li>
+            <li><strong>Smart Align</strong> — align vertices, edges, objects, pivots, or faces using likely alignment candidates from context.</li>
+            <li><strong>Smart Snap</strong> — context-aware snapping to vertices, midpoints, face centers, closest surfaces, projections, or normal-aware targets.</li>
+            <li><strong>Smart Pivot</strong> — derive useful pivots from center, base, selected face, hinge edge, symmetry plane, or mass-like context.</li>
+            <li><strong>Smart Thickness</strong> — generate more consistent shell thickness over curved surfaces.</li>
+            <li><strong>Smart Shell</strong> — create shells while detecting likely self-intersections and problematic regions.</li>
+            <li><strong>Smart Chamfer</strong> — preserve proportion while improving chamfer behavior around complex corners.</li>
+            <li><strong>Smart Corner</strong> — analyze bevel intersections and target cleaner corner topology.</li>
+            <li><strong>Smart Boolean</strong> — boolean workflow with cleanup, normal repair, coplanar detection, cutter management, and live/non-destructive direction.</li>
+            <li><strong>Smart Boolean Cutter</strong> — create and organize cutters from viewport-drawn shapes or selected geometry.</li>
+            <li><strong>Smart Hole Maker</strong> — click a surface to create circular, countersunk, screw, vent, or custom-profile holes.</li>
+            <li><strong>Smart Edge Loop</strong> — find a useful loop path using curvature/topology when a standard loop traversal is insufficient.</li>
+            <li><strong>Smart Loop Redirect</strong> — assist edge-flow direction changes using semi-automatic topology transitions.</li>
+            <li><strong>Smart Pole Manager</strong> — detect 3/5/6+ edge poles and suggest more appropriate positions for subdivision flow.</li>
+          </ol>
+        </details>
+
+        <details class="tool-group">
+          <summary>Mesh Quality, Subdivision, Normals & UV Intelligence — 21 to 35</summary>
+          <ol class="tool-list" start="21">
+            <li><strong>Smart Relax</strong> — relax geometry while preserving boundaries, silhouette, hard edges, UV constraints, and anchor vertices.</li>
+            <li><strong>Smart Smooth</strong> — add topology where curvature indicates it is actually needed.</li>
+            <li><strong>Smart Reduce</strong> — reduce polygons while protecting silhouette, hard edges, UV seams, and important detail.</li>
+            <li><strong>Smart Subdivision Preview</strong> — flag pinching, overly tight support loops, uneven topology, and problematic pole placement.</li>
+            <li><strong>Smart Pinch Detector</strong> — highlight areas likely to create subdivision artifacts.</li>
+            <li><strong>Smart Ngon Inspector</strong> — classify ngons by likely safety, deformation risk, subdivision risk, or shading risk.</li>
+            <li><strong>Smart Triangle Inspector</strong> — identify triangles that may create shading or deformation problems.</li>
+            <li><strong>Smart Normal</strong> — manage hard/soft edges and vertex normals using shape, angle, and curvature context.</li>
+            <li><strong>Smart Hard Edge</strong> — determine hard edges from actual form rather than relying only on a fixed angle threshold.</li>
+            <li><strong>Smart UV Seam</strong> — analyze object shape and suggest likely UV seam placement.</li>
+            <li><strong>Smart UV Straighten</strong> — straighten UV shells while preserving proportions as much as possible.</li>
+            <li><strong>Smart UV Density</strong> — normalize texel density across selected asset regions.</li>
+            <li><strong>Smart Mirror</strong> — detect a likely symmetry plane even when the object is not perfectly centered at world origin.</li>
+            <li><strong>Smart Symmetry Repair</strong> — compare left and right sides and repair vertices that have drifted away from symmetry.</li>
+            <li><strong>Smart Centerline</strong> — detect center vertices and return them accurately to the symmetry axis.</li>
+          </ol>
+        </details>
+
+        <details class="tool-group">
+          <summary>Cleanup, Validation, Deformation & Curve Workflows — 36 to 49</summary>
+          <ol class="tool-list" start="36">
+            <li><strong>Smart Gap Fix</strong> — find small unintended gaps between meshes or border regions that should connect.</li>
+            <li><strong>Smart Intersection Detector</strong> — detect mesh intersections and self-intersections.</li>
+            <li><strong>Smart Floating Geometry</strong> — identify small separated or abandoned pieces of geometry.</li>
+            <li><strong>Smart Duplicate Geometry</strong> — identify coincident faces, vertices, or duplicated overlapping meshes.</li>
+            <li><strong>Smart Scale Checker</strong> — validate asset dimensions against scene units or a production scale policy.</li>
+            <li><strong>Smart Proportion</strong> — help preserve proportions while scaling or reshaping parts of a model.</li>
+            <li><strong>Smart Bend</strong> — bend an object using inferred axis and pivot without repetitive manual deformer setup.</li>
+            <li><strong>Smart Taper</strong> — apply taper with axis and pivot derived from object form.</li>
+            <li><strong>Smart Deform Cage</strong> — generate a simple edit/deformation cage automatically for fast shaping.</li>
+            <li><strong>Smart Curve Extract</strong> — convert selected edges to clean curves with consistent direction and smoothing.</li>
+            <li><strong>Smart Curve Fit</strong> — fit a smoother curve to rough edge flow with a useful CV count.</li>
+            <li><strong>Smart Pipe</strong> — convert curves to pipes with orientation, thickness, caps, UVs, and corner handling.</li>
+            <li><strong>Smart Cable</strong> — create cable systems with sag, twist, connectors, and diameter variation.</li>
+            <li><strong>Smart Trim</strong> — place trim/profile geometry along edges or curves with reduced setup.</li>
+          </ol>
+        </details>
+
+        <details class="tool-group">
+          <summary>Procedural Detail, Export, Naming & Smart Selection — 50 to 60</summary>
+          <ol class="tool-list" start="50">
+            <li><strong>Smart Panel Line</strong> — create surface-following panel lines from selected or drawn paths.</li>
+            <li><strong>Smart Rivet</strong> — distribute rivets or bolts along edges using automatic spacing.</li>
+            <li><strong>Smart Detail Scatter</strong> — scatter small detail using curvature and exclusion rules.</li>
+            <li><strong>Smart Damage</strong> — procedural variation for dents, scratches, chips, and edge wear.</li>
+            <li><strong>Smart LOD Generator</strong> — build multiple levels of detail while prioritizing the primary silhouette.</li>
+            <li><strong>Smart Game Export Prep</strong> — one workflow for cleanup, transforms, pivots, naming, triangulation, UV checks, and export validation.</li>
+            <li><strong>Smart Naming</strong> — infer object type/context and apply naming based on hierarchy or production rules.</li>
+            <li><strong>Smart Selection</strong> — predict likely related components from the user's current selection and topology context.</li>
+            <li><strong>Smart Similar</strong> — find faces, edges, or objects with similar shape, area, scale, or curvature.</li>
+            <li><strong>Smart Pattern Select</strong> — detect repeating selection patterns such as every second edge, every third face, checker, or ring patterns.</li>
+            <li><strong>Smart Modeling Assistant</strong> — inspect current selection and show only context-relevant actions, e.g. two open edge borders → Bridge, Align Borders, Match Vertex Count, Close Gap.</li>
+          </ol>
+        </details>
+
+        <div class="compliance-box">
+          <strong>Product direction:</strong>
+          These concepts are a development roadmap, not a claim that all 60 tools are currently implemented.
+          The toolkit will be developed incrementally after DAB, with priority given to operations that solve clear
+          production pain points and can remain fast, predictable, and native-feeling inside Autodesk Maya.
+        </div>
+      </section>
+
+      <section id="ide">
+        <div class="section-label">Phase 3 — Long-Term Vision</div>
+        <h2>DEEVLA IDE — a development environment that lives inside Autodesk Maya.</h2>
+
+        <p class="lead">
+          DEEVLA's longer-term platform vision is a native-feeling, deeply integrated IDE for Maya tool and pipeline
+          development. Instead of forcing developers and technical artists to choose between Maya's built-in Script Editor
+          and an external IDE that cannot fully understand the live scene, DEEVLA IDE is intended to combine a modern
+          development experience with direct access to Maya's runtime, selection, scene state, commands, callbacks, and APIs.
+        </p>
+
+        <div class="ide-compare">
+          <div class="ide-column">
+            <h3>Maya Script Editor</h3>
+            <p>
+              Excellent for immediate scripting and runtime access, but its role is intentionally lighter than a full
+              modern development environment.
+            </p>
+            <ul>
+              <li>Direct Maya runtime access</li>
+              <li>Fast interactive execution</li>
+              <li>Limited large-project IDE workflow</li>
+            </ul>
+          </div>
+
+          <div class="ide-column">
+            <h3>External IDE</h3>
+            <p>
+              Powerful editing and project tooling, but live Maya context normally requires extra bridges,
+              remote execution, or separate debugging setup.
+            </p>
+            <ul>
+              <li>Strong editing and navigation</li>
+              <li>Good project-scale development</li>
+              <li>Less direct awareness of the active Maya scene</li>
+            </ul>
+          </div>
+
+          <div class="ide-column highlight">
+            <h3>DEEVLA IDE Direction</h3>
+            <p>
+              Bring modern development capabilities into a Maya-integrated workspace so code, runtime state,
+              tool UI, output, diagnostics, and scene context can work together.
+            </p>
+            <ul>
+              <li>Runs docked / integrated inside Maya</li>
+              <li>Direct Python and MEL execution</li>
+              <li>Maya-aware scene and selection intelligence</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Modern Code Editing</h3>
+            <p>
+              High-performance editor direction with syntax handling, multi-document workflows, search/replace,
+              code navigation, command palette, shortcuts, sessions, and project/workspace organization.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Runtime-aware Intelligence</h3>
+            <p>
+              Planned completion, signatures, hover information, diagnostics, navigation, and code actions that can
+              combine static source intelligence with Maya-specific runtime context.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Execution & Output</h3>
+            <p>
+              Direct Python/MEL document and selection execution, integrated output console, traceback/error handling,
+              diagnostics, and faster iteration without constantly moving between Maya and another application.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Maya Context Awareness</h3>
+            <p>
+              The IDE can be designed to understand the active Maya version, scene, selection, host capabilities,
+              commands, and tool context — information an ordinary external text editor does not automatically possess.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Tool & UI Development</h3>
+            <p>
+              Future direction includes reusable DEEVLA UI framework components, integrated tool development,
+              visual Tool Designer concepts, and AI-assisted UI generation for Maya tools.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>AI-native Development Direction</h3>
+            <p>
+              AI assistance is envisioned as part of the development workflow rather than only a chat panel:
+              code/tool generation, diagnostics, contextual suggestions, refactoring support, and Maya-aware assistance
+              can use project and runtime context when appropriate.
+            </p>
+          </article>
+        </div>
+
+        <div class="info-box">
+          <p>
+            <strong>Why build it?</strong>
+            Maya developers frequently move between code editors, Script Editor output, Maya documentation, scene inspection,
+            UI testing, and runtime debugging. A Maya-integrated IDE can reduce this context switching and make the development
+            loop — write → run → inspect → diagnose → refine — significantly more direct.
+          </p>
+        </div>
+
+        <div class="compliance-box">
+          <strong>Long-term status:</strong>
+          DEEVLA IDE is a future platform direction after DAB and the initial tools/plugins roadmap. It is presented here
+          to explain DEEVLA's longer-term Autodesk Maya development strategy, not as a currently released product.
         </div>
       </section>
 
