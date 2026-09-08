@@ -128,6 +128,65 @@
       background: rgba(89,207,255,0.08);
     }
 
+
+    .language-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: auto;
+      margin-right: 14px;
+      padding: 6px 10px;
+      border: 1px solid rgba(89, 207, 255, 0.22);
+      border-radius: 999px;
+      background: rgba(10, 20, 30, 0.62);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      flex: 0 0 auto;
+    }
+
+    .lang-btn {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      padding: 3px 5px;
+      transition: color .18s ease, text-shadow .18s ease;
+    }
+
+    .lang-btn:hover,
+    .lang-btn.active {
+      color: var(--accent);
+      text-shadow: 0 0 16px rgba(89, 207, 255, 0.36);
+    }
+
+    .lang-divider {
+      color: rgba(238,249,245,0.24);
+      font-size: 12px;
+      user-select: none;
+    }
+
+    @media (max-width: 1180px) {
+      .language-switcher {
+        margin-left: auto;
+        margin-right: 8px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .language-switcher {
+        padding: 5px 8px;
+        gap: 4px;
+      }
+      .lang-btn {
+        font-size: 11px;
+      }
+    }
+
     .nav-links {
       display: flex;
       flex-wrap: nowrap;
@@ -1509,6 +1568,12 @@
       <a class="brand" href="#top">DEEVLA</a>
       <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
 
+      <div class="language-switcher" aria-label="Language">
+        <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+        <span class="lang-divider">|</span>
+        <button type="button" class="lang-btn" data-lang="id" aria-pressed="false">ID</button>
+      </div>
+
       <div class="nav-links">
         <a href="#company">Company</a>
         <a href="#team-growth">Team & Growth</a>
@@ -2707,6 +2772,72 @@
   </div>
 
   <script>
+
+    const deevlaTranslations = {"Company": "Perusahaan", "Team & Growth": "Tim & Pertumbuhan", "Features": "Fitur", "Technology": "Teknologi", "Workflow": "Alur Kerja", "Architecture": "Arsitektur", "Roadmap": "Peta Jalan", "Smart Tools": "Smart Tools", "IDE Vision": "Visi IDE", "Why ADN": "Mengapa ADN", "Contact": "Kontak", "Founder": "Pendiri", "Independent DCC Technology Initiative": "Inisiatif Teknologi DCC Independen", "Focused on Autodesk Maya workflows, tools, asset systems, and future developer platforms.": "Berfokus pada workflow Autodesk Maya, tools, sistem aset, dan platform pengembangan masa depan.", "About DEEVLA": "Tentang DEEVLA", "Building workflow technology around real Maya production needs.": "Membangun teknologi workflow berdasarkan kebutuhan produksi Maya yang nyata.", "Explore DAB": "Jelajahi DAB", "Smart Tools Direction": "Arah Smart Tools", "Current Focus": "Fokus Saat Ini", "DEEVLA Asset Browser (DAB) as the first product": "DEEVLA Asset Browser (DAB) sebagai produk pertama", "Autodesk Maya desktop integration": "Integrasi desktop Autodesk Maya", "Production-oriented workflow design": "Desain workflow berorientasi produksi", "Architecture, scalability, and maintainability": "Arsitektur, skalabilitas, dan kemudahan pemeliharaan", "Long-Term Direction": "Arah Jangka Panjang", "Additional Maya tools and plugins": "Tools dan plugin Maya tambahan", "Workflow automation and pipeline utilities": "Otomasi workflow dan utilitas pipeline", "DEEVLA IDE — native-feeling development inside Maya": "DEEVLA IDE — pengalaman pengembangan yang terasa native di dalam Maya", "Company / Initiative": "Perusahaan / Inisiatif", "Independent development, built around real Maya production needs.": "Pengembangan independen yang dibangun berdasarkan kebutuhan produksi Maya yang nyata.", "Active Development": "Pengembangan Aktif", "DAB Early Prototyping": "Prototipe Awal DAB", "Team Size": "Ukuran Tim", "Employees": "Karyawan", "Location": "Lokasi", "Current Status": "Status Saat Ini", "Early-stage R&D": "R&D tahap awal", "Primary Autodesk Product": "Produk Autodesk Utama", "Development Focus": "Fokus Pengembangan", "Desktop Integration": "Integrasi Desktop", "DEEVLA is an independent initiative. No official partnership with Autodesk is claimed.": "DEEVLA adalah inisiatif independen. DEEVLA tidak mengklaim adanya kemitraan resmi dengan Autodesk.", "Team & Growth Direction": "Arah Tim & Pertumbuhan", "Founder-led today, structured to grow responsibly.": "Saat ini dipimpin pendiri, dengan struktur yang disiapkan untuk tumbuh secara bertanggung jawab.", "Current Structure": "Struktur Saat Ini", "Single independent core": "Satu inti pengembangan independen", "Current Team": "Tim Saat Ini", "Founder-led development": "Pengembangan dipimpin pendiri", "Growth Model": "Model Pertumbuhan", "Gradual, product-driven expansion": "Ekspansi bertahap yang didorong kebutuhan produk", "Future Roles": "Peran di Masa Depan", "Long-Term Team Objective": "Tujuan Tim Jangka Panjang", "Growth principle:": "Prinsip pertumbuhan:", "Phase 1 — First Product": "Fase 1 — Produk Pertama", "Core Objective": "Tujuan Utama", "High-performance asset infrastructure": "Infrastruktur aset berperforma tinggi", "Maya Integration": "Integrasi Maya", "Direct workflow connection": "Koneksi workflow langsung", "Artist Experience": "Pengalaman Artist", "Less interruption, more creative focus": "Lebih sedikit gangguan, lebih banyak fokus kreatif", "First Product": "Produk Pertama", "In Development": "Dalam Pengembangan", "Desktop Workflow": "Workflow Desktop", "Phase 1 Capability Direction": "Arah Kapabilitas Fase 1", "Designed to become more than a traditional asset browser.": "Dirancang untuk menjadi lebih dari sekadar asset browser tradisional.", "Asset Library & Indexing": "Asset Library & Indexing", "Search, Filter & Discovery": "Pencarian, Filter & Penemuan", "Asset Management": "Manajemen Aset", "Visual Browsing & Preview": "Penelusuran Visual & Preview", "Autodesk Maya Integration": "Integrasi Autodesk Maya", "Metadata & Production Information": "Metadata & Informasi Produksi", "Dependency Intelligence": "Inteligensi Dependensi", "Duplicate & Library Maintenance": "Duplikasi & Pemeliharaan Library", "Texture, Material & HDRI Workflows": "Workflow Texture, Material & HDRI", "Modern Pipeline Interoperability": "Interoperabilitas Pipeline Modern", "High-Performance Architecture": "Arsitektur Berperforma Tinggi", "Sync, Extensibility & Intelligence": "Sinkronisasi, Ekstensibilitas & Inteligensi", "Local asset library registration": "Registrasi asset library lokal", "Automatic asset discovery": "Penemuan aset otomatis", "Fast and incremental indexing": "Indexing cepat dan incremental", "Folder and collection organization": "Organisasi folder dan koleksi", "Large-library scalability": "Skalabilitas untuk library besar", "SQLite-backed asset index and state": "Index dan state aset berbasis SQLite", "Missing or moved asset detection": "Deteksi aset hilang atau berpindah", "Background scanning and indexing": "Scanning dan indexing di background", "Instant search": "Pencarian instan", "Multi-criteria filtering": "Filter multi-kriteria", "Sorting by asset information": "Pengurutan berdasarkan informasi aset", "Favorites": "Favorit", "Ratings": "Rating", "Collections and recently used assets": "Koleksi dan aset yang baru digunakan", "Future AI-assisted search and classification": "Pencarian dan klasifikasi berbantuan AI di masa depan", "Folder management": "Manajemen folder", "Batch operations": "Operasi batch", "Asset-state tracking": "Pelacakan status aset", "Thumbnail generation": "Pembuatan thumbnail", "Thumbnail cache": "Cache thumbnail", "Large thumbnail libraries": "Library thumbnail berukuran besar", "Preview information": "Informasi preview", "Asset-type visualization": "Visualisasi tipe aset", "Background thumbnail processing": "Pemrosesan thumbnail di background", "Future interactive 3D preview": "Preview 3D interaktif di masa depan", "Direct asset import into Maya": "Import aset langsung ke Maya", "Open asset workflows": "Workflow membuka aset", "Reference asset workflows": "Workflow reference aset", "Maya-aware asset operations": "Operasi aset yang memahami konteks Maya", "Scene-context integration": "Integrasi konteks scene", "Drag-and-drop where appropriate": "Drag-and-drop bila sesuai", "Maya scripting and API integration": "Integrasi scripting dan API Maya", "Direct interaction with the Maya runtime": "Interaksi langsung dengan runtime Maya", "Custom metadata": "Metadata kustom", "Asset type and file information": "Informasi tipe aset dan file", "Creation and modification information": "Informasi pembuatan dan modifikasi", "Production notes": "Catatan produksi", "Technical metadata": "Metadata teknis", "Future extensible metadata providers": "Provider metadata extensible di masa depan", "Dependency viewer direction": "Arah dependency viewer", "Texture and related-file inspection": "Inspeksi texture dan file terkait", "Missing dependency detection": "Deteksi dependensi yang hilang", "Related-file discovery": "Penemuan file terkait", "Future pipeline dependency analysis": "Analisis dependensi pipeline di masa depan", "Duplicate asset detection": "Deteksi aset duplikat", "Library cleanup tools": "Tools pembersihan library", "Missing-file detection": "Deteksi file hilang", "Orphaned metadata handling": "Penanganan metadata orphan", "Asset integrity checks": "Pemeriksaan integritas aset", "Texture-oriented asset browsing": "Penelusuran aset berorientasi texture", "Material organization": "Organisasi material", "HDRI library management": "Manajemen library HDRI", "Future texture/material utilities": "Utilitas texture/material di masa depan", "Batch processing and conversion direction": "Arah pemrosesan batch dan konversi", "OpenUSD-oriented workflows": "Workflow berorientasi OpenUSD", "MaterialX-oriented workflows": "Workflow berorientasi MaterialX", "Extensible import/export architecture": "Arsitektur import/export yang extensible", "Provider-based format support": "Dukungan format berbasis provider", "Modern DCC pipeline interoperability": "Interoperabilitas pipeline DCC modern", "Background processing": "Pemrosesan background", "Job queue / worker system": "Sistem job queue / worker", "Non-blocking UI direction": "Arah UI non-blocking", "Minimal Maya UI and viewport interruption": "Gangguan minimal pada UI dan viewport Maya", "Caching": "Caching", "Incremental indexing": "Indexing incremental", "Efficient persistent database": "Database persisten yang efisien", "Native components only where justified": "Komponen native hanya bila benar-benar diperlukan", "Planned P2P / Hybrid Sync": "Rencana P2P / Hybrid Sync", "Shared-library direction": "Arah shared library", "Modular service/provider contracts": "Kontrak service/provider modular", "Third-party extension direction": "Arah ekstensi pihak ketiga", "AI-assisted tagging and semantic discovery": "Tagging dan penemuan semantik berbantuan AI", "Workflow recommendations": "Rekomendasi workflow", "Technology Stack & Engineering Approach": "Technology Stack & Pendekatan Engineering", "Built as a multi-language, production-oriented Maya product.": "Dibangun sebagai produk Maya multi-language yang berorientasi produksi.", "Role in DAB": "Peran di DAB", "Why it is used": "Alasan digunakan", "Engineering Principles": "Prinsip Engineering", "Layered architecture": "Arsitektur berlapis", "Background-first heavy work": "Pekerjaan berat diprioritaskan berjalan di background", "Native only where needed": "Native hanya ketika diperlukan", "Version-aware Maya integration": "Integrasi Maya yang sadar versi", "Provider / contract architecture": "Arsitektur provider / contract", "Database migrations": "Migrasi database", "Regression testing": "Regression testing", "Error recovery": "Pemulihan error", "Dependency and license review": "Audit dependency dan lisensi", "Performance measurement": "Pengukuran performa", "Commercial distribution readiness": "Kesiapan distribusi komersial", "DAB Workflow": "Workflow DAB", "From asset source to use inside Maya.": "Dari sumber aset hingga digunakan di dalam Maya.", "Asset Library": "Asset Library", "Scan & Index": "Scan & Index", "Metadata / Database / Cache": "Metadata / Database / Cache", "Search / Filter / Browse": "Search / Filter / Browse", "Preview & Inspect": "Preview & Inspect", "Import / Reference / Open / Use": "Import / Reference / Open / Use", "Architecture Overview": "Gambaran Arsitektur", "Current DAB application architecture.": "Arsitektur aplikasi DAB saat ini.", "Future Architecture Direction": "Arah Arsitektur Masa Depan", "A scalable foundation for future DEEVLA products.": "Fondasi yang scalable untuk produk DEEVLA di masa depan.", "Product Roadmap": "Roadmap Produk", "A staged product strategy, beginning with DAB.": "Strategi produk bertahap yang dimulai dari DAB.", "Phase 2 — Smart Modeling Toolkit": "Fase 2 — Smart Modeling Toolkit", "Context-aware modeling tools designed for Maya artists.": "Tools modeling context-aware yang dirancang untuk artist Maya.", "Product direction:": "Arah produk:", "Phase 3 — Long-Term Vision": "Fase 3 — Visi Jangka Panjang", "DEEVLA IDE — a deeply integrated development environment for Maya.": "DEEVLA IDE — lingkungan pengembangan yang terintegrasi secara mendalam dengan Maya.", "Maya Script Editor": "Maya Script Editor", "External IDE": "IDE Eksternal", "DEEVLA IDE Direction": "Arah DEEVLA IDE", "Modern Code Editing": "Modern Code Editing", "Runtime-aware Intelligence": "Inteligensi yang Memahami Runtime", "Execution & Output": "Eksekusi & Output", "Maya Context Awareness": "Pemahaman Konteks Maya", "Tool & UI Development": "Pengembangan Tool & UI", "AI-native Development Direction": "Arah Pengembangan AI-native", "Why build it?": "Mengapa dibangun?", "Long-term status:": "Status jangka panjang:", "Independent Development": "Pengembangan Independen", "Built independently.": "Dikembangkan secara independen.", "Autodesk Platform Services (APS)": "Autodesk Platform Services (APS)", "Current APS status.": "Status APS saat ini.", "DEEVLA is not currently using Autodesk Platform Services (APS) APIs.": "DEEVLA saat ini belum menggunakan API Autodesk Platform Services (APS).", "Why DEEVLA is applying to the Autodesk Developer Network.": "Mengapa DEEVLA mendaftar ke Autodesk Developer Network.", "Development & Testing": "Pengembangan & Pengujian", "Documentation & Guidance": "Dokumentasi & Panduan", "Compatibility Validation": "Validasi Kompatibilitas", "Intended ADN Use:": "Penggunaan ADN yang Dimaksud:", "Founder & Contact": "Pendiri & Kontak", "Founder contact and company correspondence.": "Kontak pendiri dan korespondensi perusahaan.", "Founder — DEEVLA": "Pendiri — DEEVLA", "Email": "Email", "LinkedIn": "LinkedIn", "Phone": "Telepon", "Street Address": "Alamat", "Postal Code": "Kode Pos", "© 2026 DEEVLA. All rights reserved.": "© 2026 DEEVLA. Seluruh hak dilindungi.", "Click outside the image or press Esc to close": "Klik di luar gambar atau tekan Esc untuk menutup", "DEEVLA is an independent DCC technology initiative focused on improving digital content creation workflows. Its first product,": "DEEVLA adalah inisiatif teknologi DCC independen yang berfokus pada peningkatan workflow pembuatan konten digital. Produk pertamanya,", ", is being developed as a high-performance asset and workflow infrastructure for Autodesk Maya. Beyond DAB, DEEVLA's product direction includes artist tools, plugins, workflow automation, and a deeply integrated Maya-native IDE for tool and pipeline development.": ", sedang dikembangkan sebagai infrastruktur aset dan workflow berperforma tinggi untuk Autodesk Maya. Di luar DAB, arah produk DEEVLA mencakup tools untuk artist, plugin, otomasi workflow, serta IDE Maya yang terintegrasi secara mendalam untuk pengembangan tool dan pipeline.", "DEEVLA is currently developed by its founder as an independent project. Certain visual assets, such as selected icons, may receive occasional voluntary creative contributions from external collaborators. These contributors are not employees or members of the DEEVLA development team.": "DEEVLA saat ini dikembangkan oleh pendirinya sebagai proyek independen. Beberapa aset visual, seperti icon tertentu, sesekali dapat memperoleh kontribusi kreatif sukarela dari kolaborator eksternal. Kontributor tersebut bukan karyawan maupun anggota tim pengembangan DEEVLA.", "DEEVLA is currently a founder-led independent development initiative, with Riyadus Solihin serving as its founding developer and the primary person responsible for product direction, research, workflow design, prototyping, development, and validation.": "DEEVLA saat ini merupakan inisiatif pengembangan independen yang dipimpin pendirinya, Riyadus Solihin, yang bertanggung jawab utama atas arah produk, riset, desain workflow, prototyping, pengembangan, dan validasi.", "At this early stage, DEEVLA is intentionally kept small and focused so its core technology, product architecture, engineering standards, and long-term direction can be established carefully before the team expands.": "Pada tahap awal ini, DEEVLA sengaja dijaga tetap kecil dan fokus agar teknologi inti, arsitektur produk, standar engineering, dan arah jangka panjang dapat dibangun dengan matang sebelum tim diperluas.", "Team growth is intended to follow real product and engineering needs rather than expanding prematurely. The goal is to keep development focused, maintainable, and technically disciplined.": "Pertumbuhan tim akan mengikuti kebutuhan nyata produk dan engineering, bukan melakukan ekspansi terlalu dini. Tujuannya adalah menjaga pengembangan tetap fokus, mudah dipelihara, dan disiplin secara teknis.", "As DEEVLA products mature and the development scope grows, the initiative may recruit software developers, technical artists, UI/UX specialists, pipeline engineers, QA/testing specialists, and other professionals whose expertise matches the requirements of future products.": "Seiring produk DEEVLA semakin matang dan cakupan pengembangan bertambah, DEEVLA dapat merekrut software developer, technical artist, spesialis UI/UX, pipeline engineer, spesialis QA/testing, serta profesional lain sesuai kebutuhan produk di masa depan.", "The long-term objective is to build a capable professional development team that can create reliable, production-oriented tools, plugins, workflow technologies, and developer solutions for Autodesk Maya users and modern DCC production workflows.": "Tujuan jangka panjangnya adalah membangun tim pengembangan profesional yang mampu menciptakan tools, plugin, teknologi workflow, dan solusi developer yang andal serta berorientasi produksi untuk pengguna Autodesk Maya dan workflow produksi DCC modern.", "DEEVLA Asset Browser is the first product being developed by DEEVLA for Autodesk Maya. DAB is not intended to be only a thumbnail browser. It is being designed as an asset and workflow layer that helps artists and technical users organize, discover, inspect, manage, and use production assets efficiently while minimizing interruptions to Maya's creative workflow.": "DEEVLA Asset Browser adalah produk pertama yang dikembangkan DEEVLA untuk Autodesk Maya. DAB tidak dirancang hanya sebagai thumbnail browser. DAB dikembangkan sebagai lapisan aset dan workflow yang membantu artist dan pengguna teknis mengatur, menemukan, memeriksa, mengelola, dan menggunakan aset produksi secara efisien sambil meminimalkan gangguan terhadap workflow kreatif Maya.", "DAB targets large asset libraries, fast discovery, persistent metadata, background processing, scalable indexing, and responsive interaction inside a Maya-centered workflow.": "DAB menargetkan library aset berukuran besar, penemuan cepat, metadata persisten, background processing, indexing yang scalable, serta interaksi responsif dalam workflow yang berpusat pada Maya.", "Planned Maya workflows include import, open, reference, scene-context awareness, Maya commands, and supported scripting/API integration.": "Workflow Maya yang direncanakan mencakup import, open, reference, pemahaman konteks scene, command Maya, serta integrasi scripting/API yang didukung.", "Expensive operations such as indexing, thumbnail generation, metadata extraction, and dependency analysis are intended to run through background job systems where appropriate.": "Operasi berat seperti indexing, pembuatan thumbnail, ekstraksi metadata, dan analisis dependensi dirancang untuk berjalan melalui sistem background job bila sesuai.", "The following areas represent the planned capability direction for DAB. Features are being developed incrementally; items listed here describe the product roadmap and technical direction rather than claiming that every capability is already complete.": "Area berikut menggambarkan arah kapabilitas yang direncanakan untuk DAB. Fitur dikembangkan secara bertahap; daftar ini menjelaskan roadmap produk dan arah teknis, bukan klaim bahwa seluruh kapabilitas telah selesai.", "DEEVLA is a fully independent development initiative founded on original ideas, research, and innovation. It is developed independently and is not affiliated with, sponsored by, or created on behalf of any external studio or company.": "DEEVLA adalah inisiatif pengembangan yang sepenuhnya independen, dibangun dari gagasan, riset, dan inovasi orisinal. DEEVLA dikembangkan secara mandiri dan tidak berafiliasi, disponsori, maupun dibuat atas nama studio atau perusahaan eksternal mana pun.", "The current development focus is direct desktop integration with Autodesk Maya. APS may be evaluated in the future only if a specific product requirement benefits from it.": "Fokus pengembangan saat ini adalah integrasi desktop langsung dengan Autodesk Maya. APS dapat dievaluasi di masa depan hanya jika terdapat kebutuhan produk tertentu yang benar-benar memperoleh manfaat darinya.", "DEEVLA is applying to ADN to develop and validate Maya-integrated products in the appropriate Autodesk development environment and to gain access to the technical resources needed to build reliable, maintainable integration with Autodesk Maya.": "DEEVLA mendaftar ke ADN untuk mengembangkan dan memvalidasi produk yang terintegrasi dengan Maya dalam lingkungan pengembangan Autodesk yang sesuai, serta memperoleh akses ke sumber daya teknis yang diperlukan untuk membangun integrasi Autodesk Maya yang andal dan mudah dipelihara.", "Access to the appropriate Autodesk Maya development and testing environment for building and validating DEEVLA products.": "Akses ke lingkungan pengembangan dan pengujian Autodesk Maya yang sesuai untuk membangun dan memvalidasi produk DEEVLA.", "Developer documentation, API guidance, technical resources, and support for Autodesk Maya integration and compatibility.": "Dokumentasi developer, panduan API, sumber daya teknis, serta dukungan untuk integrasi dan kompatibilitas Autodesk Maya.", "Testing DAB and future DEEVLA products across supported Autodesk Maya environments as the product evolves.": "Pengujian DAB dan produk DEEVLA berikutnya pada environment Autodesk Maya yang didukung seiring perkembangan produk.", "Any Autodesk software and support provided through ADN will be used solely for DEEVLA product development, testing, technical validation, demonstration, support, and marketing of products developed by DEEVLA. It will not be used for unrelated production modeling, design, drafting, or work performed for another company.": "Software dan dukungan Autodesk yang diperoleh melalui ADN hanya akan digunakan untuk pengembangan produk DEEVLA, pengujian, validasi teknis, demonstrasi, support, dan pemasaran produk yang dikembangkan DEEVLA. Fasilitas tersebut tidak akan digunakan untuk pekerjaan produksi modeling, design, drafting yang tidak terkait, maupun pekerjaan untuk perusahaan lain.", "DEEVLA is currently founder-led. For development, technical, product, partnership, or business correspondence, please use the contact information below.": "DEEVLA saat ini dipimpin oleh pendirinya. Untuk korespondensi terkait pengembangan, teknis, produk, kemitraan, atau bisnis, silakan gunakan informasi kontak di bawah ini.", "Maya developers frequently move between code editors, Script Editor output, Maya documentation, scene inspection, UI testing, and runtime debugging. A Maya-integrated IDE can reduce this context switching and make the development loop — write → run → inspect → diagnose → refine — significantly more direct.": "Developer Maya sering berpindah antara code editor, output Script Editor, dokumentasi Maya, inspeksi scene, pengujian UI, dan debugging runtime. IDE yang terintegrasi dengan Maya dapat mengurangi perpindahan konteks ini dan membuat siklus pengembangan — write → run → inspect → diagnose → refine — menjadi jauh lebih langsung."};
+    const originalTextNodes = new Map();
+
+    function normalizeI18nText(value) {
+      return value.replace(/\s+/g, ' ').trim();
+    }
+
+    function collectTranslatableTextNodes() {
+      const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT,
+        {
+          acceptNode(node) {
+            const parent = node.parentElement;
+            if (!parent) return NodeFilter.FILTER_REJECT;
+            if (['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+            const normalized = normalizeI18nText(node.nodeValue || '');
+            if (!normalized) return NodeFilter.FILTER_REJECT;
+            if (deevlaTranslations[normalized]) return NodeFilter.FILTER_ACCEPT;
+            return NodeFilter.FILTER_REJECT;
+          }
+        }
+      );
+
+      let node;
+      while ((node = walker.nextNode())) {
+        if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue);
+      }
+    }
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang === 'id' ? 'id' : 'en';
+
+      originalTextNodes.forEach((original, node) => {
+        const normalized = normalizeI18nText(original);
+        if (lang === 'id' && deevlaTranslations[normalized]) {
+          const leading = original.match(/^\s*/)?.[0] || '';
+          const trailing = original.match(/\s*$/)?.[0] || '';
+          node.nodeValue = leading + deevlaTranslations[normalized] + trailing;
+        } else {
+          node.nodeValue = original;
+        }
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const active = btn.dataset.lang === lang;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+
+      try { localStorage.setItem('deevla-language', lang); } catch (e) {}
+    }
+
+    collectTranslatableTextNodes();
+
+    const savedLanguage = (() => {
+      try { return localStorage.getItem('deevla-language'); } catch (e) { return null; }
+    })();
+
+    setLanguage(savedLanguage === 'id' ? 'id' : 'en');
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
