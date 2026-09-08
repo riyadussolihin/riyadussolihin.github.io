@@ -14,9 +14,10 @@
   <style>
     :root {
       --bg: #081018;
+      --bg-deep: #071018;
       --bg-soft: #0c1620;
-      --panel: #101c27;
-      --panel-2: #0d1822;
+      --panel: rgba(16, 28, 39, 0.74);
+      --panel-2: rgba(13, 24, 34, 0.82);
       --line: #213544;
       --text: #eef5f9;
       --muted: #9fb0bd;
@@ -26,7 +27,9 @@
       --good: #88d8bb;
       --warning: #d4c07f;
       --white: #ffffff;
-      --max: 1380px;
+      --nav-bg: #2f3339;
+      --nav-text: #f4f6f7;
+      --max: 1280px;
     }
 
     * {
@@ -42,7 +45,9 @@
       font-family: Inter, "Segoe UI", Arial, Helvetica, sans-serif;
       background:
         radial-gradient(circle at 88% 0%, rgba(49, 165, 220, 0.12), transparent 28%),
-        linear-gradient(180deg, var(--bg) 0%, #071018 100%);
+        linear-gradient(155deg, transparent 0 14%, rgba(89,207,255,0.025) 14% 23%, transparent 23% 100%),
+        linear-gradient(18deg, transparent 0 38%, rgba(89,207,255,0.018) 38% 47%, transparent 47% 100%),
+        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 52%, #09141d 100%);
       color: var(--text);
     }
 
@@ -68,17 +73,20 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 22px;
-      padding: 21px 0;
-      background: transparent;
-      backdrop-filter: none;
-      border-bottom: none;
+      gap: 24px;
+      padding: 18px 26px;
+      margin-top: 0;
+      background: var(--nav-bg);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-radius: 0;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.14);
     }
 
     .brand {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 850;
-      letter-spacing: 1.2px;
+      letter-spacing: 1px;
+      color: var(--nav-text);
     }
 
     .nav-links {
@@ -86,9 +94,9 @@
       flex-wrap: wrap;
       justify-content: flex-end;
       align-items: center;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 14px;
+      gap: 8px;
+      color: var(--nav-text);
+      font-size: 16px;
       font-weight: 650;
     }
 
@@ -97,17 +105,11 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 38px;
-      padding: 9px 13px;
-      border: 1px solid rgba(122, 151, 169, 0.28);
+      min-height: 40px;
+      padding: 9px 14px;
       border-radius: 8px;
-      background: rgba(12, 24, 34, 0.34);
-      color: #aebec9;
-      transition:
-        color 0.15s ease,
-        border-color 0.15s ease,
-        background 0.15s ease,
-        transform 0.15s ease;
+      color: #eef2f3;
+      transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
     }
 
     .nav-links a + a {
@@ -117,18 +119,17 @@
     .nav-links a + a::before {
       content: "";
       position: absolute;
-      left: -10px;
-      top: 8px;
-      bottom: 8px;
+      left: -8px;
+      top: 9px;
+      bottom: 9px;
       width: 1px;
-      background: rgba(105, 139, 158, 0.34);
+      background: rgba(255,255,255,0.14);
       pointer-events: none;
     }
 
     .nav-links a:hover {
-      color: #74ddff;
-      border-color: rgba(89, 207, 255, 0.68);
-      background: rgba(89, 207, 255, 0.10);
+      color: var(--accent);
+      background: rgba(89, 207, 255, 0.06);
       transform: translateY(-1px);
     }
 
@@ -203,6 +204,7 @@
     .button-secondary {
       border: 1px solid #31495b;
       color: #e3edf3;
+      background: rgba(12, 26, 37, 0.42);
     }
 
     section {
@@ -239,6 +241,109 @@
       line-height: 1.6;
     }
 
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 56px;
+      align-items: start;
+      margin-top: 10px;
+    }
+
+    .hero-profile {
+      text-align: center;
+      padding: 18px 8px 0;
+    }
+
+    .hero-avatar {
+      width: 190px;
+      height: 190px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      border: 5px solid rgba(33, 62, 68, 0.85);
+      background: radial-gradient(circle at 38% 28%, #d7f5ff 0%, #69caea 24%, #17485c 64%, #0b2430 100%);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.18);
+    }
+
+    .hero-profile h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      line-height: 1.15;
+    }
+
+    .hero-profile .subtitle {
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .hero-profile .mini {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      margin-top: 6px;
+    }
+
+    .hero-social {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .hero-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      height: 42px;
+      padding: 0 12px;
+      border: 1px solid rgba(238,249,245,0.12);
+      border-radius: 999px;
+      color: var(--text);
+      background: rgba(12, 26, 37, 0.52);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero-social a:hover {
+      color: var(--accent);
+      border-color: rgba(89,207,255,0.48);
+      background: rgba(89,207,255,0.09);
+    }
+
+    .hero-main .section-label {
+      margin-top: 6px;
+    }
+
+    .hero-main h2 {
+      max-width: 940px;
+      margin-top: 0;
+    }
+
+    .two-column-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 36px;
+    }
+
+    .meta-block h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      color: var(--text);
+    }
+
+    .meta-block ul {
+      margin: 0;
+      padding-left: 24px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
     .snapshot {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -255,12 +360,16 @@
     .diagram-card,
     .contact-card {
       border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 18px;
       background: rgba(16, 28, 39, 0.74);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
 
     .snapshot .item {
       padding: 22px;
+      background: rgba(16, 28, 39, 0.68);
+      backdrop-filter: blur(4px);
     }
 
     .snapshot .label {
@@ -392,7 +501,7 @@
     .diagram-card {
       padding: 18px;
       margin-top: 34px;
-      background: #f8fbfd;
+      background: rgba(241, 251, 248, 0.92);
     }
 
     .diagram-card img {
@@ -690,14 +799,39 @@
     }
 
 
+
+    @media (max-width: 1040px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .hero-profile {
+        text-align: left;
+      }
+
+      .hero-avatar {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .hero-social {
+        justify-content: flex-start;
+      }
+
+      .two-column-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 1320px) {
       .nav-links {
-        gap: 8px;
+        gap: 6px;
         font-size: 13px;
       }
 
       .nav-links a {
-        padding: 8px 11px;
+        padding: 8px 10px;
         min-height: 36px;
       }
 
@@ -734,6 +868,10 @@
 
       .nav-links a + a::before {
         display: none;
+      }
+
+      .brand {
+        font-size: 24px;
       }
 
       .workflow {
@@ -844,27 +982,64 @@
 
     <main id="top">
 
+      
       <header class="hero">
-        <div class="eyebrow">Independent DCC Technology Initiative — In Development</div>
+        <div class="hero-layout">
+          <aside class="hero-profile">
+            <div class="hero-avatar" aria-hidden="true"></div>
+            <h3>DEEVLA</h3>
+            <div class="subtitle">Independent DCC Technology Initiative</div>
+            <div class="mini">Focused on Autodesk Maya workflows, tools, asset systems, and future developer platforms.</div>
 
-        <h1>DEEVLA</h1>
+            <div class="hero-social">
+              <a href="#company">Company</a>
+              <a href="#dab">DAB</a>
+              <a href="#contact">Founder</a>
+            </div>
+          </aside>
 
-        <h2>
-          Building high-performance workflow technology for Autodesk Maya artists and technical users.
-        </h2>
+          <div class="hero-main">
+            <div class="section-label">About DEEVLA</div>
 
-        <p>
-          DEEVLA is an independent technology initiative focused on digital content creation workflows.
-          Its first product, DEEVLA Asset Browser (DAB), is being developed as a high-performance asset
-          and workflow infrastructure for Autodesk Maya — with a long-term product direction that also
-          includes artist tools, plugins, workflow automation, and a deeply integrated Maya development environment.
-        </p>
+            <h2>Building workflow technology around real Autodesk Maya production needs.</h2>
 
-        <div class="buttons">
-          <a class="button button-primary" href="#dab">Explore DAB</a>
-          <a class="button button-secondary" href="#architecture">View Architecture</a>
+            <p>
+              DEEVLA is an independent DCC technology initiative focused on improving digital content creation workflows.
+              Its first product, <strong>DEEVLA Asset Browser (DAB)</strong>, is being developed as a high-performance asset
+              and workflow infrastructure for Autodesk Maya. Beyond DAB, DEEVLA's product direction includes artist tools,
+              plugins, workflow automation, and a deeply integrated Maya-native IDE for tool and pipeline development.
+            </p>
+
+            <div class="buttons">
+              <a class="button button-primary" href="#dab">Explore DAB</a>
+              <a class="button button-secondary" href="#smart-modeling">Smart Tools Direction</a>
+            </div>
+
+            <div class="two-column-meta">
+              <div class="meta-block">
+                <h3>Current Focus</h3>
+                <ul>
+                  <li>DEEVLA Asset Browser (DAB) as the first product</li>
+                  <li>Autodesk Maya desktop integration</li>
+                  <li>Production-oriented workflow design</li>
+                  <li>Architecture, scalability, and maintainability</li>
+                </ul>
+              </div>
+
+              <div class="meta-block">
+                <h3>Long-Term Direction</h3>
+                <ul>
+                  <li>DEEVLA Smart Modeling Toolkit</li>
+                  <li>Additional Maya tools and plugins</li>
+                  <li>Workflow automation and pipeline utilities</li>
+                  <li>DEEVLA IDE — native-feeling development inside Maya</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
+
 
       <section id="company">
         <div class="section-label">Company / Initiative</div>
