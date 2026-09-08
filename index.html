@@ -104,8 +104,7 @@
       font-size: 28px;
       font-weight: 850;
       letter-spacing: 1px;
-      color: var(--accent);
-      text-shadow: 0 0 18px rgba(89, 207, 255, 0.18);
+      color: var(--nav-text);
     }
 
     .menu-toggle {
@@ -130,23 +129,9 @@
     }
 
 
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 760px) {
-      .language-switcher {
+    .language-switcher {
       display: inline-flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
       align-items: center;
-      justify-content: center;
       gap: 6px;
       margin-left: auto;
       margin-right: 14px;
@@ -157,17 +142,10 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       flex: 0 0 auto;
-      white-space: nowrap;
-      width: auto;
-      min-width: max-content;
     }
 
     .lang-btn {
       appearance: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex: 0 0 auto;
       border: 0;
       background: transparent;
       color: var(--muted);
@@ -177,7 +155,6 @@
       letter-spacing: 0.08em;
       cursor: pointer;
       padding: 3px 5px;
-      line-height: 1;
       transition: color .18s ease, text-shadow .18s ease;
     }
 
@@ -188,11 +165,8 @@
     }
 
     .lang-divider {
-      display: inline-block;
-      flex: 0 0 auto;
-      color: rgba(238, 249, 245, 0.24);
+      color: rgba(238,249,245,0.24);
       font-size: 12px;
-      line-height: 1;
       user-select: none;
     }
 
@@ -205,14 +179,9 @@
 
     @media (max-width: 560px) {
       .language-switcher {
-        flex-direction: row;
-        flex-wrap: nowrap;
         padding: 5px 8px;
         gap: 4px;
-        width: auto;
-        min-width: max-content;
       }
-
       .lang-btn {
         font-size: 11px;
       }
@@ -2835,8 +2804,7 @@
     }
 
     function setLanguage(lang) {
-      lang = lang === 'id' ? 'id' : 'en';
-      document.documentElement.lang = lang;
+      document.documentElement.lang = lang === 'id' ? 'id' : 'en';
 
       originalTextNodes.forEach((original, node) => {
         const normalized = normalizeI18nText(original);
