@@ -571,6 +571,107 @@
       pointer-events: none;
     }
 
+
+    .workflow-detail-title {
+      margin: 34px 0 14px;
+      color: #e9f6fb;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .workflow-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .workflow-detail-card {
+      position: relative;
+      padding: 22px 22px 22px 72px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(16, 28, 39, 0.72);
+      min-height: 132px;
+    }
+
+    .workflow-detail-number {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(89, 207, 255, 0.35);
+      border-radius: 10px;
+      background: rgba(89, 207, 255, 0.10);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .workflow-detail-card h3 {
+      margin: 0 0 8px;
+      color: #f2fbff;
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .workflow-detail-card p {
+      margin: 0;
+      color: #98aab7;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .workflow-lanes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .workflow-lane {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(12, 24, 34, 0.62);
+    }
+
+    .workflow-lane strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .workflow-lane p {
+      margin: 0;
+      color: #98aab7;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 900px) {
+      .workflow-detail-grid,
+      .workflow-lanes {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .workflow-detail-card {
+        padding: 66px 18px 18px;
+      }
+
+      .workflow-detail-number {
+        top: 16px;
+        left: 18px;
+      }
+    }
+
     .background-jobs {
       margin-top: 18px;
       padding: 20px 22px;
@@ -2123,28 +2224,134 @@
 
       <section id="workflow">
         <div class="section-label">DAB Workflow</div>
-        <h2>How DAB is intended to work with Autodesk Maya.</h2>
+        <h2>From asset source to Maya scene — with indexing, metadata, cache, and validation handled behind the scenes.</h2>
 
         <p class="lead">
-          DAB is designed around a simple artist-facing flow while handling indexing, metadata,
-          caching, and analysis behind the scenes.
+          DAB is intended to provide a simple artist-facing workflow while a structured data and background-processing
+          layer keeps the asset library searchable, current, and ready for Maya. The workflow below represents the
+          planned product direction and does not imply that every capability is already complete.
         </p>
 
         <div class="workflow">
-          <div class="workflow-step">Asset Library</div>
-          <div class="workflow-step">Scan & Index</div>
-          <div class="workflow-step">Metadata / Database / Cache</div>
-          <div class="workflow-step">Search / Filter / Browse</div>
-          <div class="workflow-step">Preview & Inspect</div>
-          <div class="workflow-step">Maya Integration</div>
-          <div class="workflow-step">Import / Reference / Open / Use</div>
+          <div class="workflow-step">Register Library</div>
+          <div class="workflow-step">Discover & Scan</div>
+          <div class="workflow-step">Index & Persist</div>
+          <div class="workflow-step">Enrich & Cache</div>
+          <div class="workflow-step">Search & Browse</div>
+          <div class="workflow-step">Inspect & Validate</div>
+          <div class="workflow-step">Use in Maya</div>
+        </div>
+
+        <h3 class="workflow-detail-title">Detailed Asset Flow</h3>
+
+        <div class="workflow-detail-grid">
+          <article class="workflow-detail-card">
+            <span class="workflow-detail-number">01</span>
+            <h3>Register Asset Sources</h3>
+            <p>
+              The user adds one or more local or supported shared asset locations. DAB records the library configuration,
+              root paths, availability, and basic source state without changing the original production files.
+            </p>
+          </article>
+
+          <article class="workflow-detail-card">
+            <span class="workflow-detail-number">02</span>
+            <h3>Discover & Incrementally Scan</h3>
+            <p>
+              DAB discovers supported files and folders, detects new, changed, moved, or missing items, and avoids a full
+              rescan when only part of the library has changed.
+            </p>
+          </article>
+
+          <article class="workflow-detail-card">
+            <span class="workflow-detail-number">03</span>
+            <h3>Build the Searchable Index</h3>
+            <p>
+              Asset identity, path information, type, timestamps, library relationship, and other core state are written
+              into the local persistent index so assets can be found without repeatedly walking the file system.
+            </p>
+          </article>
+
+          <article class="workflow-detail-card">
+            <span class="workflow-detail-number">04</span>
+            <h3>Extract Metadata & Build Cache</h3>
+            <p>
+              Suitable background jobs can generate thumbnails, extract metadata, update cache entries, inspect related
+              files, and prepare additional information without unnecessarily blocking Maya's main UI thread.
+            </p>
+          </article>
+
+          <article class="workflow-detail-card">
+            <span class="workflow-detail-number">05</span>
+            <h3>Search, Filter & Organize</h3>
+            <p>
+              Artists browse visually or narrow large libraries using search, filters, sorting, tags, favorites, ratings,
+              collections, and other discovery tools planned for the DAB library experience.
+            </p>
+          </article>
+
+          <article class="workflow-detail-card">
+            <span class="workflow-detail-number">06</span>
+            <h3>Preview, Inspect & Validate</h3>
+            <p>
+              Before use, the artist can inspect asset information, preview data, technical metadata, availability,
+              dependency status, and other relevant warnings or context where supported.
+            </p>
+          </article>
+
+          <article class="workflow-detail-card">
+            <span class="workflow-detail-number">07</span>
+            <h3>Choose a Maya-Aware Action</h3>
+            <p>
+              DAB determines the appropriate supported workflow for the selected asset and Maya context, such as Import,
+              Reference, Open, or another registered action exposed through the Maya integration layer.
+            </p>
+          </article>
+
+          <article class="workflow-detail-card">
+            <span class="workflow-detail-number">08</span>
+            <h3>Execute in Maya & Reconcile State</h3>
+            <p>
+              The selected operation is executed through supported Maya scripting/API mechanisms. DAB can then refresh
+              relevant usage, recent-item, library, or asset state so the browser remains synchronized with the workflow.
+            </p>
+          </article>
+        </div>
+
+        <h3 class="workflow-detail-title">Three Layers Working Together</h3>
+
+        <div class="workflow-lanes">
+          <div class="workflow-lane">
+            <strong>Artist-Facing Layer</strong>
+            <p>
+              Browse → Search → Filter → Preview → Inspect → choose an action. The goal is to keep everyday interaction
+              direct and understandable rather than exposing internal indexing complexity to the artist.
+            </p>
+          </div>
+
+          <div class="workflow-lane">
+            <strong>Background Data Layer</strong>
+            <p>
+              Scan → incremental index → metadata → thumbnails → cache → dependency/duplicate analysis. Suitable heavy
+              operations are intended to run through queued background work while preserving Maya responsiveness.
+            </p>
+          </div>
+
+          <div class="workflow-lane">
+            <strong>Maya Integration Layer</strong>
+            <p>
+              Scene context → host capability checks → supported Maya command/API action → import/reference/open →
+              state reconciliation. Maya remains the primary DCC host rather than being treated as only a file destination.
+            </p>
+          </div>
         </div>
 
         <div class="background-jobs">
           <strong>Background Processing Direction:</strong>
           indexing, thumbnail generation, metadata extraction, dependency analysis, duplicate detection,
-          cache updates, and batch processing are planned to use background job systems where appropriate
-          to reduce blocking of Maya's UI and viewport.
+          cache updates, and suitable batch processing are planned to use background job systems where appropriate
+          to minimize blocking of Maya's UI and viewport. Operations that must interact with Maya's main thread will
+          remain isolated through the host integration layer rather than being executed unsafely from workers.
         </div>
       </section>
 
