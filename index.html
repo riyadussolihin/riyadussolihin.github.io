@@ -2960,11 +2960,11 @@
       max-width: 1080px;
       color: #aebdca;
       font-size: 16px;
-      line-height: 1.85;
+      line-height: 1.72;
     }
 
     #vision-2030-plus .vision-body p {
-      margin: 0 0 18px;
+      margin: 0 0 12px;
     }
 
     #vision-2030-plus .vision-body strong {
@@ -3597,41 +3597,30 @@
 
       <section id="vision-2030-plus">
         <div class="section-label">DEEVLA Vision 2030+</div>
+        <h2>Era Baru Produksi 3D Cerdas</h2>
 
-        <h2>The Next Era of Intelligent 3D Production</h2>
-
-        <h3 class="vision-question">Will what I am building today feel obsolete as AI advances so quickly?</h3>
-        <h3 class="vision-question">Will an Asset Browser still be relevant a few years from now?</h3>
+        <h3 class="vision-question">Akankah yang saya buat hari ini terasa usang seiring pesatnya kemajuan AI?</h3>
+        <h3 class="vision-question">Apakah Asset Browser akan tetap relevan beberapa tahun mendatang?</h3>
 
         <div class="vision-body">
           <p>
-            At first glance, it may sound simple: just a tool for storing, searching, and managing assets.
-            But I see it from a different perspective.
-          </p>
-
-          <p>
-            I understand that much of today's AI-generated 3D output is not yet truly <strong>production-ready</strong>.
-            Generating a shape quickly is one thing; creating an asset that can genuinely enter a production pipeline is another.
+            At first glance, it may sound simple: just a tool for storing, searching, and managing assets. But I see it from a different perspective.
+            I understand that much of today's AI-generated 3D output is not yet truly production-ready. Generating a shape quickly is one thing;
+            creating an asset that can genuinely enter a production pipeline is another.
           </p>
 
           <p>
             Production assets need to be inspectable, repairable, editable, extensible, and able to continue through an artist-driven workflow.
+            I find the direction of technologies such as Flow Studio, and the technology that evolved from Wonder Studio, especially interesting
+            because the result should not stop at something that only looks good. There is a real need for output to remain riggable, editable,
+            retexturable, animatable, and usable in a real production workflow.
           </p>
 
           <p>
-            I find the direction of technologies such as <strong>Flow Studio</strong>, and the technology that evolved from
-            <strong>Wonder Studio</strong>, especially interesting because the result should not stop at something that only looks good.
-            There is a real need for output to remain <strong>riggable, editable, retexturable, animatable</strong>, and usable in a real production workflow.
+            From what I have studied, I also see Autodesk placing strong emphasis on quality, interoperability, editability, and production-readiness,
+            rather than focusing only on the ability to generate something automatically.
           </p>
-
-          <p>
-            From what I have studied, I also see Autodesk placing strong emphasis on <strong>quality, interoperability, editability,
-            and production-readiness</strong>, rather than focusing only on the ability to generate something automatically.
-          </p>
-
-          <p>That is the part I consider especially important.</p>
-
-          <div class="vision-quote">
+<div class="vision-quote">
             AI should not only be able to say: <strong>“Here is the 3D model I generated.”</strong><br><br>
             It should be able to go further: <strong>“Here is the asset I created. Its topology has been checked, its materials remain editable,
             it can be animated, its structure follows the pipeline, and it is ready for an artist to continue working with.”</strong>
@@ -5155,6 +5144,9 @@
 
       if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         applyPausedState(true);
+      } else {
+        if (typeof svg.setCurrentTime === 'function') svg.setCurrentTime(0);
+        applyPausedState(false);
       }
     })();
 
