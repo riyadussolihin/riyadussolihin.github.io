@@ -2555,6 +2555,158 @@
       }
     }
 
+
+
+    /* =========================================================
+       V35 — PHASE ROADMAP TIMELINE STYLE
+       ========================================================= */
+    .phase-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 34px;
+    }
+
+    .phase-step {
+      position: relative;
+      display: block;
+      padding: 2px 0 28px 54px;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      overflow: visible;
+    }
+
+    .phase-step:last-child {
+      padding-bottom: 0;
+    }
+
+    .phase-step::after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 33px;
+      bottom: -2px;
+      border-left: 2px dotted rgba(215, 225, 233, 0.48);
+    }
+
+    .phase-step:last-child::after {
+      display: none;
+    }
+
+    .phase-step-marker {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1.5px solid rgba(236, 242, 247, 0.78);
+      background: rgba(255,255,255,0.02);
+      color: #f4f8fb;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.03);
+    }
+
+    .phase-step-content {
+      padding-top: 1px;
+      max-width: 980px;
+    }
+
+    .phase-step-phase {
+      margin-bottom: 9px;
+      color: rgba(218, 228, 236, 0.92);
+      font-size: 14px;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .phase-step h3 {
+      margin: 0 0 10px;
+      color: #f7fbff;
+      font-size: 33px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    .phase-step-subtitle {
+      margin-bottom: 14px;
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .phase-step p {
+      margin: 0;
+      color: #c4d1da;
+      font-size: 18px;
+      line-height: 1.72;
+      max-width: 1000px;
+    }
+
+    @media (max-width: 760px) {
+      .phase-timeline {
+        margin-top: 24px;
+      }
+
+      .phase-step {
+        padding-left: 46px;
+        padding-bottom: 24px;
+      }
+
+      .phase-step::after {
+        left: 12px;
+        top: 30px;
+      }
+
+      .phase-step-marker {
+        width: 26px;
+        height: 26px;
+        font-size: 13px;
+      }
+
+      .phase-step-phase {
+        margin-bottom: 7px;
+        font-size: 13px;
+      }
+
+      .phase-step h3 {
+        margin-bottom: 8px;
+        font-size: 23px;
+        line-height: 1.18;
+      }
+
+      .phase-step-subtitle {
+        margin-bottom: 10px;
+        font-size: 12.5px;
+        letter-spacing: .09em;
+      }
+
+      .phase-step p {
+        font-size: 15.5px;
+        line-height: 1.72;
+      }
+    }
+
+    @media (min-width: 761px) and (max-width: 1024px) {
+      .phase-step h3 {
+        font-size: 28px;
+      }
+
+      .phase-step p {
+        font-size: 16.5px;
+      }
+    }
+
   </style>
 </head>
 
@@ -3375,22 +3527,27 @@
         <div class="section-label">DEEVLA Product Roadmap</div>
         <h2>DAB first. Tools and plugins next. DEEVLA IDE as the long-term platform vision.</h2>
 
-        <div class="timeline">
-          <div class="phase">
-            <div class="phase-number">PHASE 1</div>
-            <div>
+        <div class="timeline phase-timeline">
+          <article class="phase-step">
+            <div class="phase-step-marker">1</div>
+            <div class="phase-step-content">
+              <div class="phase-step-phase">Phase 1</div>
               <h3>DEEVLA Asset Browser (DAB)</h3>
+              <div class="phase-step-subtitle">Current Product</div>
               <p>
                 The first product and current primary development focus.
-                A high-performance asset and workflow infrastructure designed around Autodesk Maya.
+                DAB is planned as a high-performance asset and workflow infrastructure for Autodesk Maya,
+                helping users discover, inspect, manage, and use production assets with less interruption.
               </p>
             </div>
-          </div>
+          </article>
 
-          <div class="phase">
-            <div class="phase-number">PHASE 2</div>
-            <div>
+          <article class="phase-step">
+            <div class="phase-step-marker">2</div>
+            <div class="phase-step-content">
+              <div class="phase-step-phase">Phase 2</div>
               <h3>DEEVLA Tools & Plugins</h3>
+              <div class="phase-step-subtitle">Focused Expansion</div>
               <p>
                 After DAB, DEEVLA plans to develop additional artist productivity tools,
                 workflow automation, pipeline utilities, specialized plugins, and technical workflow solutions
@@ -3399,12 +3556,14 @@
                 validation, and artist intent.
               </p>
             </div>
-          </div>
+          </article>
 
-          <div class="phase">
-            <div class="phase-number">PHASE 3</div>
-            <div>
+          <article class="phase-step">
+            <div class="phase-step-marker">3</div>
+            <div class="phase-step-content">
+              <div class="phase-step-phase">Phase 3</div>
               <h3>DEEVLA IDE</h3>
+              <div class="phase-step-subtitle">Long-Term Vision</div>
               <p>
                 Long-term vision: a native-feeling, deeply integrated development environment for Autodesk Maya,
                 designed for building, running, testing, debugging, diagnosing, and managing Maya tools and workflows
@@ -3412,7 +3571,7 @@
                 runtime context, and future AI-assisted development capabilities.
               </p>
             </div>
-          </div>
+          </article>
         </div>
 
         <div class="diagram-card">
