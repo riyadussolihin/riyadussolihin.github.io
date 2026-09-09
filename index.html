@@ -2941,6 +2941,240 @@
       }
     }
 
+  
+
+    /* =========================================================
+       V40 — VISION 2030+ / ANIMATED PRODUCTION ORCHESTRATION FLOW
+       ========================================================= */
+
+    #vision-2030-plus .vision-question {
+      margin: 0 0 14px;
+      font-size: clamp(24px, 2.1vw, 34px);
+      line-height: 1.28;
+      font-weight: 780;
+      color: #f4fbff;
+      letter-spacing: -0.02em;
+    }
+
+    #vision-2030-plus .vision-body {
+      max-width: 1080px;
+      color: #aebdca;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    #vision-2030-plus .vision-body p {
+      margin: 0 0 18px;
+    }
+
+    #vision-2030-plus .vision-body strong {
+      color: #edf8ff;
+    }
+
+    #vision-2030-plus .vision-quote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 14px 14px 0;
+      background: rgba(89, 207, 255, 0.07);
+      color: #eaf7ff;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    #vision-2030-plus .vision-subhead {
+      margin: 34px 0 16px;
+      color: #f5fbff;
+      font-size: clamp(22px, 1.8vw, 30px);
+      line-height: 1.3;
+    }
+
+    #vision-2030-plus .vision-flow-shell {
+      margin: 28px 0 34px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(7, 18, 29, 0.82);
+      overflow: hidden;
+    }
+
+    #vision-2030-plus .vision-flow-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    #vision-2030-plus .vision-flow-btn {
+      min-width: 92px;
+      min-height: 42px;
+      padding: 9px 16px;
+      border: 1px solid #2b465a;
+      border-radius: 10px;
+      background: #142534;
+      color: #edf8ff;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 760;
+      cursor: pointer;
+      transition: border-color .18s ease, background .18s ease, transform .18s ease;
+    }
+
+    #vision-2030-plus .vision-flow-btn:hover {
+      border-color: rgba(89, 207, 255, .65);
+      background: #183044;
+    }
+
+    #vision-2030-plus .vision-flow-btn:active {
+      transform: translateY(1px);
+    }
+
+    #vision-2030-plus .vision-flow-note {
+      color: #7891a3;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    #vision-2030-plus .vision-flow-viewport {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 2px 0 8px;
+      scrollbar-width: thin;
+    }
+
+    #vision-2030-plus .vision-flow-svg {
+      display: block;
+      width: 100%;
+      min-width: 900px;
+      height: auto;
+    }
+
+    #vision-2030-plus .vf-box {
+      fill: #17222c;
+      stroke: #314657;
+      stroke-width: 1.5;
+    }
+
+    #vision-2030-plus .vf-hub {
+      fill: #111c25;
+      stroke: #42d56e;
+      stroke-width: 2.4;
+    }
+
+    #vision-2030-plus .vf-decision {
+      fill: #17222c;
+      stroke: #e0b633;
+      stroke-width: 2;
+    }
+
+    #vision-2030-plus .vf-line {
+      fill: none;
+      stroke: #b9c4cc;
+      stroke-width: 2;
+    }
+
+    #vision-2030-plus .vf-yes {
+      fill: none;
+      stroke: #ef6b2e;
+      stroke-width: 2.2;
+    }
+
+    #vision-2030-plus .vf-no {
+      fill: none;
+      stroke: #8755e8;
+      stroke-width: 2.2;
+    }
+
+    #vision-2030-plus .vf-feedback {
+      fill: none;
+      stroke: #d8a811;
+      stroke-width: 2;
+      stroke-dasharray: 7 6;
+    }
+
+    #vision-2030-plus .vf-title {
+      fill: #f5fbff;
+      font-weight: 760;
+    }
+
+    #vision-2030-plus .vf-muted {
+      fill: #aebdca;
+    }
+
+    #vision-2030-plus .vf-pulse {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: vfNodePulse 2.6s ease-in-out infinite;
+    }
+
+    #vision-2030-plus .vf-pulse.vf-delay-1 { animation-delay: .6s; }
+    #vision-2030-plus .vf-pulse.vf-delay-2 { animation-delay: 1.2s; }
+    #vision-2030-plus .vf-pulse.vf-delay-3 { animation-delay: 1.8s; }
+
+    #vision-2030-plus .vf-dot { fill: #59cfff; }
+    #vision-2030-plus .vf-dot-yes { fill: #ef6b2e; }
+    #vision-2030-plus .vf-dot-no { fill: #8755e8; }
+    #vision-2030-plus .vf-dot-feedback { fill: #e0b633; }
+
+    #vision-2030-plus.vf-paused .vf-pulse {
+      animation-play-state: paused !important;
+    }
+
+    #vision-2030-plus .vision-evolution {
+      margin-top: 30px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(16, 28, 39, 0.72);
+    }
+
+    #vision-2030-plus .vision-evolution-track {
+      display: flex;
+      align-items: stretch;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 0 8px;
+    }
+
+    #vision-2030-plus .vision-evolution-step {
+      flex: 1 0 145px;
+      min-width: 145px;
+      padding: 14px 12px;
+      border: 1px solid #2a4151;
+      border-radius: 12px;
+      background: #101d28;
+      color: #eaf6fc;
+      font-size: 13px;
+      font-weight: 720;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    #vision-2030-plus .vision-evolution-arrow {
+      flex: 0 0 auto;
+      align-self: center;
+      color: var(--accent);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    @keyframes vfNodePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .72; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #vision-2030-plus .vf-pulse { animation: none; }
+    }
+
+    @media (max-width: 760px) {
+      #vision-2030-plus .vision-flow-shell { padding: 14px; }
+      #vision-2030-plus .vision-flow-controls { align-items: flex-start; }
+      #vision-2030-plus .vision-flow-note { flex-basis: 100%; }
+      #vision-2030-plus .vision-body { font-size: 15px; }
+    }
+
   </style>
 </head>
 
@@ -2960,8 +3194,8 @@
         <a href="#workflow">Workflow</a>
         <a href="#architecture">Architecture</a>
         <a href="#roadmap">Roadmap</a>
+        <a href="#vision-2030-plus">Vision 2030+</a>
         <a href="#smart-modeling">Smart Tools</a>
-        <a href="#ide">IDE Vision</a>
         <a href="#adn">Why ADN</a>
         <a href="#contact">Contact</a>
       </div>
@@ -3000,7 +3234,7 @@
               DEEVLA is an independent DCC technology initiative focused on improving digital content creation workflows.
               Its first product, <strong>DEEVLA Asset Browser (DAB)</strong>, is being developed as a high-performance asset
               and workflow infrastructure for Autodesk Maya. Beyond DAB, DEEVLA's product direction includes artist tools,
-              plugins, workflow automation, and a deeply integrated Maya-native IDE for tool and pipeline development.
+              plugins, workflow automation, production intelligence, and longer-term orchestration concepts for Maya-centered 3D workflows.
             </p>
 
             <div class="buttons">
@@ -3024,7 +3258,7 @@
                   <li>DEEVLA Smart Modeling Toolkit</li>
                   <li>Additional Maya tools and plugins</li>
                   <li>Workflow automation and pipeline utilities</li>
-                  <li>DEEVLA IDE — native-feeling development inside Maya</li>
+                  <li>Long-term production intelligence and orchestration direction</li>
                 </ul>
               </div>
             </div>
@@ -3356,6 +3590,269 @@
           <strong>Ongoing product direction:</strong>
           Beyond the screenshots shown here, DAB is expected to continue evolving with additional artist-support features such as richer previews,
           deeper metadata intelligence, more robust validation, improved asset-state handling, and other workflow helpers that can further reduce repetitive work inside Maya.
+        </div>
+      </section>
+
+
+
+      <section id="vision-2030-plus">
+        <div class="section-label">DEEVLA Vision 2030+</div>
+
+        <h2>The Next Era of Intelligent 3D Production</h2>
+
+        <h3 class="vision-question">Will what I am building today feel obsolete as AI advances so quickly?</h3>
+        <h3 class="vision-question">Will an Asset Browser still be relevant a few years from now?</h3>
+
+        <div class="vision-body">
+          <p>
+            At first glance, it may sound simple: just a tool for storing, searching, and managing assets.
+            But I see it from a different perspective.
+          </p>
+
+          <p>
+            I understand that much of today's AI-generated 3D output is not yet truly <strong>production-ready</strong>.
+            Generating a shape quickly is one thing; creating an asset that can genuinely enter a production pipeline is another.
+          </p>
+
+          <p>
+            Production assets need to be inspectable, repairable, editable, extensible, and able to continue through an artist-driven workflow.
+          </p>
+
+          <p>
+            I find the direction of technologies such as <strong>Flow Studio</strong>, and the technology that evolved from
+            <strong>Wonder Studio</strong>, especially interesting because the result should not stop at something that only looks good.
+            There is a real need for output to remain <strong>riggable, editable, retexturable, animatable</strong>, and usable in a real production workflow.
+          </p>
+
+          <p>
+            From what I have studied, I also see Autodesk placing strong emphasis on <strong>quality, interoperability, editability,
+            and production-readiness</strong>, rather than focusing only on the ability to generate something automatically.
+          </p>
+
+          <p>That is the part I consider especially important.</p>
+
+          <div class="vision-quote">
+            AI should not only be able to say: <strong>“Here is the 3D model I generated.”</strong><br><br>
+            It should be able to go further: <strong>“Here is the asset I created. Its topology has been checked, its materials remain editable,
+            it can be animated, its structure follows the pipeline, and it is ready for an artist to continue working with.”</strong>
+          </div>
+
+          <h3 class="vision-subhead">Envision the next era of 3D production.</h3>
+
+          <div class="vision-quote">
+            “DEEVLA, create a sci-fi hangar environment based on this reference. Use assets that already exist in my DEEVLA Asset Browser library
+            and are clean and production-ready. Reuse what I already own. Create what is missing, then optimize everything for production.”
+          </div>
+
+          <p><strong>DEEVLA then becomes the production orchestrator:</strong></p>
+        </div>
+
+        <div class="vision-flow-shell">
+          <div class="vision-flow-controls">
+            <button type="button" class="vision-flow-btn" id="visionFlowPlay">Pause</button>
+            <button type="button" class="vision-flow-btn" id="visionFlowRestart">Restart</button>
+            <span class="vision-flow-note">Animated logic: intent → orchestration → asset decision → production gate → validation loop.</span>
+          </div>
+
+          <div class="vision-flow-viewport">
+            <svg class="vision-flow-svg" id="visionFlowSvg" viewBox="0 0 1000 590" role="img" aria-label="Animated DEEVLA production orchestration workflow">
+              <defs>
+                <marker id="vfArrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#b9c4cc"/></marker>
+                <marker id="vfArrowYes" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#ef6b2e"/></marker>
+                <marker id="vfArrowNo" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#8755e8"/></marker>
+                <marker id="vfArrowFeedback" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#e0b633"/></marker>
+              </defs>
+
+              <g class="vf-pulse">
+                <rect class="vf-box" x="16" y="212" width="168" height="120" rx="17"/>
+                <text class="vf-title" x="100" y="244" text-anchor="middle" font-size="15">ARTIST INTENT</text>
+                <text class="vf-muted" x="100" y="270" text-anchor="middle" font-size="11">Brief + Reference</text>
+                <text class="vf-muted" x="100" y="290" text-anchor="middle" font-size="11">Production Target</text>
+                <text class="vf-muted" x="100" y="310" text-anchor="middle" font-size="11">Constraints</text>
+              </g>
+
+              <g class="vf-pulse vf-delay-1">
+                <circle class="vf-hub" cx="390" cy="272" r="105"/>
+                <circle cx="390" cy="272" r="81" fill="none" stroke="#314657"/>
+                <text class="vf-title" x="390" y="250" text-anchor="middle" font-size="19">DEEVLA</text>
+                <text x="390" y="275" text-anchor="middle" font-size="13" font-weight="800" fill="#42d56e">PRODUCTION ORCHESTRATOR</text>
+                <text class="vf-muted" x="390" y="305" text-anchor="middle" font-size="11">Understand • Plan</text>
+                <text class="vf-muted" x="390" y="325" text-anchor="middle" font-size="11">Decide • Coordinate</text>
+              </g>
+
+              <g class="vf-pulse vf-delay-2">
+                <rect class="vf-box" x="302" y="28" width="205" height="72" rx="16"/>
+                <text class="vf-title" x="404" y="57" text-anchor="middle" font-size="14">SCENE UNDERSTANDING</text>
+                <text class="vf-muted" x="404" y="80" text-anchor="middle" font-size="11">Context • Hierarchy • Dependencies</text>
+              </g>
+
+              <g class="vf-pulse vf-delay-2">
+                <rect class="vf-box" x="236" y="445" width="204" height="78" rx="16"/>
+                <text class="vf-title" x="338" y="475" text-anchor="middle" font-size="14">DAB ASSET MEMORY</text>
+                <text class="vf-muted" x="338" y="498" text-anchor="middle" font-size="11">Existing • Validated • Reusable</text>
+              </g>
+
+              <g class="vf-pulse vf-delay-2">
+                <rect class="vf-box" x="454" y="445" width="204" height="78" rx="16"/>
+                <text class="vf-title" x="556" y="475" text-anchor="middle" font-size="14">SMART TOOLS + AI</text>
+                <text class="vf-muted" x="556" y="498" text-anchor="middle" font-size="11">Generate • Model • Refine</text>
+              </g>
+
+              <g class="vf-pulse vf-delay-3">
+                <polygon class="vf-decision" points="650,221 704,272 650,323 596,272"/>
+                <text class="vf-title" x="650" y="266" text-anchor="middle" font-size="12">ASSET</text>
+                <text class="vf-title" x="650" y="284" text-anchor="middle" font-size="12">READY?</text>
+              </g>
+
+              <g class="vf-pulse vf-delay-3">
+                <rect class="vf-box" x="770" y="92" width="190" height="80" rx="16"/>
+                <text class="vf-title" x="865" y="122" text-anchor="middle" font-size="14">REUSE + VALIDATE</text>
+                <text class="vf-muted" x="865" y="146" text-anchor="middle" font-size="11">Use clean existing asset</text>
+              </g>
+
+              <g class="vf-pulse vf-delay-3">
+                <rect class="vf-box" x="770" y="375" width="190" height="90" rx="16"/>
+                <text class="vf-title" x="865" y="405" text-anchor="middle" font-size="14">CREATE / REFINE</text>
+                <text class="vf-muted" x="865" y="429" text-anchor="middle" font-size="11">Model • Topology • UV</text>
+                <text class="vf-muted" x="865" y="449" text-anchor="middle" font-size="11">Material • Optimization</text>
+              </g>
+
+              <g class="vf-pulse vf-delay-3">
+                <rect class="vf-box" x="770" y="212" width="190" height="120" rx="16"/>
+                <text class="vf-title" x="865" y="242" text-anchor="middle" font-size="14">PRODUCTION GATE</text>
+                <text class="vf-muted" x="865" y="267" text-anchor="middle" font-size="11">LOD + Collision</text>
+                <text class="vf-muted" x="865" y="287" text-anchor="middle" font-size="11">Naming + Hierarchy</text>
+                <text class="vf-muted" x="865" y="307" text-anchor="middle" font-size="11">USD + Quality Validation</text>
+              </g>
+
+              <path id="vfIntentPath" class="vf-line" d="M184 272 H281" marker-end="url(#vfArrow)"/>
+              <path id="vfScenePath" class="vf-line" d="M404 100 V161" marker-end="url(#vfArrow)"/>
+              <path id="vfDabPath" class="vf-line" d="M338 445 L355 377" marker-end="url(#vfArrow)"/>
+              <path id="vfToolsPath" class="vf-line" d="M556 445 L458 373" marker-end="url(#vfArrow)"/>
+              <path id="vfDecisionPath" class="vf-line" d="M495 272 H596" marker-end="url(#vfArrow)"/>
+              <path id="vfYesPath" class="vf-yes" d="M650 221 C650 164 710 132 770 132" marker-end="url(#vfArrowYes)"/>
+              <path id="vfNoPath" class="vf-no" d="M650 323 C650 382 710 420 770 420" marker-end="url(#vfArrowNo)"/>
+              <path id="vfReuseGatePath" class="vf-line" d="M865 172 V212" marker-end="url(#vfArrow)"/>
+              <path id="vfRefineGatePath" class="vf-line" d="M865 375 V332" marker-end="url(#vfArrow)"/>
+              <path id="vfFeedbackPath" class="vf-feedback" d="M865 332 C860 540 620 558 475 383" marker-end="url(#vfArrowFeedback)"/>
+
+              <text x="700" y="150" font-size="10" font-weight="800" fill="#ef6b2e">YES</text>
+              <text x="700" y="397" font-size="10" font-weight="800" fill="#8755e8">NO</text>
+              <text x="670" y="556" font-size="11" font-weight="800" fill="#e0b633">FAIL → REFINE / REPLAN → VALIDATE AGAIN</text>
+
+              <circle class="vf-dot" r="6"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#vfIntentPath"/></animateMotion></circle>
+              <circle class="vf-dot" r="5"><animateMotion dur="2.6s" begin=".5s" repeatCount="indefinite"><mpath href="#vfScenePath"/></animateMotion></circle>
+              <circle class="vf-dot" r="5"><animateMotion dur="2.7s" begin=".8s" repeatCount="indefinite"><mpath href="#vfDabPath"/></animateMotion></circle>
+              <circle class="vf-dot" r="5"><animateMotion dur="2.7s" begin="1.1s" repeatCount="indefinite"><mpath href="#vfToolsPath"/></animateMotion></circle>
+              <circle class="vf-dot" r="6"><animateMotion dur="2.1s" begin="1.4s" repeatCount="indefinite"><mpath href="#vfDecisionPath"/></animateMotion></circle>
+              <circle class="vf-dot vf-dot-yes" r="5"><animateMotion dur="2.5s" begin="1.8s" repeatCount="indefinite"><mpath href="#vfYesPath"/></animateMotion></circle>
+              <circle class="vf-dot vf-dot-no" r="5"><animateMotion dur="2.5s" begin="2.1s" repeatCount="indefinite"><mpath href="#vfNoPath"/></animateMotion></circle>
+              <circle class="vf-dot vf-dot-feedback" r="5"><animateMotion dur="4.3s" begin="2.7s" repeatCount="indefinite"><mpath href="#vfFeedbackPath"/></animateMotion></circle>
+            </svg>
+          </div>
+        </div>
+
+        <div class="vision-body">
+          <p>
+            At that point, <strong>DEEVLA Asset Browser is no longer just a place to store assets.</strong>
+          </p>
+
+          <p>It becomes <strong>production memory</strong>.</p>
+
+          <p>
+            It knows what has already been created, what is clean, what has already been validated, what is safe to reuse,
+            and what still needs to be created.
+          </p>
+
+          <p>And AI does not need to generate everything from scratch.</p>
+
+          <p>In fact, I believe a truly intelligent system should first ask:</p>
+
+          <div class="vision-quote"><strong>“Do we already have the asset we need?”</strong></div>
+
+          <p>
+            If it already exists, use the asset that has been created, inspected, and validated by an artist.
+            If it does not exist, then the system can help create it.
+          </p>
+
+          <p>
+            Generated results should not immediately be considered finished. They still need to pass through
+            <strong>refinement, topology, UV, material, naming, validation, optimization, and pipeline checks</strong>
+            before they can genuinely be considered production-ready.
+          </p>
+
+          <p>So the question is no longer:</p>
+
+          <div class="vision-quote"><strong>“What can just an Asset Browser really do?”</strong></div>
+
+          <p>Instead:</p>
+
+          <div class="vision-quote">
+            <strong>“What if the Asset Browser we build today becomes production memory, an intelligence layer,
+            and one of the foundations of an autonomous 3D production system in the future?”</strong>
+          </div>
+
+          <p>That is where I see the larger opportunity.</p>
+
+          <p><strong>Not to replace artists.</strong></p>
+          <p><strong>Not simply to generate 3D faster.</strong></p>
+
+          <p>
+            The goal is to build a system where <strong>AI, asset libraries, tools, and artists can work together</strong>
+            to create results that remain <strong>editable, controllable, reusable, and genuinely production-ready</strong>.
+          </p>
+
+          <p>
+            But I also do not want to jump directly into that distant vision without first building a strong foundation.
+          </p>
+
+          <p>I want to build it <strong>step by step</strong>.</p>
+
+          <p>It starts with something fundamental:</p>
+
+          <div class="vision-quote">
+            <strong>DEEVLA Asset Browser must first become stable, fast, responsive, non-blocking, and comfortable to use inside a real Maya workflow.</strong>
+          </div>
+
+          <p>For me, that foundation matters.</p>
+
+          <p>
+            If the <strong>asset library, indexing, metadata, search, preview, Maya integration, background processing,
+            and asset management</strong> are not yet stable, then it is too early to talk about a complex autonomous AI workflow.
+          </p>
+
+          <p>That is why my approach is simple:</p>
+
+          <div class="vision-quote"><strong>Build the foundation → Stabilize → Validate → Then evolve.</strong></div>
+
+          <p>
+            Once DEEVLA Asset Browser is mature and dependable, I want to move gradually into more future-facing capabilities.
+          </p>
+        </div>
+
+        <div class="vision-evolution" aria-label="DEEVLA future evolution path">
+          <div class="vision-evolution-track">
+            <div class="vision-evolution-step">Stable DAB Foundation</div>
+            <div class="vision-evolution-arrow">→</div>
+            <div class="vision-evolution-step">Asset Intelligence</div>
+            <div class="vision-evolution-arrow">→</div>
+            <div class="vision-evolution-step">Smart Tools</div>
+            <div class="vision-evolution-arrow">→</div>
+            <div class="vision-evolution-step">Scene Understanding</div>
+            <div class="vision-evolution-arrow">→</div>
+            <div class="vision-evolution-step">AI-Assisted Production</div>
+            <div class="vision-evolution-arrow">→</div>
+            <div class="vision-evolution-step">Automation</div>
+            <div class="vision-evolution-arrow">→</div>
+            <div class="vision-evolution-step">Production Orchestration</div>
+            <div class="vision-evolution-arrow">→</div>
+            <div class="vision-evolution-step">Autonomous 3D Workflow</div>
+          </div>
+        </div>
+
+        <div class="small-note" style="margin-top:18px;">
+          <strong>Long-term vision:</strong> This section describes a future product direction, not a claim that these autonomous capabilities are available in the current DAB build.
+          Development remains intentionally incremental and validation-driven.
         </div>
       </section>
 
@@ -4019,7 +4516,7 @@
 
       <section id="roadmap">
         <div class="section-label">DEEVLA Product Roadmap</div>
-        <h2>DAB first. Tools and plugins next. DEEVLA IDE as the long-term platform vision.</h2>
+        <h2>DAB first. Tools and plugins next. Production intelligence as the long-term direction.</h2>
 
         <div class="timeline phase-timeline">
           <article class="phase-step">
@@ -4056,31 +4553,18 @@
             <div class="phase-step-marker">3</div>
             <div class="phase-step-content">
               <div class="phase-step-phase">Phase 3</div>
-              <h3>DEEVLA IDE</h3>
-              <div class="phase-step-subtitle">Long-Term Vision</div>
+              <h3>DEEVLA Production Intelligence</h3>
+              <div class="phase-step-subtitle">Long-Term Direction</div>
               <p>
-                Long-term vision: a native-feeling, deeply integrated development environment for Autodesk Maya,
-                designed for building, running, testing, debugging, diagnosing, and managing Maya tools and workflows
-                directly inside the DCC environment, with modern editing, Maya-aware intelligence,
-                runtime context, and future AI-assisted development capabilities.
+                A longer-term exploration of asset intelligence, scene understanding, AI-assisted production,
+                validation, automation, and production orchestration. This is a future direction rather than a
+                promised release milestone, and it is intended to evolve only after the underlying DAB and tool
+                foundations become stable and dependable.
               </p>
             </div>
           </article>
         </div>
 
-        <div class="diagram-card">
-          <div class="zoom-shell" data-zoomable>
-            <img class="zoomable"
-            src="assets/deevla_product_roadmap_infographic.png"
-            alt="DEEVLA product roadmap from DAB to tools and plugins to DEEVLA IDE"
-          />
-            <span class="zoom-hint">Click to Zoom</span>
-          </div>
-          <div class="diagram-caption">
-            Product direction: DAB is the first product; additional tools and plugins extend the ecosystem;
-            DEEVLA IDE is the longer-term development-platform vision.
-          </div>
-        </div>
       </section>
 
 
@@ -4238,121 +4722,6 @@
         </div>
       </section>
 
-      <section id="ide">
-        <div class="section-label">Phase 3 — Long-Term Vision</div>
-        <h2>DEEVLA IDE — a deeply integrated development environment for Maya.</h2>
-
-        <p class="lead">
-          DEEVLA's longer-term platform vision is a native-feeling, deeply integrated IDE for Maya tool and pipeline development. Instead of forcing developers and technical artists to choose between Maya's built-in Script Editor
-          and an external IDE that cannot fully understand the live scene, DEEVLA IDE is intended to combine a modern
-          development experience with direct access to Maya's runtime, selection, scene state, commands, callbacks, and APIs.
-        </p>
-
-        <div class="ide-compare">
-          <div class="ide-column">
-            <h3>Maya Script Editor</h3>
-            <p>
-              Excellent for immediate scripting and runtime access, but its role is intentionally lighter than a full
-              modern development environment.
-            </p>
-            <ul>
-              <li>Direct Maya runtime access</li>
-              <li>Fast interactive execution</li>
-              <li>Limited large-project IDE workflow</li>
-            </ul>
-          </div>
-
-          <div class="ide-column">
-            <h3>External IDE</h3>
-            <p>
-              Powerful editing and project tooling, but live Maya context normally requires extra bridges,
-              remote execution, or separate debugging setup.
-            </p>
-            <ul>
-              <li>Strong editing and navigation</li>
-              <li>Good project-scale development</li>
-              <li>Less direct awareness of the active Maya scene</li>
-            </ul>
-          </div>
-
-          <div class="ide-column highlight">
-            <h3>DEEVLA IDE Direction</h3>
-            <p>
-              Bring modern development capabilities into a Maya-integrated workspace so code, runtime state,
-              tool UI, output, diagnostics, and scene context can work together.
-            </p>
-            <ul>
-              <li>Runs docked / integrated inside Maya</li>
-              <li>Direct Python and MEL execution</li>
-              <li>Maya-aware scene and selection intelligence</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="ide-feature-grid">
-          <article class="card ide-card">
-            <h3>Modern Code Editing</h3>
-            <p>
-              High-performance editor direction with syntax handling, multi-document workflows, search/replace,
-              code navigation, command palette, shortcuts, sessions, and project/workspace organization.
-            </p>
-          </article>
-
-          <article class="card ide-card">
-            <h3>Runtime-aware Intelligence</h3>
-            <p>
-              Planned completion, signatures, hover information, diagnostics, navigation, and code actions that can
-              combine static source intelligence with Maya-specific runtime context.
-            </p>
-          </article>
-
-          <article class="card ide-card">
-            <h3>Execution & Output</h3>
-            <p>
-              Direct Python/MEL document and selection execution, integrated output console, traceback/error handling,
-              diagnostics, and faster iteration without constantly moving between Maya and another application.
-            </p>
-          </article>
-
-          <article class="card ide-card">
-            <h3>Maya Context Awareness</h3>
-            <p>
-              The IDE can be designed to understand the active Maya version, scene, selection, host capabilities,
-              commands, and tool context — information an ordinary external text editor does not automatically possess.
-            </p>
-          </article>
-
-          <article class="card ide-card">
-            <h3>Tool & UI Development</h3>
-            <p>
-              Future direction includes reusable DEEVLA UI framework components, integrated tool development,
-              visual Tool Designer concepts, and AI-assisted UI generation for Maya tools.
-            </p>
-          </article>
-
-          <article class="card ide-card">
-            <h3>AI-native Development Direction</h3>
-            <p>
-              AI assistance is envisioned as part of the development workflow rather than only a chat panel:
-              code/tool generation, diagnostics, contextual suggestions, refactoring support, and Maya-aware assistance
-              can use project and runtime context when appropriate.
-            </p>
-          </article>
-        </div>
-
-        <div class="why-build-it">
-          <strong>Why build it?</strong><br />
-          Maya developers frequently move between code editors, Script Editor output, Maya documentation, scene inspection,
-          UI testing, and runtime debugging. A Maya-integrated IDE can reduce this context switching and make the development
-          loop — write → run → inspect → diagnose → refine — significantly more direct.
-        </div>
-
-        <div class="compliance-box">
-          <strong>Long-term status:</strong>
-          DEEVLA IDE is a future platform direction after DAB and the initial tools/plugins roadmap. It is presented here
-          to explain DEEVLA's longer-term Maya tool and pipeline development strategy, not as a currently released product.
-        </div>
-      </section>
 
 
 
@@ -4661,8 +5030,6 @@
         '#workflow .workflow-detail-card',
         '#workflow .workflow-lane',
         '#smart-modeling .card',
-        '#ide .ide-column',
-        '#ide .ide-feature-grid .ide-card'
       ];
 
       const getTargets = () =>
@@ -4750,6 +5117,45 @@
 
       syncCompactMode();
       mobileQuery.addEventListener?.('change', syncCompactMode);
+    })();
+
+
+    // V41 — Vision 2030+ animated orchestration flow
+    (() => {
+      const section = document.getElementById('vision-2030-plus');
+      if (!section || section.dataset.flowReady === '1') return;
+      section.dataset.flowReady = '1';
+
+      const playButton = document.getElementById('visionFlowPlay');
+      const restartButton = document.getElementById('visionFlowRestart');
+      const svg = document.getElementById('visionFlowSvg');
+      if (!playButton || !restartButton || !svg) return;
+
+      let paused = false;
+
+      const applyPausedState = (value) => {
+        paused = value;
+        section.classList.toggle('vf-paused', paused);
+
+        if (typeof svg.pauseAnimations === 'function' && typeof svg.unpauseAnimations === 'function') {
+          if (paused) svg.pauseAnimations();
+          else svg.unpauseAnimations();
+        }
+
+        playButton.textContent = paused ? 'Play' : 'Pause';
+        playButton.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      };
+
+      playButton.addEventListener('click', () => applyPausedState(!paused));
+
+      restartButton.addEventListener('click', () => {
+        if (typeof svg.setCurrentTime === 'function') svg.setCurrentTime(0);
+        applyPausedState(false);
+      });
+
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        applyPausedState(true);
+      }
     })();
 
   </script>
