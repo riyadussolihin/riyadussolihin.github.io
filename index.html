@@ -2813,6 +2813,134 @@
       }
     }
 
+  
+    /* =========================================================
+       V39 — DEVELOPMENT STATUS / COMPATIBILITY / DOCS PREVIEW
+       ========================================================= */
+
+    .status-board {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .status-column {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(16, 28, 39, 0.74);
+    }
+
+    .status-column h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .status-column .status-subtitle {
+      margin-bottom: 15px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .status-column ul {
+      margin: 0;
+      padding-left: 19px;
+      color: #9fb1bd;
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .compat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .compat-card {
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: rgba(16, 28, 39, 0.72);
+    }
+
+    .compat-card .label {
+      margin-bottom: 7px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .compat-card .value {
+      color: #f2fbff;
+      font-size: 19px;
+      font-weight: 760;
+      line-height: 1.35;
+    }
+
+    .compat-card p {
+      margin: 9px 0 0;
+      color: #98aab7;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .docs-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .docs-preview-card {
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: rgba(16, 28, 39, 0.72);
+    }
+
+    .docs-preview-card .docs-number {
+      width: 31px;
+      height: 31px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 13px;
+      border: 1px solid rgba(89, 207, 255, .30);
+      border-radius: 9px;
+      background: rgba(89, 207, 255, .08);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .docs-preview-card h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+    }
+
+    .docs-preview-card ul {
+      margin: 0;
+      padding-left: 19px;
+      color: #9fb1bd;
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    @media (max-width: 900px) {
+      .status-board,
+      .compat-grid,
+      .docs-preview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -3230,6 +3358,158 @@
           deeper metadata intelligence, more robust validation, improved asset-state handling, and other workflow helpers that can further reduce repetitive work inside Maya.
         </div>
       </section>
+
+
+      <section id="development-status">
+        <div class="section-label">Current Development Status</div>
+        <h2>Clear separation between what exists today, what is being developed, and what remains planned.</h2>
+
+        <p class="lead">
+          DAB is under active development. The status below is intended to make the current maturity of the product
+          easier to understand and to avoid presenting roadmap concepts as already-complete release features.
+        </p>
+
+        <div class="status-board">
+          <article class="status-column">
+            <div class="status-subtitle">Current Development Build</div>
+            <h3>Implemented / Working Foundations</h3>
+            <ul>
+              <li>Asset library registration, recursive scanning, indexing, and persistent local state</li>
+              <li>Search, filtering, sorting, thumbnails, favorites, ratings, and tags</li>
+              <li>Library organization and persisted user/interface state</li>
+              <li>Asset management workflows including rename, move, duplicate, managed Trash, and Restore</li>
+              <li>Maya-facing workflows including import, reference, open, and current host integration foundations</li>
+            </ul>
+          </article>
+
+          <article class="status-column">
+            <div class="status-subtitle">Active Development</div>
+            <h3>In Development</h3>
+            <ul>
+              <li>Further UI/UX refinement so DAB feels more visually coherent with Maya</li>
+              <li>Richer preview, metadata, validation, and asset-intelligence workflows</li>
+              <li>Additional artist-facing workflow helpers and asset-management refinements</li>
+              <li>Expanded compatibility validation and packaging for the supported Maya range</li>
+              <li>Performance, diagnostics, reliability, and release-readiness improvements</li>
+            </ul>
+          </article>
+
+          <article class="status-column">
+            <div class="status-subtitle">Roadmap Direction</div>
+            <h3>Planned</h3>
+            <ul>
+              <li>Interactive 3D preview and deeper dependency intelligence</li>
+              <li>Texture, material, HDRI, OpenUSD, and MaterialX-oriented workflows</li>
+              <li>P2P / Hybrid Sync and shared-library workflow direction</li>
+              <li>AI-assisted tagging, semantic discovery, classification, and workflow assistance</li>
+              <li>Broader extensibility through provider, plugin, and pipeline integration points</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="small-note" style="margin-top:18px;">
+          Status reflects the current development direction and may evolve as implementation, validation, and product priorities change.
+        </div>
+      </section>
+
+      <section id="compatibility">
+        <div class="section-label">Compatibility / Validation Status</div>
+        <h2>Built around a controlled Maya compatibility strategy rather than a separate codebase for every version.</h2>
+
+        <div class="compat-grid">
+          <article class="compat-card">
+            <div class="label">Target Maya Range</div>
+            <div class="value">Autodesk Maya 2025+</div>
+            <p>
+              DAB is being structured to support Maya 2025 and later through a centralized compatibility and capability layer.
+            </p>
+          </article>
+
+          <article class="compat-card">
+            <div class="label">Primary Validation Host</div>
+            <div class="value">Autodesk Maya 2027.2</div>
+            <p>
+              Maya 2027.2 is the current primary development and validation environment while multi-version compatibility work continues.
+            </p>
+          </article>
+
+          <article class="compat-card">
+            <div class="label">Current OS Direction</div>
+            <div class="value">Windows Desktop</div>
+            <p>
+              Current development and validation are centered on the Windows desktop Maya environment.
+            </p>
+          </article>
+
+          <article class="compat-card">
+            <div class="label">Validation Direction</div>
+            <div class="value">Regression + Real Maya Workflow Checks</div>
+            <p>
+              Current validation combines automated regression coverage with real Maya workflow checks on the primary host.
+              Broader version validation will expand as release packaging matures.
+            </p>
+          </article>
+        </div>
+
+        <div class="compliance-box">
+          <strong>Compatibility note:</strong>
+          The supported-version target describes the product direction. Final release compatibility will be published only after the
+          corresponding Maya versions and required runtime/native packaging have been validated for distribution.
+        </div>
+      </section>
+
+      <section id="docs">
+        <div class="section-label">Documentation Preview</div>
+        <h2>DAB documentation is being prepared alongside the product.</h2>
+
+        <p class="lead">
+          Documentation is still in development. The initial documentation structure will focus on helping users install DAB,
+          understand the asset-library workflow, and quickly find assets without requiring knowledge of DAB's internal architecture.
+        </p>
+
+        <div class="docs-preview-grid">
+          <article class="docs-preview-card">
+            <span class="docs-number">01</span>
+            <h3>Getting Started</h3>
+            <ul>
+              <li>What is DAB</li>
+              <li>System requirements</li>
+              <li>Supported Maya versions</li>
+              <li>Installation</li>
+              <li>First launch</li>
+            </ul>
+          </article>
+
+          <article class="docs-preview-card">
+            <span class="docs-number">02</span>
+            <h3>Asset Library</h3>
+            <ul>
+              <li>Add Folder</li>
+              <li>Library structure</li>
+              <li>Scan / Rescan</li>
+              <li>Remove library</li>
+              <li>Collections, History, and Trash</li>
+            </ul>
+          </article>
+
+          <article class="docs-preview-card">
+            <span class="docs-number">03</span>
+            <h3>Search & Discovery</h3>
+            <ul>
+              <li>Search</li>
+              <li>Type filtering</li>
+              <li>Sorting</li>
+              <li>Favorites and ratings</li>
+              <li>Tags and saved discovery workflows</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="small-note" style="margin-top:18px;">
+          Full product documentation and support material will expand as DAB approaches release.
+        </div>
+      </section>
+
 
       <section id="features">
         <div class="section-label">Phase 1 Capability Direction</div>
