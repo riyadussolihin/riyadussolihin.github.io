@@ -2709,6 +2709,79 @@
       }
     }
 
+  
+    .product-preview-intro {
+      margin-top: 22px;
+    }
+
+    .product-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 26px;
+    }
+
+    .product-preview-card {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(86, 196, 255, 0.18);
+      background: linear-gradient(180deg, rgba(9, 24, 38, 0.9), rgba(7, 18, 29, 0.96));
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+    }
+
+    .product-preview-card.featured {
+      grid-column: 1 / -1;
+    }
+
+    .product-preview-card h3 {
+      margin: 16px 0 10px;
+      font-size: 1.18rem;
+      line-height: 1.35;
+    }
+
+    .product-preview-card p {
+      margin: 0;
+      color: rgba(226, 237, 247, 0.84);
+      line-height: 1.8;
+      font-size: 0.98rem;
+    }
+
+    .product-preview-card .zoom-shell {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(86, 196, 255, 0.16);
+      background: rgba(2, 9, 16, 0.72);
+    }
+
+    .product-preview-card .zoomable {
+      width: 100%;
+      display: block;
+      background: #08111b;
+    }
+
+    .product-preview-card .tag {
+      display: inline-flex;
+      margin-bottom: 14px;
+    }
+
+    .product-preview-caption {
+      margin-top: 14px;
+    }
+
+    .product-preview-note {
+      margin-top: 24px;
+    }
+
+    @media (max-width: 980px) {
+      .product-preview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-preview-card.featured {
+        grid-column: auto;
+      }
+    }
+
   </style>
 </head>
 
@@ -3016,6 +3089,109 @@
           <span class="status-chip">Autodesk Maya 2025+</span>
           <span class="status-chip">Maya 2027.2 Primary Validation Host</span>
           <span class="status-chip">Desktop Workflow</span>
+        </div>
+
+        <div class="info-box product-preview-intro">
+          <p>
+            <strong>Current DAB product showcase:</strong>
+            The screenshots below show the current user-interface direction and working product areas that are actively being developed and tested.
+            They are presented to show that DAB is already being shaped as a real Maya-integrated tool, not only as a concept.
+            Every image can be clicked to zoom.
+          </p>
+        </div>
+
+        <div class="small-note product-preview-note">
+          <strong>Development note:</strong>
+          DAB is <strong>not yet fully complete</strong>. The current build already demonstrates important foundations such as library browsing,
+          search and filtering, preview and inspection, metadata handling, and Maya action controls. However, many more features are still planned
+          to better support artists, technical artists, and asset-heavy workflows.
+        </div>
+
+        <div class="product-preview-grid">
+          <article class="product-preview-card featured">
+            <span class="tag">Current UI Preview</span>
+            <div class="zoom-shell" data-zoomable>
+              <img class="zoomable" src="assets/images/dab-main-workspace.png" alt="Main DAB workspace inside Maya showing the library panel, asset grid, and inspector panel." loading="lazy" />
+              <span class="zoom-hint">Click to Zoom</span>
+            </div>
+            <div class="product-preview-caption">
+              <h3>Main DAB workspace inside Maya</h3>
+              <p>
+                This overview shows the current main workspace direction: the left side is used for library and folder navigation,
+                the center is focused on large-scale asset browsing, and the right side is reserved for preview, metadata, Maya actions,
+                and management controls. It communicates DAB as a real working interface for production browsing rather than only a static mockup.
+              </p>
+            </div>
+          </article>
+
+          <article class="product-preview-card">
+            <span class="tag">Library Navigation</span>
+            <div class="zoom-shell" data-zoomable>
+              <img class="zoomable" src="assets/images/dab-libraries-panel.png" alt="DAB library panel showing asset sources, folder hierarchy, collections, and rescan controls." loading="lazy" />
+              <span class="zoom-hint">Click to Zoom</span>
+            </div>
+            <div class="product-preview-caption">
+              <h3>Libraries, folders, and organization controls</h3>
+              <p>
+                This panel demonstrates how artists can register asset sources, browse folder hierarchies, switch organizational views,
+                work with collections, and trigger operations such as add folder, rescan, or remove. It reflects DAB's goal of keeping large
+                asset libraries structured and manageable inside a Maya-centered workflow.
+              </p>
+            </div>
+          </article>
+
+          <article class="product-preview-card">
+            <span class="tag">Discovery Workflow</span>
+            <div class="zoom-shell" data-zoomable>
+              <img class="zoomable" src="assets/images/dab-search-filter.png" alt="DAB search and filter interface with text search, type filtering, sorting, and asset grid results." loading="lazy" />
+              <span class="zoom-hint">Click to Zoom</span>
+            </div>
+            <div class="product-preview-caption">
+              <h3>Search, filter, and asset discovery</h3>
+              <p>
+                This view highlights a core part of the artist workflow: fast search, type filtering, sorting, and visual browsing of indexed assets.
+                The intention is to reduce time spent manually hunting through folders and to make large libraries more searchable and production-friendly.
+              </p>
+            </div>
+          </article>
+
+          <article class="product-preview-card">
+            <span class="tag">Metadata Direction</span>
+            <div class="zoom-shell" data-zoomable>
+              <img class="zoomable" src="assets/images/dab-inspector-metadata.png" alt="DAB inspector view for metadata, file information, dependencies, and custom user metadata fields." loading="lazy" />
+              <span class="zoom-hint">Click to Zoom</span>
+            </div>
+            <div class="product-preview-caption">
+              <h3>Metadata inspection and custom asset information</h3>
+              <p>
+                The inspector direction includes asset intelligence status, technical information areas, dependency visibility, and custom user metadata fields
+                such as description, author, category, approval status, and notes. This is important because DAB is intended to help artists not only find assets,
+                but also understand and manage them more clearly.
+              </p>
+            </div>
+          </article>
+
+          <article class="product-preview-card">
+            <span class="tag">Maya Action Controls</span>
+            <div class="zoom-shell" data-zoomable>
+              <img class="zoomable" src="assets/images/dab-inspector-preview-maya.png" alt="DAB inspector preview section with generate preview, import, reference, reveal, and Maya integration options." loading="lazy" />
+              <span class="zoom-hint">Click to Zoom</span>
+            </div>
+            <div class="product-preview-caption">
+              <h3>Preview, import, reference, and scene-aware controls</h3>
+              <p>
+                This inspector area shows the practical Maya-facing part of DAB: preview on demand, direct import and reference actions, scene-context options,
+                namespace and duplicate handling, selection-related actions, and asset management commands. It helps demonstrate how DAB is being designed to connect
+                asset browsing directly to real Maya usage.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="compliance-box" style="margin-top: 26px;">
+          <strong>Ongoing product direction:</strong>
+          Beyond the screenshots shown here, DAB is expected to continue evolving with additional artist-support features such as richer previews,
+          deeper metadata intelligence, more robust validation, improved asset-state handling, and other workflow helpers that can further reduce repetitive work inside Maya.
         </div>
       </section>
 
