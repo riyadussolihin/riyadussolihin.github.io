@@ -2709,19 +2709,25 @@
       }
     }
 
-  
     .product-preview-intro {
       margin-top: 22px;
     }
 
     .product-preview-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
+      grid-template-columns: 1fr;
+      gap: 22px;
       margin-top: 26px;
     }
 
     .product-preview-card {
+      display: grid;
+      grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+      grid-template-areas:
+        "tag tag"
+        "image content";
+      gap: 18px 24px;
+      align-items: start;
       padding: 18px;
       border-radius: 22px;
       border: 1px solid rgba(86, 196, 255, 0.18);
@@ -2730,11 +2736,11 @@
     }
 
     .product-preview-card.featured {
-      grid-column: 1 / -1;
+      grid-column: auto;
     }
 
     .product-preview-card h3 {
-      margin: 16px 0 10px;
+      margin: 0 0 10px;
       font-size: 1.18rem;
       line-height: 1.35;
     }
@@ -2747,38 +2753,63 @@
     }
 
     .product-preview-card .zoom-shell {
+      grid-area: image;
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid rgba(86, 196, 255, 0.16);
       background: rgba(2, 9, 16, 0.72);
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
     }
 
     .product-preview-card .zoomable {
       width: 100%;
+      height: 220px;
+      object-fit: contain;
       display: block;
       background: #08111b;
     }
 
     .product-preview-card .tag {
+      grid-area: tag;
       display: inline-flex;
-      margin-bottom: 14px;
+      margin-bottom: 0;
+      justify-self: start;
     }
 
     .product-preview-caption {
-      margin-top: 14px;
+      grid-area: content;
+      margin-top: 0;
+      align-self: center;
     }
 
     .product-preview-note {
       margin-top: 24px;
     }
 
+    .product-preview-ui-note {
+      margin-top: 18px;
+    }
+
     @media (max-width: 980px) {
-      .product-preview-grid {
+      .product-preview-card {
         grid-template-columns: 1fr;
+        grid-template-areas:
+          "tag"
+          "image"
+          "content";
       }
 
-      .product-preview-card.featured {
-        grid-column: auto;
+      .product-preview-card .zoom-shell {
+        min-height: 0;
+      }
+
+      .product-preview-card .zoomable {
+        height: auto;
+        max-height: 260px;
       }
     }
 
@@ -3096,7 +3127,7 @@
             <strong>Current DAB product showcase:</strong>
             The screenshots below show the current user-interface direction and working product areas that are actively being developed and tested.
             They are presented to show that DAB is already being shaped as a real Maya-integrated tool, not only as a concept.
-            Every image can be clicked to zoom.
+            Every image can be clicked to zoom, and the screenshots below are intentionally shown as compact previews so the section stays cleaner and easier to scan.
           </p>
         </div>
 
@@ -3107,6 +3138,13 @@
           to better support artists, technical artists, and asset-heavy workflows.
         </div>
 
+        <div class="small-note product-preview-ui-note">
+          <strong>UI direction note:</strong>
+          The interface is being shaped to feel as consistent as practical with Maya so the experience can look more integrated inside the host application.
+          Some visual themes, surface styling, and presentation details may still change over time because the current UI is a working <strong>demo</strong>,
+          not a final locked release.
+        </div>
+
         <div class="product-preview-grid">
           <article class="product-preview-card featured">
             <span class="tag">Current UI Preview</span>
@@ -3115,11 +3153,9 @@
               <span class="zoom-hint">Click to Zoom</span>
             </div>
             <div class="product-preview-caption">
-              <h3>Main DAB workspace inside Maya</h3>
+              <h3>Main DAB workspace and current UI direction</h3>
               <p>
-                This overview shows the current main workspace direction: the left side is used for library and folder navigation,
-                the center is focused on large-scale asset browsing, and the right side is reserved for preview, metadata, Maya actions,
-                and management controls. It communicates DAB as a real working interface for production browsing rather than only a static mockup.
+                This overview shows the current main workspace direction: the left side is used for library and folder navigation, the center is focused on large-scale asset browsing, and the right side is reserved for preview, metadata, Maya actions, and management controls. It is also part of the effort to make DAB feel visually closer to Maya so the tool appears more naturally integrated inside the host environment.
               </p>
             </div>
           </article>
