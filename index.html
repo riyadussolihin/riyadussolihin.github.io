@@ -2992,19 +2992,26 @@
     #vision-2030-plus .vision-flow-shell {
       width: min(100%, 930px);
       margin: 24px auto 30px;
-      padding: 14px;
+      padding: 14px 16px 16px;
       border: 1px solid var(--line);
       border-radius: 18px;
       background: rgba(7, 18, 29, 0.82);
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     #vision-2030-plus .vision-flow-controls {
+      width: 100%;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      margin-bottom: 14px;
+      margin: 0 auto 14px;
+      text-align: center;
     }
 
     #vision-2030-plus .vision-flow-btn {
@@ -3038,13 +3045,17 @@
     }
 
     #vision-2030-plus .vision-flow-viewport {
+      width: 100%;
       overflow: hidden;
       padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     #vision-2030-plus .vision-flow-svg {
       display: block;
-      width: min(100%, 850px);
+      width: min(100%, 840px);
       min-width: 0;
       height: auto;
       margin: 0 auto;
@@ -3170,7 +3181,10 @@
 
     @media (max-width: 760px) {
       #vision-2030-plus .vision-flow-shell { padding: 14px; }
-      #vision-2030-plus .vision-flow-controls { align-items: flex-start; }
+      #vision-2030-plus .vision-flow-controls {
+        align-items: center;
+        justify-content: center;
+      }
       #vision-2030-plus .vision-flow-note { flex-basis: 100%; }
       #vision-2030-plus .vision-body { font-size: 15px; }
     }
@@ -3656,7 +3670,7 @@
           <div class="vision-flow-controls">
             <button type="button" class="vision-flow-btn" id="visionFlowPlay">Pause</button>
             <button type="button" class="vision-flow-btn" id="visionFlowRestart">Restart</button>
-            <span class="vision-flow-note">Animated logic: intent → orchestration → asset decision → production gate → validation loop.</span>
+            <span class="vision-flow-note">Animated logic autoplay: intent → orchestration → asset decision → production gate → validation loop.</span>
           </div>
 
           <div class="vision-flow-viewport">
@@ -5087,8 +5101,7 @@
       mobileQuery.addEventListener?.('change', syncCompactMode);
     })();
 
-
-    // V41 — Vision 2030+ animated orchestration flow
+    // V46 — Vision 2030+ animated orchestration flow (autoplay on load / reload)
     (() => {
       const section = document.getElementById('vision-2030-plus');
       if (!section || section.dataset.flowReady === '1') return;
@@ -5114,20 +5127,34 @@
         playButton.setAttribute('aria-pressed', paused ? 'true' : 'false');
       };
 
+      const startAutoplay = () => {
+        if (typeof svg.setCurrentTime === 'function') {
+          try { svg.setCurrentTime(0); } catch (e) {}
+        }
+        applyPausedState(false);
+      };
+
       playButton.addEventListener('click', () => applyPausedState(!paused));
 
       restartButton.addEventListener('click', () => {
-        if (typeof svg.setCurrentTime === 'function') svg.setCurrentTime(0);
-        applyPausedState(false);
+        startAutoplay();
       });
 
       if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         applyPausedState(true);
       } else {
-        if (typeof svg.setCurrentTime === 'function') svg.setCurrentTime(0);
-        applyPausedState(false);
+        // Force autoplay after the document paints so the animation is already running
+        // when the page first opens or is reloaded.
+        if (document.readyState === 'complete') {
+          requestAnimationFrame(() => requestAnimationFrame(startAutoplay));
+        } else {
+          window.addEventListener('load', () => {
+            requestAnimationFrame(() => requestAnimationFrame(startAutoplay));
+          }, { once: true });
+        }
       }
     })();
+
 
   </script>
 
