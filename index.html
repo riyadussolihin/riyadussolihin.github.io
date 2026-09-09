@@ -229,8 +229,8 @@
       display: inline-block;
       padding: 13px 20px;
       border-radius: 9px;
-      font-size: 14px;
-      font-weight: 760;
+      font-size: 13px;
+      font-weight: 700;
       transition: transform 0.15s ease, border-color 0.15s ease;
     }
 
@@ -2990,10 +2990,11 @@
     }
 
     #vision-2030-plus .vision-flow-shell {
-      margin: 28px 0 34px;
-      padding: 18px;
+      width: min(100%, 930px);
+      margin: 24px auto 30px;
+      padding: 14px;
       border: 1px solid var(--line);
-      border-radius: 20px;
+      border-radius: 18px;
       background: rgba(7, 18, 29, 0.82);
       overflow: hidden;
     }
@@ -3007,9 +3008,9 @@
     }
 
     #vision-2030-plus .vision-flow-btn {
-      min-width: 92px;
-      min-height: 42px;
-      padding: 9px 16px;
+      min-width: 78px;
+      min-height: 36px;
+      padding: 7px 12px;
       border: 1px solid #2b465a;
       border-radius: 10px;
       background: #142534;
@@ -3032,22 +3033,21 @@
 
     #vision-2030-plus .vision-flow-note {
       color: #7891a3;
-      font-size: 13px;
-      line-height: 1.5;
+      font-size: 12px;
+      line-height: 1.45;
     }
 
     #vision-2030-plus .vision-flow-viewport {
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding: 2px 0 8px;
-      scrollbar-width: thin;
+      overflow: hidden;
+      padding: 0;
     }
 
     #vision-2030-plus .vision-flow-svg {
       display: block;
-      width: 100%;
-      min-width: 900px;
+      width: min(100%, 850px);
+      min-width: 0;
       height: auto;
+      margin: 0 auto;
     }
 
     #vision-2030-plus .vf-box {
@@ -3173,6 +3173,17 @@
       #vision-2030-plus .vision-flow-controls { align-items: flex-start; }
       #vision-2030-plus .vision-flow-note { flex-basis: 100%; }
       #vision-2030-plus .vision-body { font-size: 15px; }
+    }
+
+  
+    #vision-2030-plus .vision-body-compact p {
+      margin: 0 0 14px;
+      font-weight: 400;
+    }
+
+    #vision-2030-plus .vision-body-compact .vision-quote {
+      margin: 16px 0;
+      font-weight: 400;
     }
 
   </style>
@@ -3741,82 +3752,42 @@
           </div>
         </div>
 
-        <div class="vision-body">
+        <div class="vision-body vision-body-compact">
           <p>
-            At that point, <strong>DEEVLA Asset Browser is no longer just a place to store assets.</strong>
+            At that point, DEEVLA Asset Browser is no longer just a place to store assets. It becomes production memory:
+            a system that knows what has already been created, what is clean, what has been validated, what is safe to reuse,
+            and what still needs to be created. AI does not need to generate everything from scratch. A truly intelligent system
+            should first ask whether the required asset already exists.
           </p>
 
-          <p>It becomes <strong>production memory</strong>.</p>
+          <div class="vision-quote">“Do we already have the asset we need?”</div>
 
           <p>
-            It knows what has already been created, what is clean, what has already been validated, what is safe to reuse,
-            and what still needs to be created.
+            If it already exists, use the asset that has been created, inspected, and validated by an artist. If it does not exist,
+            the system can help create it. Generated results should not immediately be considered finished; they still need refinement,
+            topology, UV, material, naming, validation, optimization, and pipeline checks before they can genuinely be considered production-ready.
+            The question is therefore no longer simply what an Asset Browser can do, but what it can become as part of a larger production system.
           </p>
-
-          <p>And AI does not need to generate everything from scratch.</p>
-
-          <p>In fact, I believe a truly intelligent system should first ask:</p>
-
-          <div class="vision-quote"><strong>“Do we already have the asset we need?”</strong></div>
-
-          <p>
-            If it already exists, use the asset that has been created, inspected, and validated by an artist.
-            If it does not exist, then the system can help create it.
-          </p>
-
-          <p>
-            Generated results should not immediately be considered finished. They still need to pass through
-            <strong>refinement, topology, UV, material, naming, validation, optimization, and pipeline checks</strong>
-            before they can genuinely be considered production-ready.
-          </p>
-
-          <p>So the question is no longer:</p>
-
-          <div class="vision-quote"><strong>“What can just an Asset Browser really do?”</strong></div>
-
-          <p>Instead:</p>
 
           <div class="vision-quote">
-            <strong>“What if the Asset Browser we build today becomes production memory, an intelligence layer,
-            and one of the foundations of an autonomous 3D production system in the future?”</strong>
+            “What if the Asset Browser we build today becomes production memory, an intelligence layer, and one of the foundations
+            of an autonomous 3D production system in the future?”
           </div>
 
-          <p>That is where I see the larger opportunity.</p>
-
-          <p><strong>Not to replace artists.</strong></p>
-          <p><strong>Not simply to generate 3D faster.</strong></p>
-
           <p>
-            The goal is to build a system where <strong>AI, asset libraries, tools, and artists can work together</strong>
-            to create results that remain <strong>editable, controllable, reusable, and genuinely production-ready</strong>.
+            That is where I see the larger opportunity: not to replace artists, and not simply to generate 3D faster, but to build a system
+            where AI, asset libraries, tools, and artists can work together while keeping results editable, controllable, reusable, and production-ready.
+            I also do not want to jump directly into that distant vision without first building a strong foundation. I want to build it step by step,
+            starting with DEEVLA Asset Browser becoming stable, fast, responsive, non-blocking, and comfortable to use inside a real Maya workflow.
           </p>
 
           <p>
-            But I also do not want to jump directly into that distant vision without first building a strong foundation.
+            If the asset library, indexing, metadata, search, preview, Maya integration, background processing, and asset management are not yet stable,
+            then it is too early to talk about a complex autonomous AI workflow. My approach is simple: build the foundation, stabilize it, validate it,
+            and only then evolve toward more future-facing capabilities.
           </p>
 
-          <p>I want to build it <strong>step by step</strong>.</p>
-
-          <p>It starts with something fundamental:</p>
-
-          <div class="vision-quote">
-            <strong>DEEVLA Asset Browser must first become stable, fast, responsive, non-blocking, and comfortable to use inside a real Maya workflow.</strong>
-          </div>
-
-          <p>For me, that foundation matters.</p>
-
-          <p>
-            If the <strong>asset library, indexing, metadata, search, preview, Maya integration, background processing,
-            and asset management</strong> are not yet stable, then it is too early to talk about a complex autonomous AI workflow.
-          </p>
-
-          <p>That is why my approach is simple:</p>
-
-          <div class="vision-quote"><strong>Build the foundation → Stabilize → Validate → Then evolve.</strong></div>
-
-          <p>
-            Once DEEVLA Asset Browser is mature and dependable, I want to move gradually into more future-facing capabilities.
-          </p>
+          <div class="vision-quote">Build the foundation → Stabilize → Validate → Then evolve.</div>
         </div>
 
         <div class="vision-evolution" aria-label="DEEVLA future evolution path">
