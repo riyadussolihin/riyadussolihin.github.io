@@ -2990,28 +2990,26 @@
     }
 
     #vision-2030-plus .vision-flow-shell {
-      width: min(100%, 930px);
-      margin: 24px auto 30px;
-      padding: 14px 16px 16px;
+      width: min(930px, calc(100% - 24px));
+      margin: 24px 0 30px;
+      padding: 14px;
       border: 1px solid var(--line);
       border-radius: 18px;
       background: rgba(7, 18, 29, 0.82);
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      box-sizing: border-box;
     }
 
     #vision-2030-plus .vision-flow-controls {
-      width: 100%;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 10px;
-      margin: 0 auto 14px;
-      text-align: center;
+      margin: 0 0 14px;
     }
 
     #vision-2030-plus .vision-flow-btn {
@@ -3055,10 +3053,11 @@
 
     #vision-2030-plus .vision-flow-svg {
       display: block;
-      width: min(100%, 840px);
+      width: min(100%, 850px);
       min-width: 0;
       height: auto;
       margin: 0 auto;
+      flex: 0 1 850px;
     }
 
     #vision-2030-plus .vf-box {
@@ -3183,7 +3182,7 @@
       #vision-2030-plus .vision-flow-shell { padding: 14px; }
       #vision-2030-plus .vision-flow-controls {
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
       }
       #vision-2030-plus .vision-flow-note { flex-basis: 100%; }
       #vision-2030-plus .vision-body { font-size: 15px; }
@@ -5140,18 +5139,15 @@
         startAutoplay();
       });
 
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        applyPausedState(true);
+      // Explicit product behavior: autoplay immediately on first open and on reload.
+      // Play/Pause remains available as a manual control.
+      applyPausedState(false);
+      if (document.readyState === 'complete') {
+        requestAnimationFrame(() => requestAnimationFrame(startAutoplay));
       } else {
-        // Force autoplay after the document paints so the animation is already running
-        // when the page first opens or is reloaded.
-        if (document.readyState === 'complete') {
+        window.addEventListener('load', () => {
           requestAnimationFrame(() => requestAnimationFrame(startAutoplay));
-        } else {
-          window.addEventListener('load', () => {
-            requestAnimationFrame(() => requestAnimationFrame(startAutoplay));
-          }, { once: true });
-        }
+        }, { once: true });
       }
     })();
 
