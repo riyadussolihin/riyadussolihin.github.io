@@ -2235,6 +2235,326 @@
       }
     }
 
+
+    /* =========================================================
+       COMPACT MOBILE PASS
+       Keeps desktop presentation intact while compressing
+       information density on phones/tablets.
+       ========================================================= */
+
+    .mobile-card-toggle {
+      display: none;
+    }
+
+    @media (max-width: 760px) {
+      /* Quick facts: compact 2-column stat grid */
+      #company .snapshot {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      #company .snapshot .item {
+        min-height: 96px;
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      #company .snapshot .label {
+        margin-bottom: 6px;
+        font-size: 10.5px;
+        line-height: 1.25;
+        letter-spacing: .45px;
+      }
+
+      #company .snapshot .value {
+        font-size: 14.5px;
+        line-height: 1.35;
+      }
+
+      #company .snapshot .item:nth-child(9),
+      #company .snapshot .item:nth-child(10) {
+        grid-column: 1 / -1;
+        min-height: 78px;
+      }
+
+      /* Common mobile accordion behavior */
+      .mobile-collapsible {
+        position: relative;
+      }
+
+      .mobile-card-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        min-height: 30px;
+        margin-top: 10px;
+        padding: 6px 10px;
+        border: 1px solid rgba(89,207,255,.18);
+        border-radius: 999px;
+        background: rgba(89,207,255,.055);
+        color: #8fdfff;
+        font: inherit;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: .25px;
+        cursor: pointer;
+      }
+
+      .mobile-card-toggle::after {
+        content: "⌄";
+        margin-left: 6px;
+        font-size: 12px;
+        line-height: 1;
+        transition: transform .18s ease;
+      }
+
+      .mobile-collapsible.mobile-open > .mobile-card-toggle::after {
+        transform: rotate(180deg);
+      }
+
+      /* Team / DAB overview / Smart Modeling intro cards */
+      #team-growth .card.mobile-collapsible:not(.mobile-open) > p,
+      #dab .card.mobile-collapsible:not(.mobile-open) > p,
+      #smart-modeling .card.mobile-collapsible:not(.mobile-open) > p {
+        display: none;
+      }
+
+      #team-growth .card.mobile-collapsible,
+      #dab .card.mobile-collapsible,
+      #smart-modeling .card.mobile-collapsible {
+        padding: 16px;
+      }
+
+      #team-growth .grid,
+      #team-growth .grid-2,
+      #dab .grid,
+      #smart-modeling .grid {
+        gap: 9px;
+      }
+
+      #team-growth .card h3,
+      #dab .card h3,
+      #smart-modeling .card h3 {
+        margin-bottom: 5px;
+        font-size: 17px;
+      }
+
+      #team-growth .tag,
+      #dab .tag,
+      #smart-modeling .tag {
+        margin-bottom: 9px;
+        padding: 5px 9px;
+        font-size: 10.5px;
+      }
+
+      /* Feature categories: title-first accordion cards */
+      #features .feature-map {
+        gap: 9px;
+      }
+
+      #features .feature-card {
+        padding: 15px 16px;
+      }
+
+      #features .feature-card h3 {
+        margin: 0;
+        font-size: 16.5px;
+        line-height: 1.35;
+      }
+
+      #features .feature-card.mobile-collapsible:not(.mobile-open) > ul {
+        display: none;
+      }
+
+      #features .feature-card.mobile-open > ul {
+        margin-top: 12px;
+      }
+
+      /* Engineering principles: compact accordion */
+      #technology .principles {
+        gap: 9px;
+      }
+
+      #technology .principle {
+        padding: 15px 16px;
+      }
+
+      #technology .principle h4 {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.35;
+      }
+
+      #technology .principle.mobile-collapsible:not(.mobile-open) > p {
+        display: none;
+      }
+
+      #technology .principle.mobile-open > p {
+        margin-top: 10px;
+      }
+
+      /* Workflow: high-level row stays concise, detailed cards become accordion */
+      #workflow .workflow {
+        gap: 7px;
+      }
+
+      #workflow .workflow-step {
+        min-height: 50px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      #workflow .workflow-detail-grid {
+        gap: 8px;
+      }
+
+      #workflow .workflow-detail-card {
+        min-height: 0;
+        padding: 14px 14px 14px 60px;
+      }
+
+      #workflow .workflow-detail-number {
+        top: 14px;
+        left: 14px;
+        width: 32px;
+        height: 32px;
+      }
+
+      #workflow .workflow-detail-card h3 {
+        margin: 2px 0 0;
+        font-size: 16px;
+      }
+
+      #workflow .workflow-detail-card.mobile-collapsible:not(.mobile-open) > p {
+        display: none;
+      }
+
+      #workflow .workflow-detail-card.mobile-open > p {
+        margin-top: 9px;
+      }
+
+      #workflow .workflow-detail-card > .mobile-card-toggle {
+        margin-top: 8px;
+      }
+
+      /* Three workflow lanes also collapse */
+      #workflow .workflow-lane {
+        padding: 15px 16px;
+      }
+
+      #workflow .workflow-lane.mobile-collapsible:not(.mobile-open) > p {
+        display: none;
+      }
+
+      /* Smart modeling tool groups start closed on mobile */
+      #smart-modeling details.tool-group {
+        margin-top: 8px;
+      }
+
+      #smart-modeling details.tool-group summary {
+        min-height: 48px;
+        padding: 13px 15px;
+      }
+
+      /* IDE compare + feature cards collapse into compact stack */
+      #ide .ide-compare,
+      #ide .ide-feature-grid {
+        gap: 8px;
+      }
+
+      #ide .ide-column,
+      #ide .ide-feature-grid .ide-card {
+        padding: 15px 16px;
+      }
+
+      #ide .ide-column h3,
+      #ide .ide-feature-grid .ide-card h3 {
+        margin: 0;
+        font-size: 16.5px;
+        line-height: 1.35;
+      }
+
+      #ide .ide-column.mobile-collapsible:not(.mobile-open) > p,
+      #ide .ide-column.mobile-collapsible:not(.mobile-open) > ul,
+      #ide .ide-feature-grid .ide-card.mobile-collapsible:not(.mobile-open) > p {
+        display: none;
+      }
+
+      #ide .ide-column.mobile-open > p,
+      #ide .ide-feature-grid .ide-card.mobile-open > p {
+        margin-top: 10px;
+      }
+
+      #ide .ide-column.mobile-open > ul {
+        margin-top: 8px;
+      }
+
+      /* Compact supporting boxes */
+      #company .info-box,
+      #company .compliance-box,
+      #team-growth .info-box,
+      #team-growth .compliance-box,
+      #smart-modeling .info-box,
+      #smart-modeling .compliance-box,
+      #ide .compliance-box {
+        padding: 15px 16px;
+      }
+
+      /* Reduce section length without making it cramped */
+      section {
+        padding-top: 46px;
+        padding-bottom: 46px;
+      }
+
+      .section-label {
+        margin-bottom: 9px;
+      }
+
+      .lead {
+        margin-bottom: 0;
+      }
+
+      /* Slightly smaller vertical gaps globally */
+      .grid,
+      .grid-2,
+      .feature-map {
+        margin-top: 20px;
+      }
+    }
+
+    @media (min-width: 761px) and (max-width: 1024px) {
+      /* Tablet: keep content visible but reduce wasted space */
+      #company .snapshot {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      #company .snapshot .item {
+        min-height: 104px;
+      }
+
+      #team-growth .grid,
+      #dab .grid,
+      #smart-modeling .grid,
+      #technology .principles,
+      #ide .ide-compare,
+      #ide .ide-feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #workflow .workflow-detail-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      section {
+        padding-top: 58px;
+        padding-bottom: 58px;
+      }
+    }
+
   </style>
 </head>
 
@@ -3675,6 +3995,110 @@
         }
       });
     }
+
+    // Compact mobile accordions — desktop content remains fully expanded.
+    (() => {
+      const mobileQuery = window.matchMedia('(max-width: 760px)');
+
+      const groups = [
+        '#team-growth .card',
+        '#dab .card',
+        '#features .feature-card',
+        '#technology .principle',
+        '#workflow .workflow-detail-card',
+        '#workflow .workflow-lane',
+        '#smart-modeling .card',
+        '#ide .ide-column',
+        '#ide .ide-feature-grid .ide-card'
+      ];
+
+      const getTargets = () =>
+        groups.flatMap(selector => Array.from(document.querySelectorAll(selector)));
+
+      const ensureToggle = (el) => {
+        el.classList.add('mobile-collapsible');
+
+        let button = el.querySelector(':scope > .mobile-card-toggle');
+        if (!button) {
+          button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'mobile-card-toggle';
+          button.textContent = 'Details';
+          button.setAttribute('aria-expanded', 'false');
+          el.appendChild(button);
+
+          button.addEventListener('click', () => {
+            const open = el.classList.toggle('mobile-open');
+            button.textContent = open ? 'Hide' : 'Details';
+            button.setAttribute('aria-expanded', open ? 'true' : 'false');
+          });
+        }
+      };
+
+      const applyMobileCompact = () => {
+        const targets = getTargets();
+
+        targets.forEach((el, index) => {
+          ensureToggle(el);
+          el.classList.remove('mobile-open');
+          const btn = el.querySelector(':scope > .mobile-card-toggle');
+          if (btn) {
+            btn.textContent = 'Details';
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Keep one representative card open in key sections so users
+        // immediately understand that cards are expandable.
+        [
+          '#dab .card',
+          '#features .feature-card',
+          '#workflow .workflow-detail-card'
+        ].forEach(selector => {
+          const first = document.querySelector(selector);
+          if (first) {
+            first.classList.add('mobile-open');
+            const btn = first.querySelector(':scope > .mobile-card-toggle');
+            if (btn) {
+              btn.textContent = 'Hide';
+              btn.setAttribute('aria-expanded', 'true');
+            }
+          }
+        });
+
+        // Collapse the 60-tool groups on phones even if one is open on desktop.
+        document.querySelectorAll('#smart-modeling details.tool-group').forEach(details => {
+          if (!details.dataset.desktopOpen) {
+            details.dataset.desktopOpen = details.open ? 'true' : 'false';
+          }
+          details.open = false;
+        });
+      };
+
+      const restoreDesktop = () => {
+        getTargets().forEach(el => {
+          el.classList.remove('mobile-open');
+          const btn = el.querySelector(':scope > .mobile-card-toggle');
+          if (btn) {
+            btn.textContent = 'Details';
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        document.querySelectorAll('#smart-modeling details.tool-group').forEach(details => {
+          if (details.dataset.desktopOpen === 'true') details.open = true;
+        });
+      };
+
+      const syncCompactMode = () => {
+        if (mobileQuery.matches) applyMobileCompact();
+        else restoreDesktop();
+      };
+
+      syncCompactMode();
+      mobileQuery.addEventListener?.('change', syncCompactMode);
+    })();
+
   </script>
 
 </body>
