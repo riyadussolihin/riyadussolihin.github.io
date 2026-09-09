@@ -3208,6 +3208,23 @@
       font-weight: 400;
     }
 
+  
+    #vision-2030-plus .vision-flow-anchor {
+      width: 100%;
+      max-width: 1080px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #vision-2030-plus .vision-flow-anchor .vision-flow-shell {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
   </style>
 </head>
 
@@ -3669,7 +3686,8 @@
           <p><strong>DEEVLA then becomes the production orchestrator:</strong></p>
         </div>
 
-        <div class="vision-flow-shell">
+        <div class="vision-flow-anchor">
+          <div class="vision-flow-shell">
           <div class="vision-flow-controls">
             <button type="button" class="vision-flow-btn" id="visionFlowPlay">Pause</button>
             <button type="button" class="vision-flow-btn" id="visionFlowRestart">Restart</button>
@@ -3772,6 +3790,7 @@
               <circle class="vf-dot vf-dot-feedback" r="5"><animateMotion dur="4.3s" begin="2.7s" repeatCount="indefinite"><mpath href="#vfFeedbackPath"/></animateMotion></circle>
             </svg>
           </div>
+        </div>
         </div>
 
         <div class="vision-body vision-body-compact">
