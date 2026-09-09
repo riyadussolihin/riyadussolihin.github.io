@@ -1624,6 +1624,617 @@
         letter-spacing: -2px;
       }
     }
+
+    /* =========================================================
+       MOBILE UI PASS — smartphone-specific experience
+       Desktop layout remains unchanged.
+       ========================================================= */
+    @media (max-width: 760px) {
+      html {
+        scroll-padding-top: 78px;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 88% 0%, rgba(49,165,220,.12), transparent 25%),
+          linear-gradient(180deg, #08151f 0%, #0a1924 50%, #08131c 100%);
+      }
+
+      .page {
+        width: calc(100% - 28px);
+      }
+
+      /* Mobile navigation becomes a compact floating menu */
+      nav {
+        min-height: 62px;
+        padding: 10px 0;
+        align-items: center;
+        gap: 12px;
+      }
+
+      nav::before {
+        background: rgba(20, 28, 35, .90);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+      }
+
+      .brand {
+        font-size: 22px;
+        letter-spacing: .7px;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        border-color: rgba(89,207,255,.22);
+        background: rgba(89,207,255,.055);
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: none;
+        max-height: min(68vh, 560px);
+        margin: 0;
+        padding: 10px;
+        border: 1px solid rgba(89,207,255,.15);
+        border-radius: 16px;
+        background: rgba(9, 20, 29, .97);
+        box-shadow: 0 20px 48px rgba(0,0,0,.36);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        overflow-y: auto;
+      }
+
+      .nav-links.open {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .nav-links a {
+        min-height: 46px;
+        padding: 10px 11px;
+        justify-content: flex-start;
+        border-radius: 11px;
+        font-size: 12.5px;
+        border: 1px solid rgba(255,255,255,.07);
+        background: rgba(255,255,255,.025);
+      }
+
+      /* Hero becomes a compact mobile identity card + content stack */
+      .hero {
+        width: 100%;
+        max-width: none;
+        padding: 28px 0 48px;
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        margin-top: 0;
+      }
+
+      .hero-profile {
+        display: grid;
+        grid-template-columns: 82px minmax(0, 1fr);
+        grid-template-areas:
+          "logo name"
+          "logo subtitle"
+          "logo mini"
+          "social social";
+        column-gap: 15px;
+        row-gap: 4px;
+        align-items: center;
+        padding: 14px;
+        text-align: left;
+        border: 1px solid rgba(89,207,255,.14);
+        border-radius: 18px;
+        background:
+          linear-gradient(135deg, rgba(89,207,255,.07), transparent 58%),
+          rgba(13, 28, 39, .78);
+        box-shadow: 0 12px 30px rgba(0,0,0,.14);
+      }
+
+      .hero-logo-wrap {
+        grid-area: logo;
+        width: 82px;
+        margin: 0;
+        align-self: center;
+      }
+
+      .hero-profile h3 {
+        grid-area: name;
+        margin: 0;
+        font-size: 20px;
+      }
+
+      .hero-profile .subtitle {
+        grid-area: subtitle;
+        font-size: 14px;
+        line-height: 1.3;
+      }
+
+      .hero-profile .mini {
+        grid-area: mini;
+        margin-top: 1px;
+        font-size: 12.5px;
+        line-height: 1.45;
+      }
+
+      .hero-social {
+        grid-area: social;
+        justify-content: flex-start;
+        gap: 7px;
+        margin-top: 9px;
+      }
+
+      .hero-social a {
+        min-width: 0;
+        height: 36px;
+        padding: 0 11px;
+        font-size: 12px;
+      }
+
+      .hero-main .section-label {
+        margin-top: 0;
+        margin-bottom: 12px;
+      }
+
+      .hero-main h2 {
+        margin-bottom: 18px;
+        font-size: clamp(33px, 9.7vw, 43px);
+        line-height: 1.07;
+        letter-spacing: -1.2px;
+      }
+
+      .hero p {
+        margin-bottom: 24px;
+        font-size: 16px;
+        line-height: 1.72;
+      }
+
+      .buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        font-size: 14px;
+      }
+
+      .two-column-meta {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .meta-block {
+        padding: 18px;
+        border: 1px solid rgba(89,207,255,.10);
+        border-radius: 14px;
+        background: rgba(16,28,39,.56);
+      }
+
+      .meta-block h3 {
+        margin-bottom: 9px;
+        font-size: 16px;
+      }
+
+      .meta-block ul {
+        padding-left: 20px;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      /* Mobile typography and rhythm */
+      section {
+        padding: 52px 0;
+      }
+
+      .section-label {
+        margin-bottom: 11px;
+        font-size: 14px;
+        letter-spacing: .7px;
+        line-height: 1.25;
+      }
+
+      section h2 {
+        margin-bottom: 15px;
+        font-size: clamp(28px, 8.2vw, 35px);
+        line-height: 1.12;
+        letter-spacing: -.55px;
+      }
+
+      .lead {
+        font-size: 15.5px;
+        line-height: 1.72;
+      }
+
+      /* Cards are tighter and more touch-friendly */
+      .grid,
+      .grid-2,
+      .feature-map,
+      .snapshot {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .card,
+      .feature-card {
+        padding: 20px;
+        border-radius: 15px;
+      }
+
+      .card h3,
+      .feature-card h3 {
+        font-size: 18px;
+      }
+
+      .card p,
+      .feature-card p {
+        font-size: 14.5px;
+        line-height: 1.68;
+      }
+
+      .snapshot .item {
+        padding: 18px;
+        border-radius: 14px;
+      }
+
+      .snapshot .label {
+        font-size: 12px;
+        letter-spacing: .55px;
+      }
+
+      .snapshot .value {
+        font-size: 16px;
+      }
+
+      .tag {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+
+      /* Status chips become a horizontal swipe rail on mobile */
+      .status-row {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scrollbar-width: none;
+        padding: 2px 2px 8px;
+        margin-right: -14px;
+        margin-top: 16px;
+      }
+
+      .status-row::-webkit-scrollbar {
+        display: none;
+      }
+
+      .status-chip {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 8px 11px;
+      }
+
+      /* High-level workflow becomes a numbered vertical timeline */
+      .workflow {
+        counter-reset: dab-mobile-step;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 26px;
+      }
+
+      .workflow-step {
+        counter-increment: dab-mobile-step;
+        min-height: 58px;
+        padding: 15px 16px 15px 56px;
+        justify-content: flex-start;
+        text-align: left;
+        border-radius: 14px;
+        font-size: 14px;
+      }
+
+      .workflow-step::before {
+        content: counter(dab-mobile-step, decimal-leading-zero);
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 29px;
+        height: 29px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(89,207,255,.30);
+        border-radius: 9px;
+        color: var(--accent);
+        background: rgba(89,207,255,.08);
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .workflow-step::after {
+        display: none !important;
+      }
+
+      .workflow-detail-title {
+        margin-top: 28px;
+        font-size: 20px;
+      }
+
+      .workflow-detail-grid,
+      .workflow-lanes {
+        grid-template-columns: 1fr;
+        gap: 11px;
+      }
+
+      .workflow-detail-card {
+        min-height: 0;
+        padding: 62px 18px 18px;
+        border-radius: 14px;
+      }
+
+      .workflow-detail-number {
+        top: 16px;
+        left: 18px;
+      }
+
+      .workflow-detail-card h3 {
+        font-size: 17px;
+      }
+
+      .workflow-detail-card p,
+      .workflow-lane p {
+        font-size: 14px;
+      }
+
+      .workflow-lane {
+        padding: 18px;
+        border-radius: 14px;
+      }
+
+      .background-jobs,
+      .compliance-box,
+      .info-box {
+        padding: 18px;
+        border-radius: 12px;
+        font-size: 14px;
+        line-height: 1.68;
+      }
+
+      /* Tables stay usable without squeezing columns */
+      .tech-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        border-radius: 12px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .tech-table table,
+      table.tech-table {
+        min-width: 720px;
+      }
+
+      /* Large architecture images remain zoomable but fit the screen cleanly */
+      .diagram-card,
+      .diagram-card:has(img[src*="architecture_flowchart"]),
+      .diagram-card:has(img[src*="product_roadmap"]),
+      .diagram-card:has(img[src*="future_architecture"]) {
+        width: 100%;
+        margin-top: 24px;
+        padding: 7px;
+        border-radius: 14px;
+      }
+
+      .diagram-card img {
+        max-height: 68vh;
+        border-radius: 9px;
+      }
+
+      /* Roadmap becomes a distinct stacked mobile timeline */
+      .timeline {
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .phase {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 20px;
+        border-radius: 15px;
+      }
+
+      .phase-number {
+        width: fit-content;
+        padding: 6px 9px;
+        border-radius: 999px;
+        background: rgba(89,207,255,.08);
+        font-size: 12px;
+        letter-spacing: .7px;
+      }
+
+      .phase h3 {
+        font-size: 19px;
+      }
+
+      .phase p {
+        font-size: 14.5px;
+        line-height: 1.68;
+      }
+
+      /* Smart Modeling groups become easier to tap and read */
+      details.tool-group {
+        margin-top: 11px;
+        border-radius: 14px;
+      }
+
+      details.tool-group summary {
+        min-height: 54px;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 14px;
+      }
+
+      details.tool-group summary::after {
+        float: none;
+        flex: 0 0 auto;
+      }
+
+      .tool-list {
+        padding: 6px 17px 18px 35px;
+        font-size: 13.5px;
+        line-height: 1.7;
+      }
+
+      .tool-list li {
+        margin: 9px 0;
+      }
+
+      .priority-list {
+        grid-template-columns: 1fr;
+        gap: 9px;
+      }
+
+      .priority-item {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 13px 15px;
+        text-align: left;
+        border-radius: 12px;
+      }
+
+      /* IDE cards stay natural-height on mobile */
+      #ide .ide-compare,
+      #ide .ide-feature-grid {
+        grid-template-columns: 1fr;
+        gap: 11px;
+      }
+
+      #ide .ide-column,
+      #ide .ide-feature-grid .ide-card {
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        padding: 19px;
+        border-radius: 14px;
+      }
+
+      #ide .ide-column h3,
+      #ide .ide-feature-grid .ide-card h3 {
+        min-height: 0;
+        font-size: 18px;
+      }
+
+      /* Contact becomes a mobile profile card */
+      .contact-business-card {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        margin-top: 26px;
+        border-radius: 18px;
+      }
+
+      .contact-photo-zone {
+        padding: 24px 20px 8px;
+      }
+
+      .contact-photo {
+        width: 122px;
+        height: 122px;
+      }
+
+      .contact-main {
+        padding: 15px 18px 24px;
+        gap: 18px;
+      }
+
+      .contact-header {
+        text-align: center;
+      }
+
+      .contact-main h3 {
+        font-size: 27px;
+      }
+
+      .contact-main .contact-role {
+        margin-top: 4px;
+        font-size: 11px;
+      }
+
+      .contact-columns {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .contact-detail-list {
+        gap: 10px;
+      }
+
+      .contact-detail {
+        grid-template-columns: 30px minmax(0, 1fr);
+        gap: 10px;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,.055);
+        font-size: 13px;
+      }
+
+      .contact-detail-list .contact-detail:last-child {
+        border-bottom: 0;
+      }
+
+      footer {
+        padding: 34px 0 44px;
+        text-align: center;
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .page {
+        width: calc(100% - 22px);
+      }
+
+      .nav-links.open {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-profile {
+        grid-template-columns: 70px minmax(0, 1fr);
+        column-gap: 12px;
+        padding: 12px;
+      }
+
+      .hero-logo-wrap {
+        width: 70px;
+      }
+
+      .hero-profile .mini {
+        font-size: 12px;
+      }
+
+      .hero-main h2 {
+        font-size: 32px;
+      }
+    }
+
   </style>
 </head>
 
