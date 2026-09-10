@@ -3254,16 +3254,27 @@
       background: #9ca3aa;
     }
 
+    #company .startup-status-box {
+      margin-top: 10px;
+      padding-left: 18px;
+      border-left: 4px solid var(--accent);
+    }
+
     #company .startup-status-label {
       display: block;
       font-size: clamp(30px, 4vw, 43px);
       line-height: 1.16;
       font-weight: 800;
       color: var(--accent);
-      margin: 6px 0 16px;
-      padding-left: 18px;
-      border-left: 4px solid var(--accent);
+      margin: 0 0 16px;
+      padding-left: 0;
+      border-left: none;
     }
+
+    #company .startup-status-box p:first-of-type {
+      margin-top: 0;
+    }
+
 
 
   </style>
@@ -3440,7 +3451,7 @@
           </div>
         </div>
 
-        <div class="info-box">
+        <div class="info-box startup-status-box">
           <p>
             <strong class="startup-status-label">Startup / Incubator Status:</strong>
             No. DEEVLA is not currently part of, affiliated with, or supported by any official startup, incubator,
