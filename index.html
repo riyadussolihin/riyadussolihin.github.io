@@ -3254,13 +3254,17 @@
       background: #9ca3aa;
     }
 
-  
     #company .startup-status-label {
       display: block;
-      font-size: 1.22rem;
-      line-height: 1.3;
-      margin-bottom: 8px;
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.16;
+      font-weight: 800;
+      color: var(--accent);
+      margin: 6px 0 16px;
+      padding-left: 18px;
+      border-left: 4px solid var(--accent);
     }
+
 
   </style>
 </head>
