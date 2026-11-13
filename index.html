@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080f16">
+  <meta name="description" content="DEEVLA Studio is building a new home for Autodesk Maya tools. Our first product, DEEVLA FLEX DOCK V1.18, is available on Gumroad.">
+  <meta property="og:title" content="DEEVLA Studio — Under Construction">
+  <meta property="og:description" content="We're preparing a new experience for Autodesk Maya artists. DEEVLA FLEX DOCK V1.18 is already available.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://deevla.com/">
+  <link rel="icon" type="image/png" href="assets/deevla-logo.png">
+  <title>DEEVLA Studio — Under Construction</title>
+  <style>
+    :root{color-scheme:dark;--bg:#080f16;--panel:#111e29;--cyan:#38d9e9;--blue:#1194df;--text:#f1f6fa;--muted:#9dafbc;--line:#223849}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-width:320px;min-height:100svh;background:radial-gradient(ellipse at 70% 28%,#123447 0%,transparent 40%),linear-gradient(155deg,#0b1822 0%,var(--bg) 65%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.43;background:linear-gradient(90deg,transparent 0 91%,rgba(71,187,226,.04) 91% 91.14%,transparent 91.14%) 0 0 / 110px 110px,linear-gradient(rgba(65,153,196,.035) 1px,transparent 1px) 0 0 / 110px 110px;mask-image:linear-gradient(to bottom,transparent,#000 15%,transparent 90%)}
+    .site-header,.site-footer,.main{position:relative;z-index:1}
+    .site-header{width:min(1180px,calc(100% - 64px));margin:0 auto;padding:32px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(190,232,253,.12)}
+    .brand{display:flex;gap:15px;align-items:center;text-decoration:none;color:var(--text)}
+    .brand img{width:58px;height:58px;object-fit:contain}
+    .brand-name{display:block;font-size:22px;font-weight:790;letter-spacing:.08em;line-height:1}
+    .brand-studio{display:block;margin-top:5px;color:var(--muted);font-size:10px;letter-spacing:.38em;font-weight:650}
+    .header-status{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.13em;text-transform:uppercase}
+    .status-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px rgba(56,217,233,.5)}
+    .main{flex:1;width:min(960px,calc(100% - 64px));margin:auto;display:grid;place-items:center;padding:70px 0 95px}
+    .hero{text-align:center;width:100%}
+    .eyebrow{font-size:12px;letter-spacing:.27em;color:var(--cyan);font-weight:800;text-transform:uppercase;display:inline-block;border:1px solid rgba(56,217,233,.26);border-radius:999px;padding:12px 19px;background:rgba(25,90,110,.12)}
+    h1{max-width:850px;margin:32px auto 23px;font-size:clamp(44px,6.8vw,88px);line-height:1.08;font-weight:770;letter-spacing:-.056em;text-wrap:balance}
+    .accent{color:var(--cyan)}
+    .description{max-width:640px;margin:0 auto;font-size:clamp(16px,1.65vw,19px);line-height:1.75;color:#b6c5d1}
+    .detail{display:flex;align-items:center;gap:11px;justify-content:center;color:var(--muted);font-size:14px;margin:27px auto 36px}
+    .detail::before,.detail::after{content:"";width:35px;height:1px;background:var(--line)}
+    .cta{display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:linear-gradient(115deg,#36d8e9,#1bace2);border-radius:10px;color:#04161b;text-decoration:none;font-size:15px;font-weight:800;transition:transform .2s,filter .2s;box-shadow:0 12px 30px rgba(9,111,154,.16)}
+    .cta:hover,.cta:focus-visible{transform:translateY(-2px);filter:brightness(1.08)}
+    .cta:focus-visible{outline:3px solid #fff;outline-offset:4px}
+    .cta svg{width:18px;height:18px}
+    .available-note{display:block;font-size:12px;color:#8198a8;margin-top:15px}
+    .site-footer{border-top:1px solid rgba(190,232,253,.12);width:min(1180px,calc(100% - 64px));padding:22px 0 26px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;color:#7c93a3;font-size:12px}
+    .site-footer span:last-child{letter-spacing:.08em}
+    @media(max-width:640px){.site-header{width:calc(100% - 36px);padding:20px 0}.brand img{width:48px;height:48px}.brand-name{font-size:18px}.brand-studio{font-size:9px}.header-status{font-size:0;gap:0}.header-status .status-dot{width:9px;height:9px}.main{width:calc(100% - 38px);padding:70px 0 88px}h1{font-size:clamp(42px,11vw,66px);margin:28px auto 20px}.description{line-height:1.68}.detail{font-size:12px;line-height:1.5}.detail::before,.detail::after{width:15px}.site-footer{width:calc(100% - 38px);flex-direction:column;text-align:center;padding:22px 0 26px;gap:8px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand" aria-label="DEEVLA Studio">
+      <img src="assets/deevla-logo.png" alt="DEEVLA logo" width="58" height="58">
+      <div><span class="brand-name">DEEVLA</span><span class="brand-studio">STUDIO</span></div>
+    </div>
+    <div class="header-status"><span class="status-dot" aria-hidden="true"></span> Work in progress</div>
+  </header>
+  <main class="main">
+    <section class="hero" aria-labelledby="page-title">
+      <span class="eyebrow">A new experience is coming</span>
+      <h1 id="page-title">Website under <span class="accent">construction.</span></h1>
+      <p class="description">We're building a better home for DEEVLA Studio and our Autodesk Maya tools. Our website is being updated, but our first product is already available.</p>
+      <p class="detail">DEEVLA FLEX DOCK V1.18 · 15 Smart Modeling Tools</p>
+      <a class="cta" href="https://deevla.gumroad.com/l/flexdock" target="_blank" rel="noopener noreferrer">Explore Flex Dock <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      <span class="available-note">Available now on Gumroad</span>
+    </section>
+  </main>
+  <footer class="site-footer"><span>© 2026 DEEVLA Studio</span><span>Your tools. Your workspace. Your workflow.</span></footer>
+</body>
+</html>
